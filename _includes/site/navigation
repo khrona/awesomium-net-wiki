@@ -1,0 +1,55 @@
+        <h1 class="header">
+          <a href="{{ HOME_PATH }}">
+            <img src="{{ ASSET_PATH }}/images/awe-trans-icon-logo.png" width="46" height="42" />.NET
+            <img class="delimiter" src="{{ ASSET_PATH }}/images/logo-delimiter.png" width="2" height="27" />Wiki</a>
+          <div class="clear"></div>
+        </h1>
+        <p class="header"></p>
+        
+        <h3 class="header switch-container">
+          <div class="switch-text">Switch API</div>
+          <div class="switch on"><span class="thumb"></span><input type="checkbox" /></div>
+          <div class="clear"></div>
+        </h3>
+        
+        
+        <script>
+		(function() {
+			var $$ = function(selector) {
+				return Array.prototype.slice.call(document.querySelectorAll(selector));
+			}
+			document.addEventListener("DOMContentLoaded", function() {
+				var checkbox;
+				var result = document.querySelector("#result");
+				$$(".switch").forEach(function(switchControl) {
+					if (switchControl.className === ("switch on")) {
+						switchControl.lastElementChild.checked = true;
+					}
+					switchControl.addEventListener("click", function toggleSwitch() {
+						if (switchControl.className === "switch on") {
+							switchControl.className = 'switch off';
+						} else {
+							switchControl.className = ("switch on");
+						}
+						checkbox = switchControl.lastElementChild;
+						checkbox.checked = !checkbox.checked;
+						if (checkbox.checked === true) {
+							if (this.parentNode.textContent) {
+								//result.textContent = "You want to " + this.parentNode.textContent.toLowerCase();
+							} else {
+								//result.innerText = "You want to " + this.parentNode.innerText.toLowerCase();
+							}
+						} else {
+							//result.textContent = "Off";
+							//result.innerText = "Off";
+						}
+					}, false);
+				});
+			}, false);
+		})()
+	    </script>
+        
+        <h3 class="header">Categories</h3>
+        {% for g in site.groups %}
+        <p class="header"><a href="{{ BASE_PATH }}{{g.path}}">{{ g.name }}</a></p>
+        {% endfor %}

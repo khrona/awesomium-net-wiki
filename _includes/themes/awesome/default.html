@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+    <meta name="author" content="{{ site.author.name }}">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="{{ ASSET_PATH }}/stylesheets/styles.css" rel="stylesheet">
+    <link href="{{ ASSET_PATH }}/stylesheets/pygment_trac.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>
+	$(document).ready(function() {
+		$('ul.truncate').each(function(){
+		  var max = 4
+		  if ($(this).find("li").length > max) {
+			$(this)
+			  .find('li:gt('+max+')')
+			  .hide()
+			  .end()
+			  .append(
+				$('<li class="show-more">Show More...</li>').click( function(){
+				  $(this).siblings(':hidden').show().end().remove();
+				})
+			);
+		  }
+		});
+	});
+	</script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="main-site-link"><a href="http://www.awesomium.com">Return to Main Site</a></div>
+      
+      <header>
+      {% include site/navigation %}
+      </header>
+      <section>
+        {{ content }}
+      </section>
+
+      <footer>
+        <p><small>&copy; {{ site.author.name }} 2012</small></p>
+        <p><small><a href="https://github.com/khrona/awesomium-net-wiki">Fork Me on GitHub</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    {% include JB/analytics %}
+  </body>
+</html>
