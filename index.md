@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Welcome to the **Awesomium.NET** Wiki
+title: Welcome to the Awesomium.NET Wiki
 groups:
   - name: Getting Started
   - name: General Use
