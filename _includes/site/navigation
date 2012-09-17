@@ -22,7 +22,7 @@
 				var checkbox;
 				var result = document.querySelector("#result");
 				$$(".switch").forEach(function(switchControl) {
-					if (switchControl.className === ("switch on")) {
+					if (switchControl.className === ("switch off")) {
 						switchControl.lastElementChild.checked = true;
 					}
 					switchControl.addEventListener("click", function toggleSwitch() {
@@ -34,14 +34,9 @@
 						checkbox = switchControl.lastElementChild;
 						checkbox.checked = !checkbox.checked;
 						if (checkbox.checked === true) {
-							if (this.parentNode.textContent) {
-								//result.textContent = "You want to " + this.parentNode.textContent.toLowerCase();
-							} else {
-								//result.innerText = "You want to " + this.parentNode.innerText.toLowerCase();
-							}
+							location.href = "http://wiki.awesomium.com";
 						} else {
-							//result.textContent = "Off";
-							//result.innerText = "Off";
+							location.href = "http://wiki.awesomium.net";
 						}
 					}, false);
 				});
