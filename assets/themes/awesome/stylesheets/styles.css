@@ -201,6 +201,11 @@ code
     font-size: 15px;
 }
 
+pre code
+{
+    font-size: 12px;
+}
+
 pre
 {
     padding: 4px 12px;
@@ -210,7 +215,6 @@ pre
     overflow: auto;
     overflow-y: hidden;
     margin-bottom: 32px;
-    font-size: 12px;
 }
 
 
