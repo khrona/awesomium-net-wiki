@@ -193,7 +193,11 @@ code, pre
 {
     font-family: Consolas, "Liberation Mono" ,Courier,monospace;
     color: #000;
-    font-size: 14px;
+}
+
+code
+{
+    font-size: 15px;
 }
 
 pre
@@ -205,6 +209,7 @@ pre
     overflow: auto;
     overflow-y: hidden;
     margin-bottom: 32px;
+    font-size: 12px;
 }
 
 
