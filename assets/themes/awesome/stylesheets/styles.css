@@ -34,7 +34,7 @@ body
     background-color: #FBFAF7;
     background-image: url('../images/white-linen.png');
     margin: 0;
-    line-height: 1.3em;
+    line-height: 1.5em;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -193,6 +193,7 @@ code, pre
 {
     font-family: Consolas, "Liberation Mono" ,Courier,monospace;
     color: #000;
+    line-height: 1.3em;
 }
 
 code
