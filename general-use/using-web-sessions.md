@@ -39,9 +39,9 @@ You can supply custom preferences for each `WebSession` via the *`prefs`* parame
 // Create an in-memory session with our custom preferences
 WebSession session = WebCore.CreateWebSession( new WebPreferences()
 {
-	Plugins = false,
-	SmoothScrolling = true,
-	CustomCSS = "body { background-color : rgb(153, 255, 204); }"
+    Plugins = false,
+    SmoothScrolling = true,
+    CustomCSS = "body { background-color : rgb(153, 255, 204); }"
 } );
 {% endhighlight %}
 
@@ -56,7 +56,7 @@ You should specify the `WebSession` instance when you create the `WebView`:
 // Create a WebSession.
 WebSession session = WebCore.CreateWebSession( new WebPreferences()
 {
-	CustomCSS = "::-webkit-scrollbar { visibility: hidden; }"
+    CustomCSS = "::-webkit-scrollbar { visibility: hidden; }"
 } )
 // Assign it to a new WebView.
 WebView view = WebCore.CreateWebView( 1280, 960, session );
@@ -112,18 +112,18 @@ The following example demonstrates how to assign a `WebSession` to a `WebControl
 public MainWindow()
 {
     // Create a WebSession.
-	WebSession session = WebCore.CreateWebSession( new WebPreferences() 
+    WebSession session = WebCore.CreateWebSession( new WebPreferences() 
     { 
         SmoothScrolling = true,
         CustomCSS = "body { background-color : rgb(153, 255, 204); }" 
     } );
 
-	InitializeComponent();
+    InitializeComponent();
 
     // Assign it to the control. This should only occur here, before the
     // the underlying view of the control is created.
-	webControl.WebSession = session;
-	webControl.Source = new Uri( "http://www.awesomium.com" );
+    webControl.WebSession = session;
+    webControl.Source = new Uri( "http://www.awesomium.com" );
 }
 {% endhighlight %}
 
