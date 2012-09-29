@@ -53,7 +53,6 @@ Description
 Web-View Type
 </th>
 </tr>
-
 <tr>
 <td>
 Any
@@ -76,7 +75,6 @@ Windowed
 The type is defined during creation.
 </td>
 </tr>
-
 <tr>
 <td>
 WPF
@@ -99,13 +97,12 @@ Windowed (Renders a windowed web-view using a <code>HwndHost</code>. Misses many
 The type is defined by setting the <a href=""><code>WebControl.ViewType</code></a> property.
 </td>
 </tr>
-
 <tr>
 <td>
 Windows Forms
 </td>
 <td>
-<a href=""><code>WebControl</code</a>
+<a href=""><code>WebControl</code></a>
 </td>
 <td>
 Provided by the <i>Awesomium.Windows.Forms</i> assembly. It can be used in Windows Forms applications. For more details, read <a href="winforms-webcontrol.html">Introducing the Windows Forms WebControl</a>.
@@ -118,5 +115,4 @@ Windowed
 </ul>
 </td>
 </tr>
-
 </table>
