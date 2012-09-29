@@ -2,7 +2,7 @@
 layout: page
 title : Using Web-Sessions
 group: General Use
-weight: 1
+weight: 2
 
 ---
 
@@ -62,7 +62,7 @@ WebSession session = WebCore.CreateWebSession( new WebPreferences()
 WebView view = WebCore.CreateWebView( 1280, 960, session );
 {% endhighlight %}
 
-In technology specific WebControls, the `IWebView.WebSession` property is implemented as a read-write property. You can use it assign a `WebSession` to a `WebControl`. You can only set this property while the underlying web-view of the `WebControl`, has not yet been created (while `IsLive` is still *`false`*).
+In technology specific WebControls, the `IWebView.WebSession` property is implemented as a read-write property. You can use it to assign a `WebSession` to a `WebControl`. You can only set this property while the underlying web-view of the `WebControl`, has not yet been created (while `IsLive` is still *`false`*).
 
 #### Assigning to a WPF WebControl
 
