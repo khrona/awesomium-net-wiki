@@ -1,7 +1,7 @@
 .highlight  { background: #ffffff; }
 .highlight .c { color: #4f9b40; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
-.highlight .k { font-weight: bold } /* Keyword */
+.highlight .k { color: #0000ff; font-weight: bold } /* Keyword */
 .highlight .o { font-weight: bold } /* Operator */
 .highlight .cm { color: #4f9b40; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #a17169; font-weight: bold } /* Comment.Preproc */
