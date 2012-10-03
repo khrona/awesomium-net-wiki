@@ -93,8 +93,9 @@ To start working with Awesomium.NET 1.7 RC, follow these steps:
 
 Depending on the type of project you develop, add references to the following assemblies:
 
-* **Console** (or any application using only the Core features of Awesomium):
-    * Awesomium.Core.dll
+* **Console** (or any application using only the **Core** features of Awesomium):
+
+  * Awesomium.Core.dll
 * **Windows Forms**:
   * Awesomium.Core.dll
   * Awesomium.Windows.Forms.dll
@@ -127,8 +128,6 @@ The *Awesomium.Core.dll* assembly, does not contain any UI components.
 3. In the **Properties** window, set **Copy Local** to **True**.
 
   <a href="http://labs.awesomium.com/wp-content/uploads/distribute.png"><img src="http://labs.awesomium.com/wp-content/uploads/distribute-300x92.png" alt="Copying Awesomium.NET references in C# &amp; VB.NET" title="Copying Awesomium.NET references in C# &amp; VB.NET" width="300" height="92" class="size-medium wp-image-1137"></a>
-
-  Copying Awesomium.NET references in C# & VB.NET
 
 Next time you build your project, all Awesomium.NET assemblies including the necessary native Awesomium libraries, will be copied to your output directory. This is all you need to distribute your application.
 
