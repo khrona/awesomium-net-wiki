@@ -33,22 +33,23 @@ Before building the samples or developing for Awesomium.NET 1.7 RC, you will nee
 
 1. Copy all the **_.dll_** files from inside the **_build/bin_** folder.
 2. Paste the files in the **_wrappers/Awesomium.NET/Assemblies_** folder. The final structure of the *wrappers/Awesomium.NET/Assemblies* folder, should look like this:
-  * Awesomium.Core.dll *
-  * Awesomium.Core.XML *
-  * Awesomium.Windows.Controls.dll *
-  * Awesomium.Windows.Controls.XML *
-  * Awesomium.Windows.Forms.dll *
-  * Awesomium.Windows.Forms.XML *
-  * avcodec-53.dll
-  * avformat-53.dll
-  * avutil-51.dll
-  * awesomium.dll
-  * awesomium_process *
-  * icudt.dll
-  * libEGL.dll
-  * libGLESv2.dll
-  * inspector.pak
-  * README.txt *
+
+* Awesomium.Core.dll *
+* Awesomium.Core.XML *
+* Awesomium.Windows.Controls.dll *
+* Awesomium.Windows.Controls.XML *
+* Awesomium.Windows.Forms.dll *
+* Awesomium.Windows.Forms.XML *
+* avcodec-53.dll
+* avformat-53.dll
+* avutil-51.dll
+* awesomium.dll
+* awesomium_process *
+* icudt.dll
+* libEGL.dll
+* libGLESv2.dll
+* inspector.pak
+* README.txt *
 
   ###### (*) Files with an asterisc should already be in the folder when you download the SDK in zip format.
 
@@ -88,19 +89,21 @@ To start working with Awesomium.NET 1.7 RC, follow these steps:
 2. From the **Project** menu, select **Add Reference...**
 3. In the **Add Reference** dialog, click on **Browse...** and navigate to the **_wrappers/Awesomium.NET/Assemblies_** folder. Depending on the type of project you develop, add references to the following assemblies:
 
-  * **Console** (or any application using only the Core features of Awesomium):
-      * Awesomium.Core.dll
-  * **Windows Forms**:
-      * Awesomium.Core.dll
-      * Awesomium.Windows.Forms.dll
-  * **WPF**
-      * Awesomium.Core.DLL
-      * Awesomium.Windows.Controls.dll
+* **Console** (or any application using only the Core features of Awesomium):
+  * Awesomium.Core.dll
+* **Windows Forms**:
+  * Awesomium.Core.dll
+  * Awesomium.Windows.Forms.dll
+* **WPF**
+  * Awesomium.Core.DLL
+  * Awesomium.Windows.Controls.dll
+
 4. In your code files, depending on the technology you develop for, you will have to import (`using`) any of the available Awesomium.NET namespaces. These are:
-  * Awesomium.Core (Core features, `WebView` etc.)
-  * Awesomium.Core.Data (`DataSource` wrappers)
-  * Awesomium.Windows.Forms (Windows Forms `WebControl`, other controls, surfaces and Utilities)
-  * Awesomium.Windows.Controls (WPF `WebControl`, other controls, surfaces and Utilities)
+
+* Awesomium.Core (Core features, `WebView` etc.)
+* Awesomium.Core.Data (`DataSource` wrappers)
+* Awesomium.Windows.Forms (Windows Forms `WebControl`, other controls, surfaces and Utilities)
+* Awesomium.Windows.Controls (WPF `WebControl`, other controls, surfaces and Utilities)
 
 Note that Awesomium.NET 1.7 RC is not deployed using an installer, the controls available with the SDK are not automatically added to the Visual Studio toolbox. To add the controls to the toolbox and use them in the designer, follow these steps:
 
