@@ -32,7 +32,9 @@ The SDK should contain the following folders in the installation directory:
 Before building the samples or developing for Awesomium.NET 1.7 RC, you will need to copy the necessary native dependenncies alongside the Awesomium.NET assemblies. This is how:
 
 1. Copy all the **_.dll_** files from inside the **_build/bin_** folder.
-2. Paste the files in the **_wrappers/Awesomium.NET/Assemblies_** folder. The final structure of the *wrappers/Awesomium.NET/Assemblies* folder, should look like this:
+2. Paste the files in the **_wrappers/Awesomium.NET/Assemblies_** folder.
+
+The final structure of the *wrappers/Awesomium.NET/Assemblies* folder, should look like this:
 
 * Awesomium.Core.dll \*
 * Awesomium.Core.XML \*
@@ -51,7 +53,7 @@ Before building the samples or developing for Awesomium.NET 1.7 RC, you will nee
 * inspector.pak
 * README.txt \*
 
-  (\*) Files with an asterisc should already be in the folder when you download the SDK in zip format.
+(\*) Files with an asterisc should already be in the folder when you download the SDK in zip format.
 
 Note that **Awesomium.NET 1.7 RC**, targets the **.NET Framework 4.0 Client Profile**.
 
@@ -87,9 +89,11 @@ To start working with Awesomium.NET 1.7 RC, follow these steps:
 
 1. Create a new .NET Framework **Windows** project.
 2. From the **Project** menu, select **Add Reference...**
-3. In the **Add Reference** dialog, click on **Browse...** and navigate to the **_wrappers/Awesomium.NET/Assemblies_** folder. Depending on the type of project you develop, add references to the following assemblies:
+3. In the **Add Reference** dialog, click on **Browse...** and navigate to the **_wrappers/Awesomium.NET/Assemblies_** folder.
 
-* **Console** (or any application using only the Core features of Awesomium):  
+Depending on the type of project you develop, add references to the following assemblies:
+
+* **Console** (or any application using only the Core features of Awesomium):
     * Awesomium.Core.dll
 * **Windows Forms**:
   * Awesomium.Core.dll
@@ -98,12 +102,12 @@ To start working with Awesomium.NET 1.7 RC, follow these steps:
   * Awesomium.Core.DLL
   * Awesomium.Windows.Controls.dll
 
-4. In your code files, depending on the technology you develop for, you will have to import (`using`) any of the available Awesomium.NET namespaces. These are:
+Finally, in your code files, depending on the technology you develop for, you will have to import (`using`) any of the available Awesomium.NET namespaces. These are:
 
-* Awesomium.Core (Core features, `WebView` etc.)
-* Awesomium.Core.Data (`DataSource` wrappers)
-* Awesomium.Windows.Forms (Windows Forms `WebControl`, other controls, surfaces and Utilities)
-* Awesomium.Windows.Controls (WPF `WebControl`, other controls, surfaces and Utilities)
+* `Awesomium.Core` (Core features, `WebView` etc.)
+* `Awesomium.Core.Data` (`DataSource` wrappers)
+* `Awesomium.Windows.Forms` (Windows Forms `WebControl`, other controls, surfaces and Utilities)
+* `Awesomium.Windows.Controls` (WPF `WebControl`, other controls, surfaces and Utilities)
 
 Note that Awesomium.NET 1.7 RC is not deployed using an installer, the controls available with the SDK are not automatically added to the Visual Studio toolbox. To add the controls to the toolbox and use them in the designer, follow these steps:
 
@@ -111,9 +115,7 @@ Note that Awesomium.NET 1.7 RC is not deployed using an installer, the controls 
 2. Give a name to your new tab.
 3. Right-click in the new tab and select **Choose Items...**.
 4. In the **Choose Toolbox Items** dialog, , click on **Browse...** and navigate to the **_wrappers/Awesomium.NET/Assemblies_** folder.
-5. Select any of the following assemblies, depending on the technology:
-  * Awesomium.Windows.Forms.dll
-  * Awesomium.Windows.Controls.dll
+5. Select either **_Awesomium.Windows.Forms.dll_** or **_Awesomium.Windows.Controls.dll_**, depending on the technology.
 6. Click **Open** and then **OK** on the **Choose Toolbox Items** dialog.
 
 The *Awesomium.Core.dll* assembly, does not contain any UI components.
@@ -126,7 +128,7 @@ The *Awesomium.Core.dll* assembly, does not contain any UI components.
 
   <a href="http://labs.awesomium.com/wp-content/uploads/distribute.png"><img src="http://labs.awesomium.com/wp-content/uploads/distribute-300x92.png" alt="Copying Awesomium.NET references in C# &amp; VB.NET" title="Copying Awesomium.NET references in C# &amp; VB.NET" width="300" height="92" class="size-medium wp-image-1137"></a>
 
-  #####Copying Awesomium.NET references in C# & VB.NET
+  Copying Awesomium.NET references in C# & VB.NET
 
 Next time you build your project, all Awesomium.NET assemblies including the necessary native Awesomium libraries, will be copied to your output directory. This is all you need to distribute your application.
 
