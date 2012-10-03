@@ -1,6 +1,6 @@
 ---
 layout: page
-title : Besic Concepts
+title : Basic Concepts
 group: Getting Started
 weight: 2
 
