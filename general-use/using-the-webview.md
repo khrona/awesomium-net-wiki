@@ -64,13 +64,13 @@ protected override void OnHandleCreated(EventArgs e)
 
 ### Loading Content
 
-The primary way to load content into any `IWebView` instace, is via the [`IWebView.Source`](http://www.awesomium.com/docs/1_7_rc2/sharp_api/?tc=a2930f0a-f2b2-25fb-4eca-e86d59bb24f6) property. For example, to begin navigating a `WebView` to Google, you would call:
+The primary way to load content into any `IWebView` instance, is via the [`IWebView.Source`](http://www.awesomium.com/docs/1_7_rc2/sharp_api/?tc=a2930f0a-f2b2-25fb-4eca-e86d59bb24f6) property. For example, to begin navigating a `WebView` to Google, you would call:
 
 {% highlight csharp %}
 webView.Source = new Uri( "http://www.google.com" );
 {% endhighlight %}
 
-All URLs should be properly formatted before attemting to create a `Uri`. You can check if a URL is valid via `System.Uri.IsWellFormedUriString`. The .NET Framework also provides the `System.UriBuilder` utility class, to create or modify complicated URIs. Additionally, in Awesomium.NET we have added an extension method to the `String` class, for creating URIs. Here is how to use it:
+All URLs should be properly formatted before attempting to create a `Uri`. You can check if a URL is valid via `System.Uri.IsWellFormedUriString`. The .NET Framework also provides the `System.UriBuilder` utility class, to create or modify complicated URIs. Additionally, in Awesomium.NET we have added an extension method to the `String` class, for creating URIs. Here is how to use it:
 
 {% highlight csharp %}
 webView.Source = "http://www.google.com".ToUri();
@@ -88,7 +88,7 @@ Note however that this may fail if the specified string is not a well formatted 
 
 How a `WebView` component is displayed, depends on its [type]().
 
-Offscreen `WebView` components can be displayed to Windows Forms and WPF using any of the predefined `ISurface` classes available with Awesomium.NET. For more advanced scenarios or for displaying a `WebView` in technologies where Awesomium.NET does not already provide a web-view component, you can create a custom `ISurface` implementation. 
+Offscreen `WebView` components can be displayed to Windows Forms and WPF using any of the predefined `ISurface` classes available with Awesomium.NET. For more advanced scenarios or for displaying a `WebView` in technologies where Awesomium.NET does not already provide a web-view component, you can create a custom `ISurface` implementation.
 
 Windowed `WebView` components, render directly to a platform window (`HWND`, `NSView`, etc.) and capture all input themselves. In certain technologies, resizing is also handled automatically.
 
