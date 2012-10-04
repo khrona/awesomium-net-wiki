@@ -210,9 +210,8 @@ private BindingSource bindingSource;
 // Create a BindingSource and set our WebView as DataSource.
 bindingSource = new BindingSource() { DataSource = webView };
 
-// Bind the Text property of the Form, to two WebView properties.
+// Bind the Text property of the Form, to the Title property of the WebView.
 this.DataBindings.Add( new Binding( "Text", bindingSource, "Title", true ) );
-this.DataBindings.Add( new Binding( "Text", bindingSource, "Source", true ) );
 {% endhighlight %}
 
 And here is an equivalent WPF example:
