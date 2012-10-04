@@ -150,19 +150,17 @@ view.Source = new Uri( "http://www.awesomium.com" );
 // For this example, we use a lambda expression.
 view.LoadingFrameComplete += ( s, e ) =>
 {
-	Console.WriteLine( String.Format( "Frame Loaded: {0}", e.FrameID ) );
-
-	// The main frame always finishes loading last for a given page load.
-	if ( e.IsMainFrame )
-		finishedLoading = true;
+    // The main frame always finishes loading last for a given page load.
+    if ( e.IsMainFrame )
+        finishedLoading = true;
 };
 
 // Update the core while the main frame
 // is not yet loaded.
 while ( !finishedLoading )
 {
-	Thread.Sleep( 100 );
-	WebCore.Update();
+    Thread.Sleep( 100 );
+    WebCore.Update();
 }
 
 // A BitmapSurface is assigned by default to all WebViews.
@@ -181,20 +179,20 @@ webControl.AddressChanged += OnAddressChanged;
 
 private void OnTitleChanged( object sender, TitleChangedEventArgs e )
 {
-	// Reflect the page's title to the window text.
-	this.Text = e.Title;
+    // Reflect the page's title to the window text.
+    this.Text = e.Title;
 }
 
 private void OnAddressChanged( object sender, UrlEventArgs e )
 {
-	// Reflect the current URL to the window text.
-	// Normally, after the page loads, we will get a title.
-	// But a page may as well not specify a title.
-	this.Text = e.Url.ToString();
+    // Reflect the current URL to the window text.
+    // Normally, after the page loads, we will get a title.
+    // But a page may as well not specify a title.
+    this.Text = e.Url.ToString();
 }
 {% endhighlight %}
 
-#### Binding to Notification
+#### Binding to Notifications
 
 Most events set relative properties that reflect the current status of an `IWebView` instance. For example, when [`IWebView.TargetURLChanged`](http://www.awesomium.com/docs/1_7_rc2/sharp_api/?tc=fb3e097f-9154-3d89-0e17-0ec76898baba) is fired, the `IWebView.TargetURL` and `IWebView.HasTargetURL` properties, have already been updated.
 
@@ -234,6 +232,8 @@ And here is an equivalent WPF example:
 </Window>
 {% endhighlight %}
 
+Please note that all `IWebView` events are dispatched asynchronously (meaning that the event may arrive a few milliseconds after the event actually happened in the child-process).
+
 ### Cleaning Up
 
 All `IWebView` instances implement `IDisposable` and expose a `Dispose` method. You should generally call `Dispose` on an `IWebView` instance when you're done using it. This allows the view to perform some cleanup and release resources.
@@ -250,14 +250,14 @@ Here is an example using the WPF `WebControl`:
 // Override Window.OnClosed.
 protected override void OnClosed( EventArgs e )
 {
-	base.OnClosed( e );
+    base.OnClosed( e );
 
     // Dispose the WebControl.
-	webControl.Dispose();
+    webControl.Dispose();
 
     // This was the only Window in our app.
     // Shutdown the WebCore while exiting.
-	WebCore.Shutdown();
+    WebCore.Shutdown();
 }
 {% endhighlight %}
 
