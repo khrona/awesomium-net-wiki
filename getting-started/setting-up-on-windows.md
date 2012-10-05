@@ -124,7 +124,7 @@ The *Awesomium.Core.dll* assembly, does not contain any components that can be u
 
 Make sure you add a reference to *Awesomium.Core.dll* to you project, before dropping an Awesomium.NET control to a surface in the Visual Studio designer. The reference to *Awesomium.Core.dll* (necessary to all projects using Awesomium.NET) will not be added automatically, unless you install *Awesomium.Core.dll* in your system's GAC. You can do, by using the *gacutil* utility:
 
-{% highlight terminal bg=dark %}
+{% highlight terminal %}
 gacutil /i Awesomium.Core.dll
 {% endhighlight %}
 
