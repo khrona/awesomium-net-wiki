@@ -233,6 +233,29 @@ And here is an equivalent WPF example:
 
 Please note that all `IWebView` events are dispatched asynchronously (meaning that the event may arrive a few milliseconds after the event actually happened in the child-process).
 
+### Features as a Service
+
+The availability of some features of an `IWebView`, occassionally depends on the current state of the view, or its type (*offscreen* or *windowed*). For this reason, the `IWebView` interface inherits [`IServiceProvider`](http://msdn.microsoft.com/en-us/library/system.iserviceprovider.aspx) and provides these features in the form of a service.
+
+Users can query for a service, through `IServiceProvider.GetService`, specifying the type of the requested service.
+
+In the following example, we query for the `IWebViewIMEComposition` service that allows you to pass text input via IME and be notified of any IME-related events. This feature is only available in *offscreen* `IWebView` instances.
+
+{% highlight csharp %}
+// Query for the IWebViewIMEComposition service.
+IWebViewIMEComposition imeComposition = webControl.GetService( typeof( IWebViewIMEComposition ) );
+
+// GetService will return a null reference, if the service
+// is not available.
+if ( imeComposition != null )
+{
+    // Handle some events.
+    imeComposition.Cancel += UserCanceledIME;
+    // Activate IME.
+    imeComposition.ActivateIME( true );
+}
+{% endhighlight %}
+
 ### Cleaning Up
 
 All `IWebView` instances implement `IDisposable` and expose a `Dispose` method. You should generally call `Dispose` on an `IWebView` instance when you're done using it. This allows the view to perform some cleanup and release resources.
