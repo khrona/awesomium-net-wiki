@@ -109,6 +109,7 @@ Finally, in your code files, depending on the technology you develop for, you wi
 * `Awesomium.Core.Data` (`DataSource` wrappers)
 * `Awesomium.Windows.Forms` (Windows Forms `WebControl`, other controls, surfaces and Utilities)
 * `Awesomium.Windows.Controls` (WPF `WebControl`, other controls, surfaces and Utilities)
+* `Awesomium.Windows.Data` (WPF `DataSource` providers for use in XAML)
 
 Note that Awesomium.NET 1.7 RC is not deployed using an installer, the controls available with the SDK are not automatically added to the Visual Studio toolbox. To add the controls to the toolbox and use them in the designer, follow these steps:
 
@@ -119,7 +120,13 @@ Note that Awesomium.NET 1.7 RC is not deployed using an installer, the controls 
 5. Select either **_Awesomium.Windows.Forms.dll_** or **_Awesomium.Windows.Controls.dll_**, depending on the technology.
 6. Click **Open** and then **OK** on the **Choose Toolbox Items** dialog.
 
-The *Awesomium.Core.dll* assembly, does not contain any UI components.
+The *Awesomium.Core.dll* assembly, does not contain any components that can be used in the designer.
+
+Make sure you add a reference to *Awesomium.Core.dll* to you project, before dropping an Awesomium.NET control to a surface in the Visual Studio designer. The reference to *Awesomium.Core.dll* (necessary to all projects using Awesomium.NET) will not be added automatically, unless you install *Awesomium.Core.dll* in your system's GAC. You can do, by using the *gacutil* utility:
+
+{% highlight terminal bg=dark %}
+gacutil /i Awesomium.Core.dll
+{% endhighlight %}
 
 ### Distributing Awesomium.NET
 
