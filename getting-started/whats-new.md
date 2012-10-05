@@ -1,6 +1,6 @@
 ---
 layout: page
-title : Basic Concepts
+title : What's New in 1.7 RC3
 group: Getting Started
 weight: 3
 
