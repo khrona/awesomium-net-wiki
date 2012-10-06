@@ -30,12 +30,58 @@ Here is a quick summary of the big changes in **Awesomium.NET**:
 * Added [`DirectoryDataSource`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Core_Data_DirectoryDataSource), a predefined `DataSource` that loads resources from a local directory. Resources can also be cached in-memory for fast response.
 * Added [`ResourceDataSource`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Core_Data_ResourceDataSource), a predefined `DataSource` that loads resources from embedded or packed (Build Action: Resource) application resources. The `ResourceDataSource` can also load resources from an external managed assembly.
 * Added the base [`DataSourceProvider`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Windows_Data_DataSourceProvider), a WPF `DataSource` provider that can be used in XAML.
-* Added WPF DataSourceProviders under the new [`Awesomium.Windows.Data`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=N_Awesomium_Windows_Data) namespece, that provide the respective DataSources and can be used in XAML (see [Using Data-Sources](using-data-sources.html)).
+* Added WPF DataSourceProviders under the new [`Awesomium.Windows.Data`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=N_Awesomium_Windows_Data) namespace, for each of the available DataSources under *Awesomium.Core.Data*. These can be used in XAML (see [Using Data-Sources](using-data-sources.html)).
 * Added the ability to specify one ore more [`DataSourceProvider`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Windows_Data_DataSourceProvider) instances to a `WebSessionProvider` in XAML (see the **API Changes** section below).
 * The WPF `WebSessionProvider` can now provide a `WebSession` that is synchronized to disk.
+* The Windows Forms `WebControl` and the `WebView`, now support Data Binding. For more details, read the **Handling Events - Binding to Notifications** section in [Introduction to Web-Views](introduction-to-web-views.html).
 * Added the [`IWebViewIMEComposition`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Core_IWebViewIMEComposition) service for showing your own **I**nput **M**ethod **E**ditor widget into **offscreen** web-views (useful for input of Asian languages). For more details, read the **Features as a Service** section in [Introduction to Web-Views](introduction-to-web-views.html).
 
 
 ### API Changes
+
+#### New API:
+
+##### *Awesomium.Core*
+
+* [`WebCore.ResourceInterceptor`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_WebCore_ResourceInterceptor): Allows you to specify your [`IResourceInterceptor`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Core_IResourceInterceptor) implementation.
+* [`WebConfig.AdditionalOptions`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_WebConfig_AdditionalOptions): Gets or sets additional command-line options for Chromium.
+* [`WebPreferences.EnableGPUAcceleration`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_WebPreferences_EnableGPUAcceleration): Gets or sets if GPU accelerated compositing (experimental) should be enabled. This is only compatible with *windowed* `IWebView` instances at this time (see [Introduction to Web-Views](introduction-to-web-views.html)).
+* [`WebSession.SetCookie`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=M_Awesomium_Core_WebSession_SetCookie): Sets a cookie for a certain URL asynchronously.
+* [`WebSession.GetDataSource`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=M_Awesomium_Core_WebSession_GetDataSource): Gets the `DataSource` previously registered for an asset host, if any.
+* [`WebSession.DataSources`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_WebSession_DataSources): Gets a list of DataSources that have been registered with the `WebSession`.
+* [`Utilities.GetMimeType`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=M_Awesomium_Core_Utilities_GetMimeType): Gets the mime type for a specified file name, based on its extension.
+* [`Utilities.ToUri`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=M_Awesomium_Core_Utilities_ToUri): Gets a `Uri` instance from a well formatted URI string.
+* [`IWebView.NativeWindow`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_IWebView_NativeWindow): Gets the actual window handle that was created by a `IWebView` instance. This is only valid for *windowed* `IWebView` instances (see [Introduction to Web-Views](introduction-to-web-views.html)).
+* [`IWebView.ParentView`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_IWebView_ParentView): Gets the parent view (if any) of an `IWebView` instance (see [Handling Child Web-Views](handling-child-web-views.html)).
+* [`IWebView.ParentWindow`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_IWebView_ParentWindow): Gets or sets the parent window for a `IWebView` instance. This is only valid for *windowed* `IWebView` instances (see [Introduction to Web-Views](introduction-to-web-views.html)). **WebControls handle this internally.**
+* [`IWebView.ProcessHandle`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_IWebView_ProcessHandle): Get the handle for the corresponding child-process hosting a `IWebView` instance.
+* [`IWebView.ProcessID`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_IWebView_ProcessID): Get the unique ID for the corresponding child-process hosting a `IWebView` instance.
+* [`IWebView.TerminationStatus`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_IWebView_TerminationStatus): Gets the termination status of a `IWebView` instance.
+* [`IWebView.ViewType`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_IWebView_ViewType): Gets the [type](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_IWebView_ViewType) of a `IWebView` instance. This is implemented as read-write in the WPF `WebControl`.
+* [`DataSource.AssetHosts`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_Data_DataSource_AssetHosts): Gets a list of asset hosts, a `DataSource` has been registered to handle, in a `WebSession`.
+* [`DataSource.WebSession`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_Data_DataSource_WebSession): Gets the `WebSession` a `DataSource` has been added to.
+* [`AsyncDataSource`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Core_Data_AsyncDataSource): Represents a base `DataSource` that loads resources asynchronously. The new [`DirectoryDataSource`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Core_Data_DirectoryDataSource) and [`ResourceDataSource`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Core_Data_ResourceDataSource) DataSources, inherit this class. See **New Features** above.
+* [`DataSourceRequest`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Core_Data_DataSourceRequest): Represents a request for a resource.
+* [`DataSourceResponse`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Core_Data_DataSourceResponse): Represents the response to a `DataSourceRequest`.
+
+##### *Awesomium.Windows.Controls* (WPF)
+
+* [`WebViewHost`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Windows_Controls_WebViewHost): Represents a WPF presenter of a *windowed* `IWebView` instance (read about `IWebViewPresenter` in the **New Features** above. Also read: [Introduction to Web-Views](introduction-to-web-views.html)).
+* [`WebControl.ViewType`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Windows_Controls_WebControl_ViewType): Allows you to set the [type](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_IWebView_ViewType) of the underlying `IWebView`.
+* [`WebSessionProvider.DataPath`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Windows_Controls_WebSessionProvider_DataPath): Gets or sets the disk data path of this session, if any.
+* [`WebSessionProvider.DataSources`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Windows_Controls_WebSessionProvider_DataSources): Gets a collection of pairs of asset hosts and `DataSourceProvider` instances.
+* [`DataSourceProvider`](http://awesomium.com/docs/1_7_rc3/sharp_api/html/T_Awesomium_Windows_Data_DataSourceProvider): Represents the base class for WPF `DataSource` providers (see `Awesomium.Windows.Data` below).
+* [`Awesomium.Windows.Data`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=N_Awesomium_Windows_Data): This new namespace includes predefined WPF `DataSource` providers for each available `DataSource` under [`Awesomium.Core.Data`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=N_Awesomium_Core_Data), that can be used in XAML (see [Using Data-Sources](using-data-sources.html)).
+
+##### *Awesomium.Windows.Forms* (Windows Forms)
+
+* [`WebControl`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Windows_Forms_WebControl): The Windows Forms `WebControl` is back! It now wraps a *windowed* web-view by default.
+* [`AddressBox`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Windows_Forms_AddressBox): Represents a Windows Forms TextBox that behaves as an address-box.
+* [`ToolStripAddressBox`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Windows_Forms_ToolStripAddressBox): Represents a text box in a ToolStrip that behaves as an address-box.
+
+#### Modified API
+
+
+
 
 ### Bug Fixes
