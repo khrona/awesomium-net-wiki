@@ -96,7 +96,7 @@ Here is a quick summary of the big changes in **Awesomium.NET**:
 
 ### Bug Fixes
 
-* Fixed issue with `GC.Collect()` called to often by the internal `WebURLMarshaler`.
+* Fixed issue with `GC.Collect()` called too often by the internal `WebURLMarshaler`.
 * Fixed issues with setting `IsTransparent`.
 * Fixed exception that occurred when trying to use [`IWebView.PrintToFile`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=M_Awesomium_Core_IWebView_PrintToFile) (see the modified API above).
 * Fixed exceptions that occurred when handling [`IWebView.ShowPopupMenu`](http://awesomium.com/docs/1_7_rc3/sharp_api/html/E_Awesomium_Core_IWebView_ShowPopupMenu) and accessing [`WebPopupMenuInfo.Bounds`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_WebPopupMenuInfo_Bounds)
