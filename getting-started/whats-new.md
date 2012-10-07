@@ -73,7 +73,7 @@ Here is a quick summary of the big changes in **Awesomium.NET**:
 * [`WebControl.ViewType`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Windows_Controls_WebControl_ViewType): Allows you to set the [type](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Core_WebViewType) of the underlying `IWebView`.
 * [`WebSessionProvider.DataPath`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Windows_Controls_WebSessionProvider_DataPath): Gets or sets the disk data path of this session, if any.
 * [`WebSessionProvider.DataSources`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Windows_Controls_WebSessionProvider_DataSources): Gets a collection of pairs of asset hosts and `DataSourceProvider` instances.
-* [`DataSourceProvider`](http://awesomium.com/docs/1_7_rc3/sharp_api/html/T_Awesomium_Windows_Data_DataSourceProvider): Represents the base class for WPF `DataSource` providers (see `Awesomium.Windows.Data` below).
+* [`DataSourceProvider`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Windows_Data_DataSourceProvider): Represents the base class for WPF `DataSource` providers (see `Awesomium.Windows.Data` below).
 * [`Awesomium.Windows.Data`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=N_Awesomium_Windows_Data): This new namespace includes predefined WPF `DataSource` providers for each available `DataSource` under [`Awesomium.Core.Data`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=N_Awesomium_Core_Data), that can be used in XAML (see [Using Data-Sources](using-data-sources.html)).
 
 ##### *Awesomium.Windows.Forms* (Windows Forms)
@@ -99,7 +99,7 @@ Here is a quick summary of the big changes in **Awesomium.NET**:
 * Fixed issue with `GC.Collect()` called too often by the internal `WebURLMarshaler`.
 * Fixed issues with setting `IsTransparent`.
 * Fixed exception that occurred when trying to use [`IWebView.PrintToFile`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=M_Awesomium_Core_IWebView_PrintToFile) (see the modified API above).
-* Fixed exceptions that occurred when handling [`IWebView.ShowPopupMenu`](http://awesomium.com/docs/1_7_rc3/sharp_api/html/E_Awesomium_Core_IWebView_ShowPopupMenu) and accessing [`WebPopupMenuInfo.Bounds`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_WebPopupMenuInfo_Bounds)
+* Fixed exceptions that occurred when handling [`IWebView.ShowPopupMenu`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=E_Awesomium_Core_IWebView_ShowPopupMenu) and accessing [`WebPopupMenuInfo.Bounds`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_WebPopupMenuInfo_Bounds)
 * Fixed bug that did now allow you to select content using the keyboard in the WPF `WebControl`.
 * Fixed bug with keyboard modifiers not being applied to mouse and touch events in *offscreen* views (like the WPF `WebControl`).
 * Fixed issues with commands not working in the WPF context menu.
