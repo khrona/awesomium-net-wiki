@@ -33,7 +33,7 @@ Here is a quick summary of the big changes in **Awesomium.NET**:
 * Added WPF DataSourceProviders under the new [`Awesomium.Windows.Data`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=N_Awesomium_Windows_Data) namespace, for each of the available DataSources under *Awesomium.Core.Data*. These can be used in XAML (see [Using Data-Sources](using-data-sources.html)).
 * Added the ability to specify one ore more [`DataSourceProvider`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Windows_Data_DataSourceProvider) instances to a `WebSessionProvider` in XAML (see the **API Changes** section below).
 * The WPF `WebSessionProvider` can now provide a `WebSession` that is synchronized to disk.
-* The Windows Forms `WebControl` and the `WebView`, now support Data Binding. For more details, read the **Handling Events - Binding to Notifications** section in [Introduction to Web-Views](introduction-to-web-views.html).
+* The Windows Forms `WebControl` and the `WebView`, now support Data Binding. For more details, read the **Handling Events - Binding to Notifications** section in [Introduction to Web-Views](introduction-to-web-views.html#notifications).
 * Added the [`IWebViewIMEComposition`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Core_IWebViewIMEComposition) service for showing your own **I**nput **M**ethod **E**ditor widget into **offscreen** web-views (useful for input of Asian languages). For more details, read the **Features as a Service** section in [Introduction to Web-Views](introduction-to-web-views.html).
 
 
@@ -94,7 +94,7 @@ Here is a quick summary of the big changes in **Awesomium.NET**:
 * The [`WebKeyboardEvent`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Core_WebKeyboardEvent) is now a structure.
 
 
-### Bug Fixes
+### <a id="bug-fixes"></a>Bug Fixes
 
 * Fixed issue with `GC.Collect()` called too often by the internal `WebURLMarshaler`.
 * Fixed issues with setting `IsTransparent`.
@@ -107,3 +107,13 @@ Here is a quick summary of the big changes in **Awesomium.NET**:
 
 Please [read here](http://forums.awesomium.com/viewtopic.php?f=3&t=86), the list of bugs fixed in native Awesomium. Some of them affected Awesomium.NET.
 
+
+### <a id="known-issues"></a>Known Issues
+
+* On **Windows 8**, applications that use *windowed* `IWebView` instances (such as the Windows Forms `WebControl`) and create **popup** child views (see [`ShowCreatedWebViewEventArgs.IsPopup`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_ShowCreatedWebViewEventArgs_IsPopup)), may crash when the application exits.
+* On **Windows 8**, **WebGL** is currently not supported.
+
+#### Under production:
+
+* When you are using the **WPF `WebControl`**, [`SelectLocalFiles`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=E_Awesomium_Core_IWebView_SelectLocalFiles) events with [`FileDialogEventArgs.Mode`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_FileDialogEventArgs_Mode) of [`WebFileChooserMode.OpenFolder`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Core_WebFileChooserMode), will not display a dialog automatically. Currently, you will have to handle such events yourself.
+* When you are using the WPF or Windows Forms WebControls, drop-down (popup) menus (e.g., HTML: `<select>`), are not displayed automatically. This feature will be added on the final release of v1.7. However, the new powerful API allows you to design and display these yourself, by handling the [`ShowPopupMenu`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=E_Awesomium_Core_IWebView_ShowPopupMenu) event.
