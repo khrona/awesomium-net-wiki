@@ -94,7 +94,7 @@ Here is a quick summary of the big changes in **Awesomium.NET**:
 * The [`WebKeyboardEvent`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=T_Awesomium_Core_WebKeyboardEvent) is now a structure.
 
 
-### <a id="bug-fixes"></a>Bug Fixes
+### Bug Fixes
 
 * Fixed issue with `GC.Collect()` called too often by the internal `WebURLMarshaler`.
 * Fixed issues with setting `IsTransparent`.
@@ -108,7 +108,7 @@ Here is a quick summary of the big changes in **Awesomium.NET**:
 Please [read here](http://forums.awesomium.com/viewtopic.php?f=3&t=86), the list of bugs fixed in native Awesomium. Some of them affected Awesomium.NET.
 
 
-### <a id="known-issues"></a>Known Issues
+### Known Issues
 
 * On **Windows 8**, applications that use *windowed* `IWebView` instances (such as the Windows Forms `WebControl`) and create **popup** child views (see [`ShowCreatedWebViewEventArgs.IsPopup`](http://awesomium.com/docs/1_7_rc3/sharp_api/?tc=P_Awesomium_Core_ShowCreatedWebViewEventArgs_IsPopup)), may crash when the application exits.
 * On **Windows 8**, **WebGL** is currently not supported.
