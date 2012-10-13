@@ -14,7 +14,7 @@ There are two different types of Web-Views:
 
 * #### Offscreen Views
 
-  Offscreen Views are rendered continuously to a pixel-buffer surface (see [`Surface`](http://awesomium.com/docs/1_7_rc2/sharp_api/?tc=84e8ef47-da6a-8486-6e01-6f8bc4eaede1)). It is your responsibility to display this surface in your application and pass all mouse/keyboard events. This gives you the flexibility to display web-content in any environment (such as a 3D engine or headless renderer).
+  Offscreen Views are rendered continuously to a pixel-buffer surface (see [`Surface`](http://docs.awesomium.net/?tc=T_Awesomium_Core_Surface)). It is your responsibility to display this surface in your application and pass all mouse/keyboard events. This gives you the flexibility to display web-content in any environment (such as a 3D engine or headless renderer).
   
   In **Awesomium.NET**, we provide predefined surfaces for every technology that take care of copying the native pixel buffer to managed equivalent bitmaps and help you render the buffer to technology specific surfaces.
 
@@ -22,9 +22,9 @@ There are two different types of Web-Views:
 
   Windowed Views are rendered directly to a platform window (`HWND`, `NSView`, etc.) and capture all input themselves.
 
-  When using a windowed [`WebView`](http://awesomium.com/docs/1_7_rc2/sharp_api/?tc=3e2510f8-2e3c-2da0-1304-d247f0a80484) on MS Windows, you should call [`WebView.ParentWindow`]() immediately after creating this type of view (the view cannot create a window until a parent is set). **Technology specific `WebControls`, handle this internally.**
+  When using a windowed [`WebView`](http://docs.awesomium.net/?tc=T_Awesomium_Core_WebView) on MS Windows, you should call [`WebView.ParentWindow`](http://docs.awesomium.net/?tc=P_Awesomium_Core_WebView_ParentWindow) immediately after creating this type of view (the view cannot create a window until a parent is set). **Technology specific `WebControls`, handle this internally.**
 
-### The [`IWebView`](http://awesomium.com/docs/1_7_rc2/sharp_api/?tc=a6f96b6a-fe54-a975-92a7-ff6a4843c412) Interface
+### The [`IWebView`](http://docs.awesomium.net/?tc=a6f96b6a-fe54-a975-92a7-ff6a4843c412) Interface
 
 The `IWebView` interface exposes the full API of a native Awesomium Web-View, as well as .NET specific API added to web-views. It is provided for advanced coding and in certain scenarios, it allows you to override much of the .NET internal logic and call on the native web-view directly.
 
@@ -32,7 +32,7 @@ The `IWebView` interface exposes the full API of a native Awesomium Web-View, as
 
 In **Awesomium.NET** documentation and articles, a Web-View instance is usually referred to as an **`IWebView` instance** and common members of this interface implemented by each Awesomium.NET Web-View component, are referenced through this interface.
 
-For more details, read the documentation of [`IWebView`](http://awesomium.com/docs/1_7_rc2/sharp_api/?tc=a6f96b6a-fe54-a975-92a7-ff6a4843c412).
+For more details, read the documentation of [`IWebView`](http://docs.awesomium.net/?tc=T_Awesomium_Core_IWebView).
 
 ### Awesomium.NET Web-View Components
 
@@ -58,7 +58,7 @@ Web-View Type
 Any
 </td>
 <td>
-<a href="http://awesomium.com/docs/1_7_rc2/sharp_api/?tc=3e2510f8-2e3c-2da0-1304-d247f0a80484"><code>WebView</code></a>
+<a href="http://docs.awesomium.net/?tc=T_Awesomium_Core_WebView"><code>WebView</code></a>
 </td>
 <td>
 Provided by the <i>Awesomium.Core</i> assembly, it can be used in any technology. For more details, read For more details, read <a href="using-the-webview.html">Using the WebView</a>.
@@ -80,7 +80,7 @@ The type is defined during creation.
 WPF
 </td>
 <td>
-<a href="http://awesomium.com/docs/1_7_rc2/sharp_api/?tc=240bd8f8-1c7b-1901-cb57-d17266304266"><code>WebControl</code></a>
+<a href="http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebControl"><code>WebControl</code></a>
 </td>
 <td>
 Provided by the <i>Awesomium.Windows.Controls</i> assembly. It can be used in WPF applications. For more details, read <a href="wpf-webcontrol.html">Introducing the WPF WebControl</a>.
@@ -102,7 +102,7 @@ The type is defined by setting the <a href=""><code>WebControl.ViewType</code></
 Windows Forms
 </td>
 <td>
-<a href=""><code>WebControl</code></a>
+<a href="http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_WebControl"><code>WebControl</code></a>
 </td>
 <td>
 Provided by the <i>Awesomium.Windows.Forms</i> assembly. It can be used in Windows Forms applications. For more details, read <a href="winforms-webcontrol.html">Introducing the Windows Forms WebControl</a>.
@@ -123,7 +123,7 @@ Awesomium adopts a similar multi-process architecture to Chrome. Each `IWebView`
 
 Most method calls are sent via a piped message to the child-process and may not complete immediately. To be notified of different events, read the **Handling Events** section in **[Introduction to Web-Views](introduction-to-web-views.html)**.
 
-You should take extra care with the few methods that are actually synchronous. You can use [`IWebView.GetLastError`](http://www.awesomium.com/docs/1_7_rc2/sharp_api/?tc=af0c71ab-8ed3-2244-bbbf-fb45376e6ce2) to check if there was an error dispatching a synchronous method call. For example, [`IWebView.ExecuteJavascriptWithResult`](http://www.awesomium.com/docs/1_7_rc2/sharp_api/?tc=22724015-123d-2bc3-cab8-c82c6975a0fe) are sent synchronously because it must return a value:
+You should take extra care with the few methods that are actually synchronous. You can use [`IWebView.GetLastError`](http://docs.awesomium.net/?tc=M_Awesomium_Core_IWebView_GetLastError) to check if there was an error dispatching a synchronous method call. For example, [`IWebView.ExecuteJavascriptWithResult`](http://docs.awesomium.net/?tc=M_Awesomium_Core_IWebView_ExecuteJavascriptWithResult) are sent synchronously because it must return a value:
 
 {% highlight csharp %}
 // Execute some Javascript that returns a result.
@@ -194,7 +194,7 @@ private void OnAddressChanged( object sender, UrlEventArgs e )
 
 #### Binding to Notifications
 
-Most events set relative properties that reflect the current status of an `IWebView` instance. For example, when [`IWebView.TargetURLChanged`](http://www.awesomium.com/docs/1_7_rc2/sharp_api/?tc=fb3e097f-9154-3d89-0e17-0ec76898baba) is fired, the `IWebView.TargetURL` and `IWebView.HasTargetURL` properties, have already been updated.
+Most events set relative properties that reflect the current status of an `IWebView` instance. For example, when [`IWebView.TargetURLChanged`](http://docs.awesomium.net/?tc=E_Awesomium_Core_IWebView_TargetURLChanged) is fired, the `IWebView.TargetURL` and `IWebView.HasTargetURL` properties, have already been updated.
 
 The `WebView` component and the Windows Forms `WebControl`, implement [`INotifyPropertyChanged`](http://msdn.microsoft.com/en-us/library/system.componentmodel.inotifypropertychanged.aspx). Likewise, the WPF `WebControl` can provide notifications through its dependency model.
 

@@ -8,7 +8,7 @@ weight: 2
 
 ### Introduction
 
-The [`WebView`](http://awesomium.com/docs/1_7_rc2/sharp_api/?tc=3e2510f8-2e3c-2da0-1304-d247f0a80484) is the primary managed wrapper of an Awesomium Web-View. It is provided through the *Awesomium.Core* assembly and can be used in any technology.
+The [`WebView`](http://docs.awesomium.net/?tc=T_Awesomium_Core_WebView) is the primary managed wrapper of an Awesomium Web-View. It is provided through the *Awesomium.Core* assembly and can be used in any technology.
 
 It is mainly used as a *windowless* web-view component in applications without GUI (Console applications, services etc.), MVVM applications or managed technologies where Awesomium.NET does not already provide a web-view component.
 
@@ -64,7 +64,7 @@ protected override void OnHandleCreated(EventArgs e)
 
 ### Loading Content
 
-The primary way to load content into any `IWebView` instance, is via the [`IWebView.Source`](http://www.awesomium.com/docs/1_7_rc2/sharp_api/?tc=a2930f0a-f2b2-25fb-4eca-e86d59bb24f6) property. For example, to begin navigating a `WebView` to Google, you would call:
+The primary way to load content into any `IWebView` instance, is via the [`IWebView.Source`](http://docs.awesomium.net/?tc=P_Awesomium_Core_IWebView_Source) property. For example, to begin navigating a `WebView` to Google, you would call:
 
 {% highlight csharp %}
 webView.Source = new Uri( "http://www.google.com" );
@@ -80,7 +80,7 @@ Note however that this may fail if the specified string is not a well formatted 
 
 #### Loading Resources
 
-`IWebView.Source` makes it really easy to load remote content on the Internet, but what about local resources? If you would like to load local resources with your application, we recommend using a `DataSource`. This powerful bit of API allows you to provide a custom resource loader for a set of URLs that match a certain prefix.
+`IWebView.Source` makes it really easy to load remote content on the Internet, but what about local resources? If you would like to load local resources with your application, we recommend using a [`DataSource`](http://docs.awesomium.net/?tc=T_Awesomium_Core_Data_DataSource). This powerful bit of API allows you to provide a custom resource loader for a set of URLs that match a certain prefix.
 
 **See [this article](using-data-sources.html) for an introduction to `DataSource` and the available, predefined `DataSource` classes that come with Awesomium.NET.
 
@@ -88,7 +88,7 @@ Note however that this may fail if the specified string is not a well formatted 
 
 How a `WebView` component is displayed, depends on its [type]().
 
-Offscreen `WebView` components can be displayed to Windows Forms and WPF using any of the predefined `ISurface` classes available with Awesomium.NET. For more advanced scenarios or for displaying a `WebView` in technologies where Awesomium.NET does not already provide a web-view component, you can create a custom `ISurface` implementation.
+Offscreen `WebView` components can be displayed to Windows Forms and WPF using any of the predefined [`ISurface`](http://docs.awesomium.net/?tc=T_Awesomium_Core_ISurface) classes available with Awesomium.NET. For more advanced scenarios or for displaying a `WebView` in technologies where Awesomium.NET does not already provide a web-view component, you can create a custom `ISurface` implementation.
 
 Windowed `WebView` components, render directly to a platform window (`HWND`, `NSView`, etc.) and capture all input themselves. In certain technologies, resizing is also handled automatically.
 
