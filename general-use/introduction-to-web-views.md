@@ -183,8 +183,6 @@ The component is initialized (<code>InitalizeComponent</code> of self and then o
 </li>
 </ul>
 </li>
-</ul>
-</li>
 <li>The component is added to <a href="http://docs.awesomium.net/?tc=P_Awesomium_Core_WebCore_Views"><code>WebCore.Views</code></a>.</li>
 <li><a href="http://docs.awesomium.net/?tc=E_Awesomium_Core_WebCore_CreatedWebView"><code>WebCore.CreatedWebView</code></a> is fired.</li>
 <li>Additional initialization is performed, such as:
