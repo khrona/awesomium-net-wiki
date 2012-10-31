@@ -133,8 +133,12 @@ ul li
 
 ol li
 {
-    list-style: decimal inside;
     padding-left: 20px;
+}
+
+ol
+{
+    list-style: decimal inside;
 }
 
 blockquote
