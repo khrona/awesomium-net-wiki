@@ -138,12 +138,12 @@ WPF WebControl
 <td>
 <ol>
 <li>
-The component is being created (either through <a gref="http://docs.awesomium.net/?tc=M_Awesomium_Core_WebCore_CreateWebView"><code>WebCore.CreateWebView</code></a> or, for child views, through the relevant <a href="http://docs.awesomium.net/html/M_Awesomium_Core_WebView__ctor.htm">constructor</a>).
+The component is being created (either through <a href="http://docs.awesomium.net/?tc=Overload_Awesomium_Core_WebCore_CreateWebView"><code>WebCore.CreateWebView</code></a> or, for child views, through the relevant <a href="http://docs.awesomium.net/html/M_Awesomium_Core_WebView__ctor.htm">constructor</a>).
 <ul>
 <li>The component is initialized.</li>
 <li><a href="http://docs.awesomium.net/?tc=P_Awesomium_Core_IWebView_IsLive"><code>IsLive</code></a> is <code>true</code>.</li>
 <li>The component is added to <a href="http://docs.awesomium.net/?tc=P_Awesomium_Core_WebCore_Views"><code>WebCore.Views</code></a>.</li>
-<li><a href="http://docs.awesomium.net/?tc=E_Awesomium_Core_WebCore_CreatedWebView"><code>WebCore.CreatedWebView</code></a> is fired.</li>
+<li><a href="http://docs.awesomium.net/?tc=E_Awesomium_Core_WebCore_CreatedView"><code>WebCore.CreatedView</code></a> is fired.</li>
 </ul>
 All steps are performed simultaneously during construction. For <b>offscreen views only</b>, it is now safe to access or call members on the <a href="http://docs.awesomium.net/?tc=T_Awesomium_Core_IWebView"><code>IWebView</code></a> instance.
 </li>
@@ -184,7 +184,7 @@ The component is initialized (<code>InitalizeComponent</code> of self and then o
 </ul>
 </li>
 <li>The component is added to <a href="http://docs.awesomium.net/?tc=P_Awesomium_Core_WebCore_Views"><code>WebCore.Views</code></a>.</li>
-<li><a href="http://docs.awesomium.net/?tc=E_Awesomium_Core_WebCore_CreatedWebView"><code>WebCore.CreatedWebView</code></a> is fired.</li>
+<li><a href="http://docs.awesomium.net/?tc=E_Awesomium_Core_WebCore_CreatedView"><code>WebCore.CreatedView</code></a> is fired.</li>
 <li>Additional initialization is performed, such as:
 <ul>
 <li>Applying settings specified at design-time.</li>
@@ -236,7 +236,7 @@ The control is loaded for presentation for the first time (see <a href="http://m
 </ul>
 </li>
 <li>The component is added to <a href="http://docs.awesomium.net/?tc=P_Awesomium_Core_WebCore_Views"><code>WebCore.Views</code></a>.</li>
-<li><a href="http://docs.awesomium.net/?tc=E_Awesomium_Core_WebCore_CreatedWebView"><code>WebCore.CreatedWebView</code></a> is fired.</li>
+<li><a href="http://docs.awesomium.net/?tc=E_Awesomium_Core_WebCore_CreatedView"><code>WebCore.CreatedView</code></a> is fired.</li>
 <li>Additional initialization is performed, such as:
 <ul>
 <li>Applying settings specified at design-time (if <a href="http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebControl_ViewType"><code>WebControl.ViewType</code></a> is set to <a href="http://docs.awesomium.net/?tc=T_Awesomium_Core_WebViewType"><code>Offscreen</code></a>).</li>
