@@ -18,7 +18,6 @@ time, mark, audio, video
     margin: 0;
     padding: 0;
     border: 0;
-    font: inherit;
     vertical-align: baseline;
 }
 
@@ -44,9 +43,19 @@ h1, h2, h3, h4, h5, h6
     margin: 36px 0 10px;
 }
 
-p, ul, ol, table, dl
+p, ol, table, dl
 {
     margin: 0 0 22px;
+}
+
+ul
+{
+    margin: 5px 0 5px;
+}
+
+li
+{
+    margin-bottom: 3px;
 }
 
 h1, h2, h3
