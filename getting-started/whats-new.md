@@ -20,7 +20,6 @@ Here is a summary of changes in **Awesomium.NET**:
 
 ### New Features
 
-* All API members' names with an ID suffix, have been renamed to have an Id suffix (eg, IWebView.ProcessId). These would be too many to list above.
 * Added protections that prevent JS interoperation methods being called on an IWebView instance, before DocumentReady.
 * Added protections that prevent the use of JS-related API being called, when WebPreferences.Javascript is disabled.
 * JSObject no longer inherits DynamicObject. It now provides advanced low level dynamic API support through .NET's IDynamicMetaObjectProvider.
@@ -52,17 +51,18 @@ Here is a summary of changes in **Awesomium.NET**:
 
 ##### *Awesomium.Core*
 
-* WebCore.Configuration (returns the configuration settings used to initialize the core).
-* WebSession.ClearCookies()
-* WebSession.IsJavascriptEnabled (no JS related API can called if it's false).
-* WebSession.GetZoomForURL (zoom setting for a particular host).
-* WebSessionCollection.Item (indexer to access sessions by data path)
-* WebSessionCollection.Contains (overload)
-* NativeViewModel (split from ViewModel. Separates disposal logic from MVVM logic so that ViewModel can be used by non-disposable types).
-* NetError enumeration. (Provides description for the error code of the LoadingFrameFailed event).
-* CertError (Certificate errors)
-* JavascriptAsynchMethodEventHandler (delegate used in dyamic model to create asynchronous custom methods).
-* DownloadItem (MVVM friendly info for a dowanload operation)
+* [`WebCore.Configuration`](http://docs.awesomium.net/?tc=P_Awesomium_Core_WebCore_Configuration): Returns the configuration settings used to initialize the core.
+* [`WebCore.Download`](http://docs.awesomium.net/?tc=E_Awesomium_Core_WebCore_Download) 
+* [`WebSession.ClearCookies`](http://docs.awesomium.net/?tc=M_Awesomium_Core_WebSession_ClearCookies)
+* [`WebSession.IsJavascriptEnabled`](http://docs.awesomium.net/?tc=P_Awesomium_Core_WebSession_IsJavascriptEnabled): No JS related API can be called if this is `false`.
+* [`WebSession.GetZoomForURL`](http://docs.awesomium.net/?tc=M_Awesomium_Core_WebSession_GetZoomForURL): Gets the zoom setting for a particular host.
+* [`WebSessionCollection.Item`](http://docs.awesomium.net/?tc=P_Awesomium_Core_WebSessionCollection_Item): Indexer to access sessions by data path.
+* [`WebSessionCollection.Contains`](http://docs.awesomium.net/?tc=M_Awesomium_Core_WebSessionCollection_Contains): Overload that gets if a `WebSession` synchronizing to the specified *dataPath*, currently exists.
+* [`NativeViewModel`](http://docs.awesomium.net/?tc=T_Awesomium_Core_NativeViewModel): Split from [`ViewModel`](http://docs.awesomium.net/?tc=T_Awesomium_Core_ViewModel). Separates disposal logic from MVVM logic so that `ViewModel` can be used by non-disposable types.
+* [`NetError`](http://docs.awesomium.net/?tc=T_Awesomium_Core_NetError) enumeration: Provides description for the error code reported during a `LoadingFrameFailed` event.
+* [`CertError`](http://docs.awesomium.net/?tc=T_Awesomium_Core_CertError): Certificate errors enumeration.
+* [`JavascriptAsynchMethodEventHandler`](): Delegate used in *dynamic* programming to add asynchronous custom methods to a `JSObject`.
+* [`DownloadItem`](http://docs.awesomium.net/?tc=T_Awesomium_Core_DownloadItem): MVVM friendly info for a dowanload operation.
 * DownloadCollection
 * WebCore.DownloadBegin (fired before a download starts; provides the DownloadItem just added to Downloads).
 * WebCore.Downloads (list of active, complete or canceled download operations)
@@ -83,7 +83,7 @@ Here is a summary of changes in **Awesomium.NET**:
 * IWebView.RequestPageInfo (Requests page's security related information)
 * IWebView.ShowPageInfo (Event fired in response to RequestPageInfo)
 * WebPageInfo (Available through ShowPageInfo)
-* WebPopupMenuInfo.Item (indexer; WebMenuItem is now `IEnumerable<WebMenuItem>`).
+* WebPopupMenuInfo.Item (indexer; [`WebPopupMenuInfo`] is now `IEnumerable<WebMenuItem>`).
 * IWebView.CertificateError (Event fired on certificate errors. Allows you to ignore errors).
 * IWebView.Identifier (Unique, global web-view identifier).
 * WebPopupMenuInfo.Count
@@ -109,46 +109,52 @@ Here is a summary of changes in **Awesomium.NET**:
 
 ##### *Awesomium.Windows.Forms* (Windows Forms)
 
-* WebSessionProvider (equivalent to the WPF WebSessionProvider, allows you to assign a WebSession to a Windows Forms WebControl at design-time).
-* PromptForm (default dialog for Javascript 'window.confirm').
-* WebControl.ViewType (property that tells the Windows Forms WebControl to optionally wrap an offscreen web-view. - Enables transparency).
+* [`WebSessionProvider`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_WebSessionProvider) component (equivalent to the WPF `WebSessionProvider`, allows you to assign a `WebSession` to a Windows Forms `WebControl` at design-time).
+* `PromptForm` (default dialog for Javascript `window.confirm`).
+* [`WebControl.ViewType`](http://docs.awesomium.net/?tc=P_Awesomium_Windows_Forms_WebControl_ViewType): Property that tells the Windows Forms WebControl to optionally wrap an offscreen web-view. Also allows the use of transparency.
+* [`WebControl.IsTransparent`](http://docs.awesomium.net/?tc=P_Awesomium_Windows_Forms_WebControl_IsTransparent): See above.
+* [`DataSourceProvider`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_DataSourceProvider): Base class for Windows Forms [`DataSource`](http://docs.awesomium.net/?tc=T_Awesomium_Core_Data_DataSource) providers. Used with [`WebSessionProvider`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_WebSessionProvider).
+* [`DataSourceProviderCollection`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_DataSourceProviderCollection): Collection DataSourceProvider instances mainted by a [`WebSessionProvider`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_WebSessionProvider).
+* DataPakSourceProvider
+* DirectoryDataSourceProvider 
+* ResourceDataSourceProvider
 
 #### Modified API
 
-- Changed all event triggers to not accept a sender (having a sender is a wrong pattern).
-- IWebView.Download -> WebCore.Download
-- IWebView.BeginNavigation (See INavigationInterceptor).
-- WebPopupMenuInfo.Items
-- CreatedWebViewEventArgs.InitialPos
-- ShowCreatedWebViewEventArgs -> CreatedWebViewEventArgs
+* All API members' names with an ID suffix, have been renamed to have an Id suffix (eg, `IWebView.ProcessId`). These would be too many to list here.
+* Changed all event triggers to not accept a *sender* (having was *sender* is a wrong pattern).
+* `IWebView.Download` -> [`WebCore.Download`](http://docs.awesomium.net/?tc=E_Awesomium_Core_WebCore_Download)
+* Removed `IWebView.BeginNavigation` (replaced with advanced [`INavigationInterceptor`](http://docs.awesomium.net/?tc=T_Awesomium_Core_INavigationInterceptor) service).
+* Removed `WebPopupMenuInfo.Items` ([`WebPopupMenuInfo`](http://docs.awesomium.net/?tc=T_Awesomium_Core_WebPopupMenuInfo) is now `IEnumerable<WebMenuItem>`)
+* Removed `ShowCreatedWebViewEventArgs.InitialPos` (See [`JSWindowOpenSpecs.InitialPosition`](http://docs.awesomium.net/?tc=P_Awesomium_Core_JSWindowOpenSpecs_InitialPosition)).
 
 ### Bug Fixes
 
-* Fixed issue with ResourceDataSource that would not allow requests with queries.
-* Fixed issue in designer of the Windows Forms and WPF WebControl, that would cause the core to attempt to make p/invoke calls to the Awesomium library at design-time.
+* Fixed issue with `ResourceDataSource` that would not allow requests with queries.
+* Fixed issue in designer of the Windows Forms and WPF `WebControl`, that would cause the core to attempt to make p/invoke calls to the Awesomium library at design-time.
 * Fixed bug that would prevent escaped URIs from being properly passed to servers.
-* Fixed bug that would cause the SurfaceFactory to throw an exception, when destroying a Surface.
-* Fixed bug in default implementation of dialog callbacks in WebView. Events are now properly canceled.
-* Removed all useless production-time GC.Collect() calls.
+* Fixed bug that would cause the internal `SurfaceFactory` to throw an exception, when destroying a `Surface`.
+* Fixed bug in default implementation of dialog callbacks in `WebView`. Events are now properly canceled.
+* Removed all useless production-time `GC.Collect()` calls.
 * Made it so default navigation of new child views, is properly cancelled until the view is wrapped.
-* Removed useless protection from CreateGlobalJavascriptObject, that would prevent the method from being called before ProcessCreated. This is no longer a requirement.
-* Fixed bug that would cause an exception be thrown at user input, when using the WPF WebViewPresenter independently.
-* Fixed issues with setting a NativeView to the WPF WebControl.
-* Fixed false LoadingFrameFailed events occuring before downloads.
-* Fixed bug that would prevent setting the Source property to the WPF WebControl, at runtime.
-* Fixed bug that would prevent the Source property of the WPF WebControl, to reflect the currently loaded page URL.
-* Fixed bug introduced in RC3 that would prevent tranparency to the WPF WebControl.
-* Fixed AddressChanged event not being fired on WPF WebControl.
+* Removed useless protection from `CreateGlobalJavascriptObject`, that would prevent the method from being called before `ProcessCreated`. This is no longer a requirement.
+* Fixed bug that would cause an exception be thrown at user input, when using the WPF `WebViewPresenter` independently.
+* Fixed issues with setting the [`NativeView`](http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebControl_NativeView) property on the WPF `WebControl`.
+* Fixed false `LoadingFrameFailed` events occuring before downloads.
+* Fixed bug that would prevent setting the `Source` property to the WPF `WebControl`, at runtime.
+* Fixed bug that would prevent the `Source` property of the WPF `WebControl`, to reflect the currently loaded page URL.
+* Fixed bug introduced in RC3 that would prevent tranparency to the WPF `WebControl`.
+* Fixed `AddressChanged` event not being fired on WPF `WebControl`.
 * Fixed issues with Unicode strings not being properly passed to and from native Awesomium.
-* Fixed issues with the IsCrashed property not reflecting the actual status of the view, and issues with the Crashed event not being fired.
-* Fixed exception that could occur when attempting to Shutdown the core during internal update.
-* Fixed bug that could occassionally cause a NullReferenceException at ExecuteJavascript.
-* Fixed InvalidCastException when setting ViewType on the WPF WebControl.
-* Fixed issue in WPF WebControl that caused the right side to be cropped when DPI was set to any value other than the default.
-* Fixed view crash when WebPreferences.Javascript was set to false on the view's WebSession.
-* Fixed bug causing a WebControl crash when repeatedly opening/closing a WebPopupMenu.
-* Fixed "Width and Height must be positive" exceptions on the WPF WebControl.
-* Fixed focusing editable content issues on the WPF WebControl.
+* Fixed issues with the `IsCrashed` property not reflecting the actual status of the view, and issues with the `Crashed` event not being fired.
+* Fixed exception that could occur when attempting to `Shutdown` the core during internal update.
+* Fixed bug that could occassionally cause a `NullReferenceException` at `ExecuteJavascript`.
+* Fixed `InvalidCastException` when setting `ViewType` on the WPF `WebControl`.
+* Fixed issue in WPF `WebControl` that caused the right side to be cropped when DPI was set to any value other than the default.
+* Fixed view crash when `WebPreferences.Javascript` was set to `false` on the view's `WebSession`.
+* Fixed bug causing a WPF `WebControl` to crash when repeatedly opening/closing a `WebPopupMenu`.
+* Fixed *"Width and Height must be positive"* exceptions on the WPF `WebControl`.
+* Fixed focusing editable content issues on the WPF `WebControl`.
 
 
 
