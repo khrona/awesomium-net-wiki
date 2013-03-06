@@ -83,7 +83,7 @@ Here is a summary of changes in **Awesomium.NET**:
 * IWebView.RequestPageInfo (Requests page's security related information)
 * IWebView.ShowPageInfo (Event fired in response to RequestPageInfo)
 * WebPageInfo (Available through ShowPageInfo)
-* WebPopupMenuInfo.Item (indexer; WebMenuItem is now IEnumerable<WebMenuItem>).
+* WebPopupMenuInfo.Item (indexer; WebMenuItem is now `IEnumerable<WebMenuItem>`).
 * IWebView.CertificateError (Event fired on certificate errors. Allows you to ignore errors).
 * IWebView.Identifier (Unique, global web-view identifier).
 * WebPopupMenuInfo.Count
@@ -149,6 +149,7 @@ Here is a summary of changes in **Awesomium.NET**:
 * Fixed bug causing a WebControl crash when repeatedly opening/closing a WebPopupMenu.
 * Fixed "Width and Height must be positive" exceptions on the WPF WebControl.
 * Fixed focusing editable content issues on the WPF WebControl.
+
 
 
 Please [read here](http://www.awesomium.com/ChangeLog.txt), the list of bugs fixed in native Awesomium. Some of them affected Awesomium.NET.
