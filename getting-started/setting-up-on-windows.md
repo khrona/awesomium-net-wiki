@@ -121,13 +121,14 @@ To use this assembly and the packed (compressed) native dependencies, follow the
 
 ***
 **Note:** Awesomium.NET 1.7.x, targets the **.NET Framework 4.0 Client Profile**.
+
 ***
 
 ### Awesomium.NET Samples
 
 Samples for Awesomium.NET 1.7, are deployed under:
 
-    %PublicDocuments%\Awesomium SDK Samples\1.7.x\Awesomium.NET\Samples
+    %PublicDocuments%\Awesomium SDK Samples\1.7.x.x\Awesomium.NET\Samples
 
 There are samples available for all desktop technologies (Console, WPF and Windows Forms) and the **C#** and **VB.NET** languages. The structure of the *Awesomium.NET\\Samples* folder, follows the **_technology\\language_** scheme.
 
@@ -146,11 +147,11 @@ The default **Output Directories** of the included samples, are:
 
 ##### Debug Mode:
 
-    %PublicDocuments%\Awesomium SDK Samples\1.7.x\Awesomium.NET\Assemblies\Debug
+    %PublicDocuments%\Awesomium SDK Samples\1.7.x.x\Awesomium.NET\Assemblies\Debug
     
 ##### Release Mode:
     
-    %PublicDocuments%\Awesomium SDK Samples\1.7.x\Awesomium.NET\Assemblies\Release
+    %PublicDocuments%\Awesomium SDK Samples\1.7.x.x\Awesomium.NET\Assemblies\Release
 
 #### Examining the Samples
 
@@ -180,18 +181,21 @@ For a **Console** application (or any non-GUI application that uses only the **C
 
 #### WPF Applications
 
+For a **WPF** application:
+
 1. Open the design view of a `Window` or `Control`.
 2. Open the **Toolbox** window.
 3. You should be able to see the **Awesomium.NET** tab.
 4. The tab must contain the following components:
     * [`WebControl`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebControl)
     * [`WebPageInfoControl`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebPageInfoControl)
-
 5. Drag & drop the [`WebControl`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebControl) to your `Window` or `Control`. This will also add the necessary references to your project and activate design-time features.
 
 For more details, read the [Introducing the WPF WebControl](http://wiki.awesomium.net/general-use/wpf-webcontrol.html) article.
 
 #### Windows Forms Applications
+
+For a **Windows Forms** application:
 
 1. Open the design view of a `Window` or `Control`.
 2. Open the **Toolbox** window.

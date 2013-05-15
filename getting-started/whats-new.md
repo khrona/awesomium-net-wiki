@@ -8,7 +8,7 @@ weight: 1
 
 We are very proud to announce the release of **Awesomium.NET 1.7.1**. This is a critical update with a number of new features and enhancements but mostly bugfixes that we have applies the past two months, mainly thanks to your feedback.
 
-* [Download the Awesomium 1.7.1 SDK (deploys Awesomium.NET binaries and samples)](http://www.awesomium.com/download)
+* [Download the Awesomium 1.7.1 SDK](http://www.awesomium.com/download) (includes the **Awesomium.NET** binaries and samples)
 * [Awesomium.NET 1.7.1 API Reference](http://docs.awesomium.net)
 * [Setting up on Windows](http://wiki.awesomium.net/getting-started/setting-up-on-windows.html)
 
