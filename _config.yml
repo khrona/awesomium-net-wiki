@@ -24,6 +24,8 @@ groups:
     path: /tutorials
   - name: General Use
     path: /general-use
+  - name: Changelogs
+    path: /changelogs
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 

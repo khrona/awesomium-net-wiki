@@ -1,49 +1,35 @@
 ---
 layout: page
-title : What's New in 1.7.0
+title : What's New in 1.7.1
 group: Getting Started
-weight: 3
+weight: 1
 
 ---
 
-We are very proud to announce the **final release** of **Awesomium.NET 1.7.0**, we think you'll be pretty impressed with all the new features and enhancements we've added these past few months.
+We are very proud to announce the release of **Awesomium.NET 1.7.1**. This is a critical update with a number of new features and enhancements but mostly bugfixes that we have applies the past two months, mainly thanks to your feedback.
 
-* [Download the Awesomium 1.7.0 SDK (deploys Awesomium.NET binaries and samples)](http://www.awesomium.com/download)
-* [Awesomium.NET 1.7.0 API Reference](http://docs.awesomium.net)
+* [Download the Awesomium 1.7.1 SDK (deploys Awesomium.NET binaries and samples)](http://www.awesomium.com/download)
+* [Awesomium.NET 1.7.1 API Reference](http://docs.awesomium.net)
 * [Setting up on Windows](http://wiki.awesomium.net/getting-started/setting-up-on-windows.html)
 
 A lot has gone into this release. Before you go through the changes in Awesomium.NET, take a look at the major changes in native Awesomium:
 
-* [Awesomium 1.7.0 Final Release](http://labs.awesomium.com/whats-new-in-1-7-0/)
+* [Awesomium 1.7.1](http://labs.awesomium.com/whats-new-in-1-7-1/)
 
 Here is a summary of changes in **Awesomium.NET**:
 
 ### New Features
 
-* Added protections that prevent JS interoperation methods being called on an IWebView instance, before DocumentReady.
-* Added protections that prevent the use of JS-related API being called, when WebPreferences.Javascript is disabled.
-* JSObject no longer inherits DynamicObject. It now provides advanced low level dynamic API support through .NET's IDynamicMetaObjectProvider.
-* Added protections that prevent the use of synchronous JS API calls, when the context is synchronous (synchronous custom method handler).
-* Implemented internal downloads management and added the DownloadCollection and DownloadItem classes that allow you to easily monitor and bind your MVVM application to download	operations.
-* Added support for Zoom setting to views and the ability to retrieve settings for specific hosts from WebSession.
-* Made it so the WPF/WinForms WebSessionProviders provide a previously created WebSession with the same DataPath, instead of attempting to create a new one.
-* Made it so the IsManipulationEnabled of WPF presenters is bound to the WebControl (this will propagate the ManipulationDelta routed event to the WebControl).
-* Added design-time support for WebPreferences (available through WebSessionProviders).
-* All properties and event args that accept or return a Uri, are now ready to silently respond to malformed URIs.
-* Removed the ResourceInterceptor class. IResourceInterceptor interface remains.
-* Added support for JavaScript dialogs.
-* Added support for handling Certificate errors and obtaining page's security related information.
-* Added the ability cancel/handle navigations asynchronously, through the new INavigationInterceptor service. The service also supports white/blacklisting.
-* Added default dialog for selecting a folder at Print requests, SelectLocalFiles and design-time, to the WPF WebControl and design-time support.
-* Added default drop-down (popup) menu to WPF WebControl (see WebPopupMenu and WebPopupMenuBase).
-* Added default WPF certificate error dialog.
-* Added default WPF web page info cpntrol and popup. (see WebPageInfoPopup and WebPageInfoControl).
-* Added default dialog layers for handling Javascript dialogs to the WPF WebControl.
-* Added the ability to handle all user input (including system and control keyboard events) through the WPF WebControl's Preview events.
-* Added default dialogs for handling Javascript dialogs to the Windows Forms WebControl.
-* Added default ContextMenu to the Windows Forms WebControl.
-* Extended design-time support for the WPF WebControl.
-* Added design-time support for the Windows Forms WebControl.
+* Made so you can now create views and WebControls that display the source code of loaded web pages.
+* The internal Download Manager has been redesigned so that it respects the initial request that triggered the download operation.
+* `JSValue.ToString` now correctly reports the native textual value.
+* Internal JavaScript Interoperation Framework has been improved in handling JavaScript dialog requests from frames and displaying the textual representation of JavaScript objects correctly, when such objects are passed to an alert, confirm or prompt.
+* Added the ability to make asynchronous method invocations on a `JSObject`, when using dynamic programming.
+* Added the ability to acquire a JavaScript object's Function members and subsequently invoke them when using dynamic, even through a variable.
+* Added more checks for the validity of the specified outputDirectory, when using `IWebView.PrintToFile`.
+* Made it safe to perform certain operations on windowed views before `ParentWindow` is set.
+* Made it so certain events fired on created child views, are now captured and passed to the managed wrapper (when `ShowCreatedWebViewEventArgs.NewViewInstance` is wrapped).
+* Made it so requests to child views that are the result of links (or forms with method GET) with `target="_blank"`, are canceled by default prior to `ShowCreatedWebView`.
 
 ### API Changes
 
@@ -51,110 +37,47 @@ Here is a summary of changes in **Awesomium.NET**:
 
 ##### *Awesomium.Core*
 
-* [`WebCore.Configuration`](http://docs.awesomium.net/?tc=P_Awesomium_Core_WebCore_Configuration): Returns the configuration settings used to initialize the core.
-* [`WebCore.Download`](http://docs.awesomium.net/?tc=E_Awesomium_Core_WebCore_Download) 
-* [`WebSession.ClearCookies`](http://docs.awesomium.net/?tc=M_Awesomium_Core_WebSession_ClearCookies)
-* [`WebSession.IsJavascriptEnabled`](http://docs.awesomium.net/?tc=P_Awesomium_Core_WebSession_IsJavascriptEnabled): No JS related API can be called if this is `false`.
-* [`WebSession.GetZoomForURL`](http://docs.awesomium.net/?tc=M_Awesomium_Core_WebSession_GetZoomForURL): Gets the zoom setting for a particular host.
-* [`WebSessionCollection.Item`](http://docs.awesomium.net/?tc=P_Awesomium_Core_WebSessionCollection_Item): Indexer to access sessions by data path.
-* [`WebSessionCollection.Contains`](http://docs.awesomium.net/?tc=M_Awesomium_Core_WebSessionCollection_Contains): Overload that gets if a `WebSession` synchronizing to the specified *dataPath*, currently exists.
-* [`NativeViewModel`](http://docs.awesomium.net/?tc=T_Awesomium_Core_NativeViewModel): Split from [`ViewModel`](http://docs.awesomium.net/?tc=T_Awesomium_Core_ViewModel). Separates disposal logic from MVVM logic so that `ViewModel` can be used by non-disposable types.
-* [`NetError`](http://docs.awesomium.net/?tc=T_Awesomium_Core_NetError) enumeration: Provides description for the error code reported during a `LoadingFrameFailed` event.
-* [`CertError`](http://docs.awesomium.net/?tc=T_Awesomium_Core_CertError): Certificate errors enumeration.
-* [`JavascriptAsynchMethodEventHandler`](): Delegate used in *dynamic* programming to add asynchronous custom methods to a `JSObject`.
-* [`DownloadItem`](http://docs.awesomium.net/?tc=T_Awesomium_Core_DownloadItem): MVVM friendly info for a dowanload operation.
-* DownloadCollection
-* WebCore.DownloadBegin (fired before a download starts; provides the DownloadItem just added to Downloads).
-* WebCore.Downloads (list of active, complete or canceled download operations)
-* INavigationInterceptor (Service available on IWebView instances. Allows you to handle navigation requests or add filtering ruls - whitelist, blacklist).
-* IWebView.WindowClosed (event fired when 'window.close' is called from Javascript).
-* JSDialogFlags (used with ShowJavascriptDialog).
-* IWebView.ShowJavascriptDialog (alert, confirm, prompt)
-* IWebView.ConsoleMessage (event fired for Javascript console messages).
-* IWebView.InitializeNativeView (event fired right before the underlying web-view of a technology specfic WebControl, is instantiated).
-* IWebView.NativeViewInitialized (event fired right after the underlying web-view of a technology specfic WebControl, is instantiated).
-* IWebView.SynchronousMessageTimout (sets the maximum amount of time to wait for a response from a synchronous IPC message dispatched to the view's renderer process).
-* IWebView.ZoomIn (Zooms in by 20%)
-* IWebView.ZoomOut (Zooms out by 20%)
-* IWebView.ResetZoom (Resets to 100%)
-* IWebView.Zoom
-* IWebView.Printing (event for when a printing operation starts.
-* IWebView.IsPrinting (property reflecting printing operation status)
-* IWebView.RequestPageInfo (Requests page's security related information)
-* IWebView.ShowPageInfo (Event fired in response to RequestPageInfo)
-* WebPageInfo (Available through ShowPageInfo)
-* WebPopupMenuInfo.Item (indexer; [`WebPopupMenuInfo`] is now `IEnumerable<WebMenuItem>`).
-* IWebView.CertificateError (Event fired on certificate errors. Allows you to ignore errors).
-* IWebView.Identifier (Unique, global web-view identifier).
-* WebPopupMenuInfo.Count
-* WebViewCollection.GetByProcessId
-* WebViewCollection.GetById (See IWebView.Identifier).
-* WebViewCollection.Contains (overload for seeking by process ID).
-* UrlEventArgs.HasErrors (indicates that the original URI provided, is malformed).
-* UrlEventArgs.OriginalString (the original URI string)
-* CreatedWebViewEventArgs.IsWindowOpen
-* CreatedWebViewEventArgs.IsUserSpecsOnly
-* CreatedWebViewEventArgs.Specs (JSWindowOpenSpecs)
-* JSWindowOpenSpecs structure (represents the specs specified by users in a Javascript 'window.open' call, including size and positioning, if any).
-* IWebView.IsJavascriptEnabled (Prevents calling Javascript-related API when WebPreferences.Javascript is false)
+* [`WebCore.CreateSourceWebView`](http://docs.awesomium.net/?tc=M_Awesomium_Core_WebCore_CreateSourceWebView)
+* [`IWebView.IsSourceView`](http://docs.awesomium.net/?tc=P_Awesomium_Core_IWebView_IsSourceView).
+* [`DownloadItem.CurrentSpeed`](http://docs.awesomium.net/?tc=P_Awesomium_Core_DownloadItem_CurrentSpeed)
+* [`DownloadEventArgs.ViewId`](http://docs.awesomium.net/?tc=P_Awesomium_Core_DownloadEventArgs_ViewId)
+* [`UploadElement.IsEmpty`](http://docs.awesomium.net/?tc=P_Awesomium_Core_UploadElement_IsEmpty) (also added equiality & inequality operators)
+* [`ResourceRequest.IsWindowOpen`](http://docs.awesomium.net/?tc=P_Awesomium_Core_ResourceRequest_IsWindowOpen)
+* [`ShowCreatedWebViewEventArgs.IsPost`](http://docs.awesomium.net/?tc=P_Awesomium_Core_ShowCreatedWebViewEventArgs_IsPost)
+* [`ShowCreatedWebViewEventArgs.PostData`](http://docs.awesomium.net/?tc=P_Awesomium_Core_ShowCreatedWebViewEventArgs_PostData)
+* [`ShowCreatedWebViewEventArgs.IsNavigationCanceled`](http://docs.awesomium.net/?tc=P_Awesomium_Core_ShowCreatedWebViewEventArgs_IsNavigationCanceled)
+* [`Utilities.ParseQueryString`](http://docs.awesomium.net/?tc=M_Awesomium_Core_Utilities_ParseQueryString) (Uri extension)
 
 ##### *Awesomium.Windows.Controls* (WPF)
 
-* WebPopupMenu (default drop-down, popup menu)
-* WebControl.PopupMenuResourceKey (ComponentResourceKey for the default popup menu).
-* SourceBinding (MarkupExtension; binds TextBoxes to WebControl.Source and provides features to make them act as address-boxes).
-* UriValueConverter (IValueConverter for Uri).
-* InputEventManager (WeakEventManager that allows to use the "weak event pattern" for UIElement user input events; used by the SourceBinding).
-* WebViewEventManager (WeakEventManager that allows to use the "weak event pattern" for IWebView events).
-
-##### *Awesomium.Windows.Forms* (Windows Forms)
-
-* [`WebSessionProvider`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_WebSessionProvider) component (equivalent to the WPF `WebSessionProvider`, allows you to assign a `WebSession` to a Windows Forms `WebControl` at design-time).
-* `PromptForm` (default dialog for Javascript `window.confirm`).
-* [`WebControl.ViewType`](http://docs.awesomium.net/?tc=P_Awesomium_Windows_Forms_WebControl_ViewType): Property that tells the Windows Forms WebControl to optionally wrap an offscreen web-view. Also allows the use of transparency.
-* [`WebControl.IsTransparent`](http://docs.awesomium.net/?tc=P_Awesomium_Windows_Forms_WebControl_IsTransparent): See above.
-* [`DataSourceProvider`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_DataSourceProvider): Base class for Windows Forms [`DataSource`](http://docs.awesomium.net/?tc=T_Awesomium_Core_Data_DataSource) providers. Used with [`WebSessionProvider`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_WebSessionProvider).
-* [`DataSourceProviderCollection`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_DataSourceProviderCollection): Collection DataSourceProvider instances mainted by a [`WebSessionProvider`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_WebSessionProvider).
-* DataPakSourceProvider
-* DirectoryDataSourceProvider 
-* ResourceDataSourceProvider
+* [`DownloadItem.CancelCommand`](http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_DownloadItem_CancelCommand)
 
 #### Modified API
 
-* All API members' names with an ID suffix, have been renamed to have an Id suffix (eg, `IWebView.ProcessId`). These would be too many to list here.
-* Changed all event triggers to not accept a *sender* (having was *sender* is a wrong pattern).
-* `IWebView.Download` -> [`WebCore.Download`](http://docs.awesomium.net/?tc=E_Awesomium_Core_WebCore_Download)
-* Removed `IWebView.BeginNavigation` (replaced with advanced [`INavigationInterceptor`](http://docs.awesomium.net/?tc=T_Awesomium_Core_INavigationInterceptor) service).
-* Removed `WebPopupMenuInfo.Items` ([`WebPopupMenuInfo`](http://docs.awesomium.net/?tc=T_Awesomium_Core_WebPopupMenuInfo) is now `IEnumerable<WebMenuItem>`)
-* Removed `ShowCreatedWebViewEventArgs.InitialPos` (See [`JSWindowOpenSpecs.InitialPosition`](http://docs.awesomium.net/?tc=P_Awesomium_Core_JSWindowOpenSpecs_InitialPosition)).
+* `IWebView.SynchronousMessageTimout` -> [`IWebView.SynchronousMessageTimeout`](http://docs.awesomium.net/?tc=P_Awesomium_Core_IWebView_SynchronousMessageTimeout) (Corrected typo)
+* `implicit operator JSValue[](JSValue)` -> [`explicit operator JSValue[](JSValue)`](http://docs.awesomium.net/?tc=M_Awesomium_Core_JSValue_op_Explicit) (Needed for proper passing of arguments to JSObject.Invoke)
+* `explicit operator bool(JSValue)` -> [`implicit operator bool(JSValue)`](http://docs.awesomium.net/?tc=M_Awesomium_Core_JSValue_op_Implicit_1) (Allows easily performing validity checks)
 
 ### Bug Fixes
 
-* Fixed issue with `ResourceDataSource` that would not allow requests with queries.
-* Fixed issue in designer of the Windows Forms and WPF `WebControl`, that would cause the core to attempt to make p/invoke calls to the Awesomium library at design-time.
-* Fixed bug that would prevent escaped URIs from being properly passed to servers.
-* Fixed bug that would cause the internal `SurfaceFactory` to throw an exception, when destroying a `Surface`.
-* Fixed bug in default implementation of dialog callbacks in `WebView`. Events are now properly canceled.
-* Removed all useless production-time `GC.Collect()` calls.
-* Made it so default navigation of new child views, is properly cancelled until the view is wrapped.
-* Removed useless protection from `CreateGlobalJavascriptObject`, that would prevent the method from being called before `ProcessCreated`. This is no longer a requirement.
-* Fixed bug that would cause an exception be thrown at user input, when using the WPF `WebViewPresenter` independently.
-* Fixed issues with setting the [`NativeView`](http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebControl_NativeView) property on the WPF `WebControl`.
-* Fixed false `LoadingFrameFailed` events occuring before downloads.
-* Fixed bug that would prevent setting the `Source` property to the WPF `WebControl`, at runtime.
-* Fixed bug that would prevent the `Source` property of the WPF `WebControl`, to reflect the currently loaded page URL.
-* Fixed bug introduced in RC3 that would prevent tranparency to the WPF `WebControl`.
-* Fixed `AddressChanged` event not being fired on WPF `WebControl`.
-* Fixed issues with Unicode strings not being properly passed to and from native Awesomium.
-* Fixed issues with the `IsCrashed` property not reflecting the actual status of the view, and issues with the `Crashed` event not being fired.
-* Fixed exception that could occur when attempting to `Shutdown` the core during internal update.
-* Fixed bug that could occassionally cause a `NullReferenceException` at `ExecuteJavascript`.
-* Fixed `InvalidCastException` when setting `ViewType` on the WPF `WebControl`.
-* Fixed issue in WPF `WebControl` that caused the right side to be cropped when DPI was set to any value other than the default.
-* Fixed view crash when `WebPreferences.Javascript` was set to `false` on the view's `WebSession`.
-* Fixed bug causing a WPF `WebControl` to crash when repeatedly opening/closing a `WebPopupMenu`.
-* Fixed *"Width and Height must be positive"* exceptions on the WPF `WebControl`.
-* Fixed focusing editable content issues on the WPF `WebControl`.
+* `WebCoreConfig.RemoteDebuggingHost` default value is now correctly set to `127.0.0.1`.
+* Fixed issue with downloads failing when triggered from an authentication context.
+* Fixed issue with downloads failing when triggered by a POST request.
+* Fixed exception thrown at `WebSession.SetCookie`.
+* Fixed issue with `ShowCreatedWebViewEventArgs.IsWindowOpen` occasionally returning false for window.open calls triggered from a frame.
+* Fixed exception thrown when attempting to create a local `JSObject`.
+* Fixed issue with synchronous JavaScript calls timeout, when JavaScript would call back into native code (such as with a modal JavaScript dialog).
+* Fixed exception thrown when attempting to use a cloned `JSObject`.
+* Fixed issue that could cause `NativeViewInitialized` be fired multiple times.
+* Fixed issue that would cause an `AccessViolationException` when multiple views were created fast (exception thrown while I/O and Core threads were simultaneously accessing the core's `WebViewCollection`).
+* Fixed unhandled exception thrown while attempting to inject our internal JavaScript Interoperation Framework on an invalidated view.
+* Fixed false cancelling default navigation to target URL, on child views created as a result of submitting an HTML form with `target="_blank"` and `method="post"`. (This bug caused the POST data to be lost.)
+* Fixed issue causing `UrlEventArgs.HasErrors` to always return true.        
+* (WPF) Fixed re-introduced issue with `WebViewPresenter` of `WebControl` rendering in wrong size on systems with non-standard DPI setting.
+* (WPF) Fixed issue with `WebViewPresenter` of `WebControl` not scrolling properly on systems with non-standard DPI setting.
+* (WPF) Fixed issue with `WebControlContextMenu` of `WebControl` not displayed in the correct position on systems with non-standard DPI setting.
+* (WPF) Fixed issue with `WebPageInfoPopup` of `WebControl` not displayed in the correct position on systems with non-standard DPI setting.
+* (WPF) Fixed issue that would cause a `WebPopupMenu` close when clicking on its scrollbar.
 
 
 
@@ -164,8 +87,11 @@ Please [read here](http://www.awesomium.com/ChangeLog.txt), the list of bugs fix
 ### Known Issues
 
 * On **Windows 8**, **WebGL** is currently not supported.
-* On some **Windows XP** installations, you may get a **DllNotFoundException** when trying to execute an application that uses Awesomium (native or .NET bindings). This indicates you need to install the latest update of **Direct X**, available here: [DirectX End-User Runtimes (June 2010)](http://www.microsoft.com/en-us/download/details.aspx?id=8109). **Note:** If you are using the Windows Installer to deploy the Awesomium SDK, the setup package takes care of this.
 
 #### Under production:
 
 * When you are using the Windows Forms WebControl, drop-down (popup) menus (e.g., HTML: `<select>`), are not displayed automatically. Predefined drop-down (popup) menus have been added to the WPF WebControl but not to the Windows Forms WebControl yet. However, the new powerful API allows you to design and display these yourself, by handling the [`ShowPopupMenu`](http://docs.awesomium.net/?tc=E_Awesomium_Core_IWebView_ShowPopupMenu) event.
+
+### Older Changelogs
+
+You can find this and previous Changelogs, under the [Changelogs](http://wiki.awesomium.net/changelogs/) category.
