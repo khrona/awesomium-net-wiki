@@ -94,7 +94,7 @@ The Windows Forms assembly includes the Windows Forms [`WebControl`](http://docs
 * Awesomium.Windows.Forms.dll
 * Awesomium.Windows.Forms.XML
 
-##### The `Design` subfolder
+#### The `Design` subfolder
 
 This folder contains the design assemblies, used to provide design-time features for the Awesomium.NET components, in Visual Studio 2010 & Visual Studio 2012.
 
@@ -102,7 +102,7 @@ This folder contains the design assemblies, used to provide design-time features
 
 If you have used the Windows Installer to install the SDK, these assemblies must already be in your system's GAC.
 
-##### The `Packed` subfolder
+#### The `Packed` subfolder
        
 This folder contains a build of the *Awesomium.Core.dll* assembly, that has been linked to the **packed** (compressed) native libraries available under `%SDKFolder%\build\bin\packed\`.
 
@@ -121,7 +121,7 @@ To use this assembly and the packed (compressed) native dependencies, follow the
 
 ***
 **Note:** Awesomium.NET 1.7.x, targets the **.NET Framework 4.0 Client Profile**.
-
+***
 
 ### Awesomium.NET Samples
 
@@ -140,12 +140,17 @@ To build the included samples, follow these steps:
 3. Open the **_Awesomium.NET Samples.sln_** solution.
 4. From the **Build** menu, select **Rebuild Solution**.
 
+If you are using any of the **Visual Studio 2010** or **Visual Studio 2012** **Express** editions, you will have to open the individual projects, depending on the edition you use.
+
 The default **Output Directories** of the included samples, are: 
 
-* `%PublicDocuments%\Awesomium SDK Samples\1.7.x\Awesomium.NET`**`\Assemblies\Debug`** for **Debug** mode.
-* `%PublicDocuments%\Awesomium SDK Samples\1.7.x\Awesomium.NET`**`\Assemblies\Release`** for **Release** mode.
+##### Debug Mode:
 
-If you are using any of the **Visual Studio 2010** or **Visual Studio 2012** **Express** editions, you will have to open the individual projects, depending on the edition you use.
+    %PublicDocuments%\Awesomium SDK Samples\1.7.x\Awesomium.NET\Assemblies\Debug
+    
+##### Release Mode:
+    
+    %PublicDocuments%\Awesomium SDK Samples\1.7.x\Awesomium.NET\Assemblies\Release
 
 #### Examining the Samples
 
@@ -181,6 +186,7 @@ For a **Console** application (or any non-GUI application that uses only the **C
 4. The tab must contain the following components:
     * [`WebControl`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebControl)
     * [`WebPageInfoControl`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebPageInfoControl)
+
 5. Drag & drop the [`WebControl`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebControl) to your `Window` or `Control`. This will also add the necessary references to your project and activate design-time features.
 
 For more details, read the [Introducing the WPF WebControl](http://wiki.awesomium.net/general-use/wpf-webcontrol.html) article.
