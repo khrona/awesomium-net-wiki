@@ -16,14 +16,14 @@ author :
   email : contact@khrona.com
   github : khrona
   twitter : awesomium
-  
+
 groups:
   - name: Getting Started
     path: /getting-started
-  - name: Tutorials
-    path: /tutorials
   - name: General Use
     path: /general-use
+  - name: Tutorials
+    path: /tutorials
   - name: Changelogs
     path: /changelogs
 
