@@ -55,7 +55,7 @@ The installer creates the following folders in the installation directory:
 * **_wrappers/Awesomium.NET_**: Contains the assemblies, documentation and support files for the official **.NET** bindings (**Awesomium.NET**).
 
 
-### Awesomium.NET References
+### Awesomium.NET Assemblies
 
 The Awesomium.NET assemblies and their native dependencies, are installed to the system's **Global Assembly Cache** (GAC) by default, when you install the SDK.
 
@@ -112,7 +112,7 @@ If you want to use the packed (compressed) native libraries with your projects, 
 
 To use this assembly and the packed (compressed) native dependencies, follow the steps below:
 
-1. Follow the steps in the **[Distributing Awesomium.NET](#distributing_awesomiumnet)** section below, to make sure the **Awesomium.NET** assemblies are copied to your project's output directory, when you build your project.
+1. Follow the steps in **[Distributing Awesomium.NET - Manual Deployment](redist.html#clickonce_or_manual_deployment)**, to make sure the **Awesomium.NET** assemblies are copied to your project's output directory, when you build your project.
 2. Build your project. All Awesomium.NET assemblies including the necessary native Awesomium libraries, will be copied to your output directory.
 3. When you are ready to deploy your application, copy the following files alongside your executable, **overwriting** the ones already there:
     * %SDKFolder%\wrappers\Awesomium.NET\Assemblies\\**Packed**\Awesomium.Core.dll
@@ -206,6 +206,8 @@ For more details, read the [Introducing the WPF WebControl](http://wiki.awesomiu
     * [`AddressBox`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_AddressBox)
     * [`WebControlContextMenu`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_WebControlContextMenu) (Only used when you want to extend the default context menu)
 5. Drag & drop the [`WebControl`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_WebControl) to your form. This will also add the necessary references to your project and activate design-time features.
+
+For more details, read the [Introducing the Windows Forms WebControl](http://wiki.awesomium.net/general-use/winforms-webcontrol.html) article.
 
 #### Awesomium.NET Namespaces
 
