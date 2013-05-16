@@ -40,12 +40,12 @@ body
 h1, h2, h3, h4, h5, h6
 {
     color: #232323;
-    margin: 36px 0 10px;
+    margin: 25px 0 15px;
 }
 
 p, ol, table, dl
 {
-    margin: 0 0 22px;
+    margin: 10px 0 10px;
 }
 
 ul
@@ -136,18 +136,18 @@ strong
 
 ul li
 {
-    list-style: inside;
-    padding-left: 25px;
+    list-style: outside;
+    margin-left: 25px;
 }
 
 ol li
 {
-    padding-left: 20px;
+    margin-left: 20px;
 }
 
 ol
 {
-    list-style: decimal inside;
+    list-style: decimal outside;
 }
 
 blockquote
@@ -184,7 +184,7 @@ hr
     border: 0;
     background: #ccc;
     height: 1px;
-    margin: 0 0 24px;
+    margin: 12px 0 12px;
 }
 
 /* Images */
@@ -192,10 +192,9 @@ hr
 img
 {
     position: relative;
-    margin: 0 auto;
     max-width: 650px;
     padding: 5px;
-    margin: 10px 0 32px 0;
+    margin: 20px 0 20px 0;
     border: 1px solid #ccc;
 }
 
@@ -227,7 +226,7 @@ pre
     border: 1px solid #D7D8C8;
     overflow: auto;
     overflow-y: hidden;
-    margin-bottom: 32px;
+    margin: 10px 0 10px;
 }
 
 

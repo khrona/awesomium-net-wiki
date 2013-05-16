@@ -16,6 +16,7 @@ You will need the following:
 * The latest **Awesomium SDK for Windows** (download it [here](http://www.awesomium.com/download/))
 * Microsoft **Visual Studio 2010** or **Visual Studio 2012** (or any of the free **Express** editions)
 
+
 ### Installing the SDK
 
 If you have a previous version of the **Awesomium SDK** installed, you can update to the latest version by executing **Check for Updates** under the Awesomium SDK Start Menu folder.
@@ -53,7 +54,8 @@ The installer creates the following folders in the installation directory:
 * *include*: Contains headers used by C++ applications.
 * **_wrappers/Awesomium.NET_**: Contains the assemblies, documentation and support files for the official **.NET** bindings (**Awesomium.NET**).
 
-#### Awesomium.NET References
+
+### Awesomium.NET References
 
 The Awesomium.NET assemblies and their native dependencies, are installed to the system's **Global Assembly Cache** (GAC) by default, when you install the SDK.
 
@@ -63,7 +65,7 @@ These files are also available on disk, under:
 
 Below is a list of those files and a short description for them:
 
-##### Core
+#### Core
 
 This is the core assembly of **Awesomium.NET**. It must be referenced by all projects using Awesomium. The core assembly is linked at compilation to all the necessary native Awesomium libraries.
 
@@ -80,14 +82,14 @@ This is the core assembly of **Awesomium.NET**. It must be referenced by all pro
 * xinput9_1_0.dll
 * inspector.pak (Awesomium Inspector assets)
 
-##### WPF
+#### WPF
 
 The WPF assembly includes the WPF [`WebControl`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebControl) other controls and utilities for using Awesomium in a WPF application.
 
 * Awesomium.Windows.Controls.dll
 * Awesomium.Windows.Controls.XML
 
-##### Windows Forms
+#### Windows Forms
 
 The Windows Forms assembly includes the Windows Forms [`WebControl`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_WebControl) other controls and utilities for using Awesomium in a Windows Forms application.
 
@@ -124,6 +126,7 @@ To use this assembly and the packed (compressed) native dependencies, follow the
 
 ***
 
+
 ### Awesomium.NET Samples
 
 Samples for Awesomium.NET 1.7, are deployed under:
@@ -150,12 +153,13 @@ The default **Output Directories** of the included samples, are:
     %PublicDocuments%\Awesomium SDK Samples\1.7.x.x\Awesomium.NET\Assemblies\Debug
     
 ##### Release Mode:
-    
+
     %PublicDocuments%\Awesomium SDK Samples\1.7.x.x\Awesomium.NET\Assemblies\Release
 
 #### Examining the Samples
 
 You should go through the source code of the included samples. Most of the code of the samples is commented and can be used as a fast tutorial to start working with Awesomium.NET.
+
 
 ### Set up a Project
     
@@ -181,8 +185,6 @@ For a **Console** application (or any non-GUI application that uses only the **C
 
 #### WPF Applications
 
-For a **WPF** application:
-
 1. Open the design view of a `Window` or `Control`.
 2. Open the **Toolbox** window.
 3. You should be able to see the **Awesomium.NET** tab.
@@ -194,8 +196,6 @@ For a **WPF** application:
 For more details, read the [Introducing the WPF WebControl](http://wiki.awesomium.net/general-use/wpf-webcontrol.html) article.
 
 #### Windows Forms Applications
-
-For a **Windows Forms** application:
 
 1. Open the design view of a `Window` or `Control`.
 2. Open the **Toolbox** window.
@@ -241,11 +241,13 @@ To distribute your application, you must make sure all the necessary references 
 
 **For details, read the [Distributing Awesomium.NET](redist.html) article.**
 
+
 ### Read some more articles
 
 * [Basic Concepts](basic-concepts.html)
 * [What's New in the latest release](whats'new.html)
 * [Distributing Awesomium.NET](redist.html)
+
 
 ### Additional Resources
 
