@@ -8,11 +8,11 @@ groups:
 ---
 {% include JB/setup %}
 
-___This Wiki is still a Work-In-Progress, use at your own risk___
+Awesomium provides everything you need to start displaying beautiful HTML-powered interfaces and web-content within your C++ or .NET application fast.
 
-Awesomium is a Web UI Bridge for Native Applications. Leverage HTML/JS/CSS to build your application's front-end.
+It takes only a minute to get started, begin by following the tutorials below.
 
-Here you'll find tips, tricks, and tutorials for using the library in your own apps. All articles are compatible with the latest version of 1.7 only.
+You are at the <span class="highlight">Awesomium.NET</span> Wiki, to view the C++ Language Wiki please [click here](http://wiki.awesomium.com). All articles are compatible with version 1.7+ only.
 
 {% for g in site.groups %}
 ### {{ g.name }}
