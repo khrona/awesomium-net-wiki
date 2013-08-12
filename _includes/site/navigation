@@ -1,14 +1,12 @@
-        <h1 class="header">
-          <a href="{{ HOME_PATH }}">
-            <img src="{{ ASSET_PATH }}/images/awe-trans-icon-logo.png" width="46" height="42" />.NET
-            <img class="delimiter" src="{{ ASSET_PATH }}/images/logo-delimiter.png" width="2" height="27" />Wiki</a>
-          <div class="clear"></div>
-        </h1>
+        <div class="logo">
+            <a href="{{ HOME_PATH }}"><div>Awesomium</div></a>
+            <a href="{{ HOME_PATH }}"><h1>The Wiki</h1></a>
+        </div>
         <p class="header"></p>
         
         <h3 class="header switch-container">
-          <div class="switch-text">Switch API</div>
-          <div class="switch off"><span class="thumb"></span><input type="checkbox" /></div>
+          <div class="switch-text">Language:</div>
+          <div class="switch on"><span class="thumb"></span><input type="checkbox" /></div>
           <div class="clear"></div>
         </h3>
         

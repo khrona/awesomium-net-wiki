@@ -1,15 +1,23 @@
-<div class="page-header">
+<div class="page-nav">
   {% if page.group %}{% for g in site.groups %}{% if page.group == g.name %}
     <p class="breadcrumb">
       <a href="/">Home</a> <span class="sep">→</span>
       <a href="{{ BASE_PATH }}{{g.path}}">{{ g.name }}</a> <span class="sep">→</span>
     </p>
   {% endif %}{% endfor %}{% endif %}
-  <h2>{{ page.title }} {% if page.tagline %} <small>{{ page.tagline }}</small>{% endif %}</h2>
+  {% if page.group == 'Categories' %}
+    <p class="breadcrumb">
+      <a href="/">Home</a> <span class="sep">→</span>
+    </p>
+  {% endif %}
 </div>
 
-<div class="row">
-  <div class="span12">
+<div class="page">
+  <div class="page-title">
+    <h2>{{ page.title }} {% if page.tagline %} <small>{{ page.tagline }}</small>{% endif %}</h2>
+  </div>
+
+  <div class="page-content">
     {{ content }}
   </div>
 </div>
