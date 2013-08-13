@@ -16,5 +16,5 @@ You are at the <span class="highlight">Awesomium.NET</span> Wiki, to view the C+
 
 {% for g in site.groups %}
 ### {{ g.name }}
-<ul class="truncate">{% assign pages_list = site.pages %}{% assign group = g.name %}{% if g.name == 'Changelogs' %}<li><a href='./getting-started/whats-new.html'>What's New in 1.7.1</a></li>{% endif %}{% include JB/pages_list %}</ul>
+<ul class="truncate">{% assign pages_list = site.pages %}{% assign group = g.name %}{% include JB/pages_list %}</ul>
 {% endfor %}
