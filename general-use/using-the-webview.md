@@ -82,7 +82,7 @@ Note however that this may fail if the specified string is not a well formatted 
 
 `IWebView.Source` makes it really easy to load remote content on the Internet, but what about local resources? If you would like to load local resources with your application, we recommend using a [`DataSource`](http://docs.awesomium.net/?tc=T_Awesomium_Core_Data_DataSource). This powerful bit of API allows you to provide a custom resource loader for a set of URLs that match a certain prefix.
 
-**See [this article](using-data-sources.html) for an introduction to `DataSource` and the available, predefined `DataSource` classes that come with Awesomium.NET.
+**See [this article](using-data-sources.html) for an introduction to `DataSource` and the available, predefined `DataSource` classes that come with Awesomium.NET.**
 
 ### Displaying the WebView
 
