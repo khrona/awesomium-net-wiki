@@ -9,6 +9,5 @@ group: Categories
 <ul>
   {% assign pages_list = site.pages %}
   {% assign group = 'Changelogs' %}
-  <li><a href='../getting-started/whats-new.html'>What's New in 1.7.1</a></li>
   {% include JB/pages_list %}
 </ul>
