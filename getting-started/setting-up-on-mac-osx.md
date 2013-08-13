@@ -13,8 +13,8 @@ This tutorial assumes that you are developing for the **.NET Framework**. If you
 ### Checklist
 You will need the following:
 
-* The latest **Awesomium SDK for Mac OSX** (download it [here](http://www.awesomium.com/download/))
-* Mono Runtime
+* The **Awesomium SDK** (download it [here](http://www.awesomium.com/download/))
+* The **Mono Runtime** (download it [here](http://www.go-mono.com/mono-downloads/download.html))
 
 
 ### Installing the SDK
