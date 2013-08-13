@@ -1,7 +1,7 @@
 ---
 layout: page
 title : What's New in 1.7.1
-group: Getting Started
+group: Changelogs
 weight: 1
 
 ---
