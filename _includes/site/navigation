@@ -6,7 +6,7 @@
         
         <h3 class="header switch-container">
           <div class="switch-text">Language:</div>
-          <div class="switch on"><span class="thumb"></span><input type="checkbox" /></div>
+          <div class="switch off"><span class="thumb"></span><input type="checkbox" /></div>
           <div class="clear"></div>
         </h3>
         
@@ -20,7 +20,7 @@
 				var checkbox;
 				var result = document.querySelector("#result");
 				$$(".switch").forEach(function(switchControl) {
-					if (switchControl.className === ("switch on")) {
+					if (switchControl.className === ("switch off")) {
 						switchControl.lastElementChild.checked = true;
 					}
 					switchControl.addEventListener("click", function toggleSwitch() {
