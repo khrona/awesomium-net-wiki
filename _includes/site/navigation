@@ -21,7 +21,7 @@
 				var result = document.querySelector("#result");
 				$$(".switch").forEach(function(switchControl) {
 					if (switchControl.className === ("switch off")) {
-						switchControl.lastElementChild.checked = true;
+						switchControl.lastElementChild.checked = false;
 					}
 					switchControl.addEventListener("click", function toggleSwitch() {
 						if (switchControl.className === "switch on") {
