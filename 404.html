@@ -1,9 +1,11 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Welcome to the Awesomium.NET Wiki</title>
 
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Page Not Found</title>
+    
     <meta name="author" content="Awesomium Team">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -15,127 +17,117 @@
     <link href="/assets/themes/awesome/stylesheets/styles.css" rel="stylesheet">
     <link href="/assets/themes/awesome/stylesheets/pygment_trac.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//use.typekit.net/cic4rss.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <script>
-        $(document).ready(function () {
-            $('ul.truncate').each(function () {
-                var max = 4
-                if ($(this).find("li").length > max) {
-                    $(this)
-                      .find('li:gt(' + max + ')')
-                      .hide()
-                      .end()
-                      .append(
-                        $('<li class="show-more">Show More...</li>').click(function () {
-                            $(this).siblings(':hidden').show().end().remove();
-                        })
-                    );
-                }
-            });
-        });
-    </script>
-</head>
-<body>
+	$(document).ready(function() {
+		$('ul.truncate').each(function(){
+		  var max = 4
+		  if ($(this).find("li").length > max) {
+			$(this)
+			  .find('li:gt('+max+')')
+			  .hide()
+			  .end()
+			  .append(
+				$('<li class="show-more">Show More...</li>').click( function(){
+				  $(this).siblings(':hidden').show().end().remove();
+				})
+			);
+		  }
+		});
+	});
+	</script>
+  </head>
+  <body>
     <div class="wrapper">
-        <div id="main-site-link"><a href="http://www.awesomium.com">Return to Main Site</a></div>
+      <div id="main-site-link"><a href="http://www.awesomium.com/support">Return to Support Home</a></div>
+      
+      <header>
+              <div class="logo">
+            <a href="/"><div>Awesomium</div></a>
+            <a href="/"><h1>The Wiki</h1></a>
+        </div>
+        <p class="header"></p>
+        
+        <h3 class="header switch-container">
+          <div class="switch-text">Language:</div>
+          <div class="switch off"><span class="thumb"></span><input type="checkbox" /></div>
+          <div class="clear"></div>
+        </h3>
+        
+        
+        <script>
+		(function() {
+			var $$ = function(selector) {
+				return Array.prototype.slice.call(document.querySelectorAll(selector));
+			}
+			document.addEventListener("DOMContentLoaded", function() {
+				var checkbox;
+				var result = document.querySelector("#result");
+				$$(".switch").forEach(function(switchControl) {
+					if (switchControl.className === ("switch off")) {
+						switchControl.lastElementChild.checked = false;
+					}
+					switchControl.addEventListener("click", function toggleSwitch() {
+						if (switchControl.className === "switch on") {
+							switchControl.className = 'switch off';
+						} else {
+							switchControl.className = ("switch on");
+						}
+						checkbox = switchControl.lastElementChild;
+						checkbox.checked = !checkbox.checked;
+						if (checkbox.checked === true) {
+							location.href = "http://wiki.awesomium.com";
+						} else {
+							location.href = "http://wiki.awesomium.net";
+						}
+					}, false);
+				});
+			}, false);
+		})()
+	    </script>
+        
+        <h3 class="header">Categories</h3>
+        
+        <p class="header"><a href="/getting-started">Getting Started</a></p>
+        
+        <p class="header"><a href="/general-use">General Use</a></p>
+        
+        <p class="header"><a href="/tutorials">Tutorials</a></p>
+        
+        <p class="header"><a href="/changelogs">Changelogs</a></p>
+        
 
-        <header>
-            <h1 class="header">
-                <a href="/">
-                    <img src="/assets/themes/awesome/images/awe-trans-icon-logo.png" width="46" height="42" />.NET
-            <img class="delimiter" src="/assets/themes/awesome/images/logo-delimiter.png" width="2" height="27" />Wiki</a>
-                <div class="clear"></div>
-            </h1>
-            <p class="header"></p>
+      </header>
+      <section>
+<div style="margin: 100px 40px 120px;">
+    <div style="font-size: 15em; margin-right: 10px; margin-top: -140px; float: left; height: 100px">:)</div>
+    <div style="font-size: 16pt; line-height: 30px;">We are working on it. Check back later, or read some of the awesome articles available.</div>
+</div>
+      </section>
 
-            <h3 class="header switch-container">
-                <div class="switch-text">Switch API</div>
-                <div class="switch off">
-                    <span class="thumb"></span>
-                    <input type="checkbox" />
-                </div>
-                <div class="clear"></div>
-            </h3>
-
-            <script>
-                (function () {
-                    var $$ = function (selector) {
-                        return Array.prototype.slice.call(document.querySelectorAll(selector));
-                    }
-                    document.addEventListener("DOMContentLoaded", function () {
-                        var checkbox;
-                        var result = document.querySelector("#result");
-                        $$(".switch").forEach(function (switchControl) {
-                            if (switchControl.className === ("switch on")) {
-                                switchControl.lastElementChild.checked = true;
-                            }
-                            switchControl.addEventListener("click", function toggleSwitch() {
-                                if (switchControl.className === "switch on") {
-                                    switchControl.className = 'switch off';
-                                } else {
-                                    switchControl.className = ("switch on");
-                                }
-                                checkbox = switchControl.lastElementChild;
-                                checkbox.checked = !checkbox.checked;
-                                if (checkbox.checked === true) {
-                                    location.href = "http://wiki.awesomium.com";
-                                } else {
-                                    location.href = "http://wiki.awesomium.net";
-                                }
-                            }, false);
-                        });
-                    }, false);
-                })()
-            </script>
-
-            <h3 class="header">Categories</h3>
-
-            <p class="header"><a href="/getting-started">Getting Started</a></p>
-            <p class="header"><a href="/tutorials">Tutorials</a></p>
-            <p class="header"><a href="/general-use">General Use</a></p>
-        </header>
-        <section>
-            <div style="margin: 100px 40px 120px;">
-                <div style="font-size: 15em; margin-right: 10px; float: left; height: 100px">:)</div>
-                <div style="font-size: 16pt; line-height: 30px;">We are working on it. Check back later, or read some of these awesome articles below:</div>
-            </div>
-            <div class="row">
-                <div class="span12">
-                    <h3 id='getting_started'>Getting Started</h3>
-                    <ul class='truncate'>
-                        <li><a href='/getting-started/setting-up-on-windows.html'>Setting Up on Windows</a></li>
-                        <li><a href='/getting-started/whats-new.html'>What's New in 1.7 RC3</a></li>
-                        <li><a href='/getting-started/basic-concepts.html'>Basic Concepts</a></li>
-                    </ul>
-                    <h3 id='tutorials'>Tutorials</h3>
-                    <ul class='truncate'>
-                        <li><a href='/tutorials/tutorial-1-hello-awesomium.html'>Tutorial 1 - Hello Awesomium</a></li>
-                    </ul>
-                    <h3 id='general_use'>General Use</h3>
-                    <ul class='truncate'>
-                        <li><a href='/general-use/introduction-to-web-views.html'>Introduction to Web-Views</a></li>
-                        <li><a href='/general-use/using-the-webview.html'>Using the WebView</a></li>
-                        <li><a href='/general-use/using-web-sessions.html'>Using Web-Sessions</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <p><small>&copy; Awesomium Team 2012</small></p>
-            <p><small><a href="https://github.com/khrona/awesomium-net-wiki">Fork Me on GitHub</a></small></p>
-        </footer>
+      <footer>
+        <p><small>&copy; Awesomium Team 2013</small></p>
+        <p><small><a href="https://github.com/khrona/awesomium-net-wiki">Fork Me on GitHub</a></small></p>
+      </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
-    <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-34877473-1']);
-        _gaq.push(['_trackPageview']);
+    
 
-        (function () {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
-</body>
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34877473-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+  </body>
 </html>
