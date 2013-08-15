@@ -36,7 +36,7 @@ For more details, read the documentation of [`IWebView`](http://docs.awesomium.n
 
 ### Awesomium.NET Web-View Components
 
-Awesomium.NET for MS Windows provides 3 different web-view components. The following table presents these components:
+Awesomium.NET for MS Windows provides 3 different web-view components. The following presents these components:
 
 <dl>
 <dt><h4>"<a href="http://docs.awesomium.net/?tc=T_Awesomium_Core_WebView">WebView</a>" Component</h4></dt>
@@ -272,7 +272,7 @@ All views maintained by the `WebCore`, are internally disposed when `WebCore.Shu
 
 ### Native Web-View Wrapping Sequence
 
-It is important to understand the sequence of events that occur when a native web-view is being wrapped by an **Awesomium.NET** component. The following table presents this sequence and helps you decide the moment certain operations can be performed on the component:
+It is important to understand the sequence of events that occur when a native web-view is being wrapped by an **Awesomium.NET** component. The following presents this sequence and helps you decide the moment certain operations can be performed on the component:
 
 <dl>
 <dt><h4>"WebView" Component</h4></dt>
