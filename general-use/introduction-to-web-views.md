@@ -39,15 +39,10 @@ For more details, read the documentation of [`IWebView`](http://docs.awesomium.n
 Awesomium.NET for MS Windows provides 3 different web-view components. The following table presents these components:
 
 <dl>
-<dt><h4>Component: <a href="http://docs.awesomium.net/?tc=T_Awesomium_Core_WebView"><code>WebView</code></a></h4></dt>
+<dt><h4>"<a href="http://docs.awesomium.net/?tc=T_Awesomium_Core_WebView">WebView</code></a>" Component</h4></dt>
 <dd>
 <h5>Compatible With</h5>
-<ul>
-<li>WinForms</li>
-<li>WPF</li>
-<li>VB</li>
-<li>Mono</li>
-</ul>
+All (WinForms, WPF, Mono, etc.)
 
 <h5>Description</h5>
 Provided by the <i>Awesomium.Core</i> assembly, it can be used in any technology. For more details, read For more details, read <a href="using-the-webview.html">Using the WebView</a>.
@@ -62,58 +57,19 @@ Windowed
 </li>
 </ul>
 The type is defined during creation.
+<hr>
 </dd>
-</dl>
 
+<dt>
+<h4>WPF "<a href="http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebControl">WebControl</a>" Component</h4></dt>
+<dd>
+<h5>Compatible With</h5>
+WPF Only
 
-<table>
-<tr>
-<th>
-Technology
-</th>
-<th>
-Component
-</th>
-<th>
-Description
-</th>
-<th>
-Web-View Type
-</th>
-</tr>
-<tr>
-<td>
-Any
-</td>
-<td>
-<a href="http://docs.awesomium.net/?tc=T_Awesomium_Core_WebView"><code>WebView</code></a>
-</td>
-<td>
-Provided by the <i>Awesomium.Core</i> assembly, it can be used in any technology. For more details, read For more details, read <a href="using-the-webview.html">Using the WebView</a>.
-</td>
-<td>
-<ul>
-<li>
-Offscreen (Default)
-</li>
-<li>
-Windowed
-</li>
-</ul>
-The type is defined during creation.
-</td>
-</tr>
-<tr>
-<td>
-WPF
-</td>
-<td>
-<a href="http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebControl"><code>WebControl</code></a>
-</td>
-<td>
+<h5>Description</h5>
 Provided by the <i>Awesomium.Windows.Controls</i> assembly. It can be used in WPF applications. For more details, read <a href="wpf-webcontrol.html">Introducing the WPF WebControl</a>.
-</td>
-<td>
+
+<h5>View Types</h5>
 <ul>
 <li>
 Offscreen (Default. Uses 100% WPF logic to copy and render the pixel buffer. This maintains the advantages of the Presentation Framework.)
@@ -123,27 +79,24 @@ Windowed (Renders a windowed web-view using a <code>HwndHost</code>. Misses many
 </li>
 </ul>
 The type is defined by setting the <a href="http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebControl_ViewType"><code>WebControl.ViewType</code></a> property.
-</td>
-</tr>
-<tr>
-<td>
-Windows Forms
-</td>
-<td>
-<a href="http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_WebControl"><code>WebControl</code></a>
-</td>
-<td>
+<hr>
+</dl>
+
+<dt>
+<h4>WinForms "<a href="http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_WebControl">WebControl</a>" Component</h4></dt>
+<dd>
+<h5>Compatible With</h5>
+WinForms Only
+
+<h5>Description</h5>
 Provided by the <i>Awesomium.Windows.Forms</i> assembly. It can be used in Windows Forms applications. For more details, read <a href="winforms-webcontrol.html">Introducing the Windows Forms WebControl</a>.
-</td>
-<td>
+
+<h5>View Types</h5>
 <ul>
 <li>
 Windowed
 </li>
 </ul>
-</td>
-</tr>
-</table>
 
 ### Native Web-View Wrapping Sequence
 
