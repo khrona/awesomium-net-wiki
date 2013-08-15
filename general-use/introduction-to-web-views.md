@@ -38,6 +38,28 @@ For more details, read the documentation of [`IWebView`](http://docs.awesomium.n
 
 Awesomium.NET for MS Windows provides 3 different web-view components. The following table presents these components:
 
+<dl>
+<dt><h4>Component: <a href="http://docs.awesomium.net/?tc=T_Awesomium_Core_WebView"><code>WebView</code></a></h4></dt>
+<dd>
+<h4>Compatible With: WinForms, WPF, VB, Mono</h4>
+
+<h4>Description</h4>
+Provided by the <i>Awesomium.Core</i> assembly, it can be used in any technology. For more details, read For more details, read <a href="using-the-webview.html">Using the WebView</a>.
+
+<h4>View Types</h4>
+<ul>
+<li>
+Offscreen (Default)
+</li>
+<li>
+Windowed
+</li>
+</ul>
+The type is defined during creation.
+</dd>
+</dl>
+
+
 <table>
 <tr>
 <th>
