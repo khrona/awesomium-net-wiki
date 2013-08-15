@@ -80,7 +80,7 @@ Windowed (Renders a windowed web-view using a <code>HwndHost</code>. Misses many
 </ul>
 The type is defined by setting the <a href="http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebControl_ViewType"><code>WebControl.ViewType</code></a> property.
 <hr>
-</dl>
+</dd>
 
 <dt>
 <h4>WinForms "<a href="http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_WebControl">WebControl</a>" Component</h4></dt>
@@ -97,6 +97,8 @@ Provided by the <i>Awesomium.Windows.Forms</i> assembly. It can be used in Windo
 Windowed
 </li>
 </ul>
+</dd>
+</dl>
 
 ### Native Web-View Wrapping Sequence
 
