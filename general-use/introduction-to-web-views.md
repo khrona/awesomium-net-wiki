@@ -39,7 +39,7 @@ For more details, read the documentation of [`IWebView`](http://docs.awesomium.n
 Awesomium.NET for MS Windows provides 3 different web-view components. The following table presents these components:
 
 <dl>
-<dt><h4>"<a href="http://docs.awesomium.net/?tc=T_Awesomium_Core_WebView">WebView</code></a>" Component</h4></dt>
+<dt><h4>"<a href="http://docs.awesomium.net/?tc=T_Awesomium_Core_WebView">WebView</a>" Component</h4></dt>
 <dd>
 <h5>Compatible With</h5>
 All (WinForms, WPF, Mono, etc.)
