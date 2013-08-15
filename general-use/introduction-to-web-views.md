@@ -56,8 +56,9 @@ Offscreen (Default)
 Windowed
 </li>
 </ul>
+
 The type is defined during creation.
-<hr>
+<hr/>
 </dd>
 
 <dt>
@@ -79,7 +80,7 @@ Windowed (Renders a windowed web-view using a <code>HwndHost</code>. Misses many
 </li>
 </ul>
 The type is defined by setting the <a href="http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebControl_ViewType"><code>WebControl.ViewType</code></a> property.
-<hr>
+<hr/>
 </dd>
 
 <dt>
