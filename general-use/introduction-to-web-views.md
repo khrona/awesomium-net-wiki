@@ -294,6 +294,7 @@ All steps are performed simultaneously during construction. For <b>offscreen vie
 </ul>
 </li>
 </ol>
+<hr/>
 </dd>
 <dt><h4>WPF "WebControl" Component</h4></dt>
 <dd>
@@ -354,6 +355,7 @@ The control is loaded for presentation for the first time (see <a href="http://m
 </ul>
 </li>
 </ol>
+<hr/>
 </dd>
 <dt><h4>WinForms "WebControl" Component</h4></dt>
 <dd>
@@ -409,31 +411,3 @@ The component is initialized (<code>InitalizeComponent</code> of self and then o
 </dd>
 </dl>
 
-<table>
-<tr>
-<th>
-WebView
-</th>
-<th>
-Windows Forms WebControl
-</th>
-<th>
-WPF WebControl
-</th>
-</tr>
-<tr>
-
-<td>
-
-</td>
-
-<td>
-
-</td>
-
-<td>
-
-</td>
-
-</tr>
-</table>
