@@ -317,7 +317,7 @@ section p, section li {
 }
 section p {
   position: relative;
-  margin: 0 0 1.2em;
+  margin: 0.725em 0 1.45em 0;
 }
 section p.breadcrumb {
   margin-bottom: 1em;
