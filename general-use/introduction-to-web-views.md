@@ -231,7 +231,8 @@ private BindingSource bindingSource;
 bindingSource = new BindingSource() { DataSource = webView };
 
 // Bind the Text property of the Form, to the Title property of the WebView.
-this.DataBindings.Add( new Binding( "Text", bindingSource, "Title", true ) );
+this.DataBindings.Add( 
+    new Binding( "Text", bindingSource, "Title", true ) );
 {% endhighlight %}
 
 And here is an equivalent WPF example:
@@ -264,7 +265,8 @@ In the following example, we query for the `IWebViewIMEComposition` service that
 
 {% highlight csharp %}
 // Query for the IWebViewIMEComposition service.
-IWebViewIMEComposition imeComposition = webControl.GetService( typeof( IWebViewIMEComposition ) );
+IWebViewIMEComposition imeComposition = webControl.GetService( 
+    typeof( IWebViewIMEComposition ) );
 
 // GetService will return a null reference, if the service
 // is not available.
