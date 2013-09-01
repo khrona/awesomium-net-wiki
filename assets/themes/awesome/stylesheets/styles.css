@@ -349,7 +349,7 @@ section blockquote {
   margin: -15px 0 20px 0;
   padding: 5px 0;
   font-weight: 300;
-  font-size: 24px;
+  /* font-size: 24px; */
   clear: both;
 }
 section blockquote {
@@ -360,7 +360,7 @@ section blockquote {
 section blockquote p,
 section .intro p {
   margin: 0;
-  font-size: 24px;
+  /* font-size: 24px; */
 }
 section .pull-quote {
   font-weight: 200;
