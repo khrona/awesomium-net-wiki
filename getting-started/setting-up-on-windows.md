@@ -39,11 +39,11 @@ Select **Custom installation** to choose if you want to:
 
 #### Installation Folder
 
-If you have not specified a custom installation folder during installation, the default installation folder of the SDK (hereafter, `%SDKFolder%`) is:
+If you have not specified a custom installation folder during installation, the default installation folder of the SDK (hereafter, `%SDKFolder%` or just `%%`) is:
 
     %ProgramFiles%\Awesomium Technologies LLC\Awesomium SDK\1.7.x.x
 
-**Note:** If you have been updating from version 1.6.x, the `Awesomium Technologies LLC` folder may be named `Khrona LLC`. The automatic updater does not change the root folder for consistency reasons.
+> **Note:** If you have been updating from version 1.6.x, the `Awesomium Technologies LLC` folder may be named `Khrona LLC`. The automatic updater does not > change the root folder for consistency reasons.
 
 #### Folder Structure of the SDK
 
@@ -100,7 +100,7 @@ The Windows Forms assembly includes the Windows Forms [`WebControl`](http://docs
 
 This folder contains the design assemblies, used to provide design-time features for the Awesomium.NET components, in Visual Studio 2010 & Visual Studio 2012.
 
-**THESE ASSEMBLIES ARE NOT REDISTRIBUTABLE.**
+> **THESE ASSEMBLIES ARE NOT REDISTRIBUTABLE.**
 
 If you have used the Windows Installer to install the SDK, these assemblies must already be in your system's GAC.
 
@@ -115,9 +115,9 @@ To use this assembly and the packed (compressed) native dependencies, follow the
 1. Follow the steps in **[Distributing Awesomium.NET - Manual Deployment](redist.html#clickonce_or_manual_deployment)**, to make sure the **Awesomium.NET** assemblies are copied to your project's output directory, when you build your project.
 2. Build your project. All Awesomium.NET assemblies including the necessary native Awesomium libraries, will be copied to your output directory.
 3. When you are ready to deploy your application, copy the following files alongside your executable, **overwriting** the ones already there:
-    * %SDKFolder%\wrappers\Awesomium.NET\Assemblies\\**Packed**\Awesomium.Core.dll
-    * %SDKFolder%\build\bin\\**packed**\awesomium.dll
-    * %SDKFolder%\build\bin\\**packed**\icudt.dll
+    * %%\wrappers\Awesomium.NET\Assemblies\\**Packed**\Awesomium.Core.dll
+    * %%\build\bin\\**packed**\awesomium.dll
+    * %%\build\bin\\**packed**\icudt.dll
 
    You can perform this operation automatically, by using a **Post Build** event in Visual Studio.
 
@@ -150,15 +150,15 @@ The default **Output Directories** of the included samples, are:
 
 ##### Debug Mode:
 
-    %PublicDocuments%\Awesomium SDK Samples\1.7.x.x\Awesomium.NET\Assemblies\Debug
+    %PubDocs%\Awesomium SDK Samples\1.7.x.x\Awesomium.NET\Assemblies\Debug
     
 ##### Release Mode:
 
-    %PublicDocuments%\Awesomium SDK Samples\1.7.x.x\Awesomium.NET\Assemblies\Release
+    %PubDocs%\Awesomium SDK Samples\1.7.x.x\Awesomium.NET\Assemblies\Release
 
 #### Examining the Samples
 
-You should go through the source code of the included samples. Most of the code of the samples is commented and can be used as a fast tutorial to start working with Awesomium.NET.
+You should go through the source code of the included samples. Most of the code in samples is commented and can be used as a fast tutorial to start working with Awesomium.NET.
 
 
 ### Set up a Project
@@ -169,7 +169,7 @@ To start working with Awesomium.NET 1.7.x, follow these steps:
 2. Make sure your project targets either **.NET 4 Framework Client Profile** or the full **.NET Framework 4**.
 3. Make sure the target platform of your project is **x86**.
 
-Depending on the technology you use, in addition the aforementioned steps, follow the steps bellow.
+Depending on the technology you use, in addition to the aforementioned steps, follow the steps bellow.
 
 #### Windowless Applications
 
@@ -185,21 +185,25 @@ For a **Console** application (or any non-GUI application that uses only the **C
 
 #### WPF Applications
 
+For a WPF application:
+
 1. Open the design view of a `Window` or `Control`.
 2. Open the **Toolbox** window.
-3. You should be able to see the **Awesomium.NET** tab.
+3. You should be able to see the **Awesomium.NET** tab (if you do not see the **Awesomium.NET** tab, read the **[Visual Studio Toolbox](#visual_studio_toolbox)** section below).
 4. The tab must contain the following components:
     * [`WebControl`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebControl)
     * [`WebPageInfoControl`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebPageInfoControl)
 5. Drag & drop the [`WebControl`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebControl) to your `Window` or `Control`. This will also add the necessary references to your project and activate design-time features.
 
-For more details, read the [Introducing the WPF WebControl](http://wiki.awesomium.net/general-use/wpf-webcontrol.html) article.
+**For more details, read the [Using the WPF WebControl](http://wiki.awesomium.net/general-use/wpf-webcontrol.html) article.**
 
 #### Windows Forms Applications
 
+For a Windows Forms application:
+
 1. Open the design view of a `Window` or `Control`.
 2. Open the **Toolbox** window.
-3. You should be able to see the **Awesomium.NET** tab.
+3. You should be able to see the **Awesomium.NET** tab (if you do not see the **Awesomium.NET** tab, read the **[Visual Studio Toolbox](#visual_studio_toolbox)** section below).
 4. The tab must contain the following components:
     * [`WebControl`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_WebControl)
     * [`WebSessionProvider`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_WebSessionProvider)
@@ -207,7 +211,7 @@ For more details, read the [Introducing the WPF WebControl](http://wiki.awesomiu
     * [`WebControlContextMenu`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_WebControlContextMenu) (Only used when you want to extend the default context menu)
 5. Drag & drop the [`WebControl`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_WebControl) to your form. This will also add the necessary references to your project and activate design-time features.
 
-For more details, read the [Introducing the Windows Forms WebControl](http://wiki.awesomium.net/general-use/winforms-webcontrol.html) article.
+**For more details, read the [Using the Windows Forms WebControl](http://wiki.awesomium.net/general-use/winforms-webcontrol.html) article.**
 
 #### Awesomium.NET Namespaces
 
@@ -239,7 +243,7 @@ Next time you start **Visual Studio** and open the **Toolbox** window, its conte
 
 When working on a system where the Awesomium SDK is installed, projects that use Awesomium.NET reference the Awesomium.NET assemblies and native Awesomium libraries deployed in your system's GAC by the SDK's installer.
 
-To distribute your application, you must make sure all the necessary references are deployed alongside your executable.
+To distribute your application, you must make sure all the necessary references are deployed with your executable to the target system.
 
 **For details, read the [Distributing Awesomium.NET](redist.html) article.**
 
@@ -247,7 +251,7 @@ To distribute your application, you must make sure all the necessary references 
 ### Read some more articles
 
 * [Basic Concepts](basic-concepts.html)
-* [What's New in the latest release](whats'new.html)
+* [What's New in the latest release](http://wiki.awesomium.net/changelogs/whats-new.html)
 * [Distributing Awesomium.NET](redist.html)
 
 

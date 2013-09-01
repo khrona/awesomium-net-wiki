@@ -262,21 +262,22 @@ section pre {
 }
 section code {
   border: none;
-  font-size: 14px;
+  /* font-size: 14px; */
   margin: 0 2px;
-  padding: .4em .6em;
+  /* padding: .4em .6em; */
 }
 section pre code {
   margin: 0;
   padding: 0;
+  font-size: 14px;
 }
 section pre,
 section code {
-  background: #f8f7f9;
+  /* background: #f8f7f9; */
   /* color:#615d6d; */
 
   color: #726f80;
-  font-family: "source-code-pro", Consolas, 'Liberation Mono', Courier, monospace;
+  font-family: Consolas, "source-code-pro", 'Liberation Mono', Courier, monospace;
 }
 section pre .keyword,
 section pre .support {
@@ -332,7 +333,7 @@ section ol {
   margin-bottom: 20px;
   padding: 0;
   margin: 0;
-  padding-right: 120px;
+  /* padding-right: 120px; */
   max-width: 550px;
   margin-left: 35px;
   margin-bottom: 30px;
@@ -346,7 +347,7 @@ section .intro,
 section blockquote {
   color: #555163;
   margin: -15px 0 20px 0;
-  padding: 10px 0;
+  padding: 5px 0;
   font-weight: 300;
   font-size: 24px;
   clear: both;
