@@ -360,7 +360,13 @@ section blockquote {
   padding: 1em;
   margin: 1em 0;
 }
-section blockquote p,
+section blockquote p {
+  color: #a1a0a7;
+  font-size: 18px;
+  line-height: 1.45em;
+  padding: 0;
+  margin: 0;
+}
 section .intro p {
   margin: 0;
   /* font-size: 24px; */
