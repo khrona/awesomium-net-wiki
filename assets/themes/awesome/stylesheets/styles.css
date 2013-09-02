@@ -353,9 +353,12 @@ section blockquote {
   clear: both;
 }
 section blockquote {
-  margin: 30px 0;
-  border-left: 5px solid #f74f4f;
-  padding-left: 0.6em;
+  border-left: 5px solid #e8e8eb;
+  color: #a1a0a7;
+  font-size: 18px;
+  line-height: 1.45em;
+  padding: 1em;
+  margin: 1em 0;
 }
 section blockquote p,
 section .intro p {
@@ -383,15 +386,6 @@ section ul li {
 section .highlight {
   background: #FFF4B2;
   color: #222;
-}
-
-section blockquote.note {
-  border-left: 5px solid #e8e8eb;
-  color: #a1a0a7;
-  font-size: 18px;
-  line-height: 1.45em;
-  padding: 1em;
-  margin: 1em 0;
 }
 
 /* -------------------- */
