@@ -343,13 +343,10 @@ section li {
   margin-bottom: 10px;
   margin-top: 10px;
 }
-section .intro,
-section blockquote {
+section .intro, section p.intro {
   color: #555163;
-  margin: -15px 0 20px 0;
-  padding: 5px 0;
   font-weight: 300;
-  /* font-size: 24px; */
+  font-size: 24px;
   clear: both;
 }
 section blockquote {
@@ -366,10 +363,6 @@ section blockquote p {
   line-height: 1.45em;
   padding: 0;
   margin: 0;
-}
-section .intro p {
-  margin: 0;
-  /* font-size: 24px; */
 }
 section .pull-quote {
   font-weight: 200;
@@ -400,10 +393,6 @@ section table {
   empty-cells: show;
   border: 1px solid #e8e8eb;
 }
-section th {
-  border-bottom: 1px solid #e8e8eb;
-  color: #635e70;
-}
 section td, section th {
   border-left: 1px solid #e8e8eb;
   border-width: 0 0 0 1px;
@@ -411,6 +400,10 @@ section td, section th {
   margin: 0;
   overflow: visible;
   padding: 0.5em 1em;
+}
+section th {
+  border-bottom: 1px solid #e8e8eb;
+  color: #635e70;
 }
 
 /* -------------------- */
