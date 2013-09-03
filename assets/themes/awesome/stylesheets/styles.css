@@ -360,12 +360,15 @@ section blockquote {
 }
 section blockquote p {
   color: #a1a0a7;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.45em;
   padding: 0;
   margin: 0;
   font-weight: 300;
   margin-left: 3.2em;
+}
+section blockquote p code, section blockquote p a {
+  color: #a1a0a7;
 }
 section blockquote:before {
   content: 'Note: ';
