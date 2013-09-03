@@ -55,7 +55,7 @@ Offscreen (Default)
 Windowed
 </li>
 </ul>
-<blockquote>The type is defined during creation.</blockquote>
+<blockquote><p>The type is defined during creation.</p></blockquote>
 </dd>
 
 <hr/>
@@ -76,7 +76,7 @@ Offscreen (Default. Uses 100% WPF logic to copy and render the pixel buffer. Thi
 Windowed (Renders a windowed web-view using a <code>HwndHost</code>. Misses many presentation features but supports full hardware acceleration.)
 </li>
 </ul>
-<blockquote>The type is defined by setting the <a href="http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebControl_ViewType"><code>WebControl.ViewType</code></a> property.</blockquote>
+<blockquote><p>The type is defined by setting the <a href="http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebControl_ViewType"><code>WebControl.ViewType</code></a> property.</p></blockquote>
 </dd>
 
 <hr/>
@@ -97,7 +97,7 @@ Windowed (Default)
 Offscreen
 </li>
 </ul>
-<blockquote>The type is defined by setting the <a href="http://docs.awesomium.net/?tc=P_Awesomium_Windows_Forms_WebControl_ViewType"><code>WebControl.ViewType</code></a> property.</blockquote>
+<blockquote><p>The type is defined by setting the <a href="http://docs.awesomium.net/?tc=P_Awesomium_Windows_Forms_WebControl_ViewType"><code>WebControl.ViewType</code></a> property.</p></blockquote>
 </dd>
 
 <hr/>
@@ -252,7 +252,7 @@ And here is an equivalent WPF example:
 </Window>
 {% endhighlight %}
 
-> **Note:** All `IWebView` events are dispatched asynchronously (meaning that the event may arrive a few milliseconds after the event actually happened in the child-process).
+> All `IWebView` events are dispatched asynchronously (meaning that the event may arrive a few milliseconds after the event actually happened in the child-process).
 
 
 ### Features as a Service
@@ -284,18 +284,18 @@ if ( imeComposition != null )
 
 It is important to understand the sequence of events that occur when a native web-view is being wrapped by an **Awesomium.NET** component. This helps you decide the moment certain operations can be performed on the component.
 
-**For details, read the [Web-View Initialization Sequence](initialization-sequence.html) article.**
+> For details, read the [Web-View Initialization Sequence](initialization-sequence.html) article.
 
 
 ### Cleaning Up
 
 All `IWebView` instances implement `IDisposable` and expose a `Dispose` method. You should generally call `Dispose` on an `IWebView` instance when you're done using it. This allows the view to perform some cleanup and release resources.
 
-> For offscreen `IWebView` instances, the `ISurface` instance currently assigned to `IWebView.Surface`, is disposed when the view is disposed.
+> For offscreen `IWebView` instances, the `ISurface` instance currently assigned to `IWebView.Surface` is disposed when the view is disposed.
 
 When an `IWebView` instance is displayed in a graphical environment (like when using a `WebControl`), you should not call `Dispose` while the container of the view is still visible.
 
-> An `IWebView.IsDisposed` property indicates if an view has been disposed.
+> The `IWebView.IsDisposed` property can be used to check if a view has been disposed.
 
 Here is an example using the WPF `WebControl`:
 
@@ -314,7 +314,7 @@ protected override void OnClosed( EventArgs e )
 }
 {% endhighlight %}
 
-> All views maintained by the `WebCore`, are internally disposed when `WebCore.Shutdown` is called.
+> All views maintained by the `WebCore` are automatically disposed when `WebCore.Shutdown` is called.
 
 
 ### Read some more articles
