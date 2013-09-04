@@ -43,7 +43,7 @@ If you have not specified a custom installation folder during installation, the 
 
     %ProgramFiles%\Awesomium Technologies LLC\Awesomium SDK\1.7.x.x
 
-> **Note:** If you have been updating from version 1.6.x, the `Awesomium Technologies LLC` folder may be named `Khrona LLC`. The automatic updater does not > change the root folder for consistency reasons.
+> If you have been updating from version 1.6.x, the `Awesomium Technologies LLC` folder may be named `Khrona LLC`. The automatic updater does not > change the root folder for consistency reasons.
 
 #### Folder Structure of the SDK
 
@@ -70,7 +70,7 @@ Below is a list of those files and a short description for them:
 This is the core assembly of **Awesomium.NET**. It must be referenced by all projects using Awesomium. The core assembly is linked at compilation to all the necessary native Awesomium libraries.
 
 * Awesomium.Core.dll (Core assembly)
-* Awesomium.Core.XML (XAML Documentation used by VS IntelliSense.)
+* Awesomium.Core.XML (XML Documentation used by VS IntelliSense)
 * avcodec-53.dll
 * avformat-53.dll
 * avutil-51.dll
