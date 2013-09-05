@@ -1,8 +1,9 @@
 ---
 layout: page
 title : What's New in 1.7.2
-group: None
+group: Changelog
 weight: 2
+published: false
 
 ---
 
