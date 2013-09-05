@@ -8,7 +8,7 @@ weight: 1
 
 We are very proud to announce the release of **Awesomium.NET 1.7.2**. This is a critical update with a number of new features and enhancements.
 
-* [Download the Awesomium 1.7.1 SDK](http://www.awesomium.com/download) (includes the **Awesomium.NET** binaries and samples)
+* [Download the Awesomium 1.7.2 SDK](http://www.awesomium.com/download) (includes the **Awesomium.NET** binaries and samples)
 * [Awesomium.NET 1.7.2 API Reference](http://docs.awesomium.net)
 * [Setting up on Windows](http://wiki.awesomium.net/getting-started/setting-up-on-windows.html)
 
@@ -42,7 +42,7 @@ Our new **Unity plugin** is ready and available with this release. The plugin in
 * Crashed views can be brought back to life by calling any of the `Back`, `Forward`, `Reload` or by setting a new `Source`.
 * The `ReduceMemoryUsageOnNavigation` configuration setting and `IWebView.ReduceMemoryUsage` method have been added and can significantly reduce memory usage (at the cost of performance).
 * An `IWebView.SelectionComplete` event has been added that is fired when user selection in a page, is completed.
-* Our JavaScript Interoperation Framework (JIF) has been redisigned and its size has been reduced (improving performance and functionality for `window.open`, `window.close`, content selection and JavaScript dialogs).
+* Our JavaScript Interoperation Framework (JIF) has been redesigned and its size has been reduced (improving performance and functionality for `window.open`, `window.close`, content selection and JavaScript dialogs).
 * No property or event arguments that provide a `Uri` will ever return a null reference. Instead, a blank URI (`about:blank`) is now returned that can be checked with the new `IsBlank` `Uri` extension.
 * A predefined, default drop-down (popup) menu has been added to the to the Windows Forms `WebControl` (`WebPopupMenu`).
 
@@ -84,7 +84,7 @@ Our new **Unity plugin** is ready and available with this release. The plugin in
 * Fixed issue introduced in 1.7.1 that would cause the internal queued navigation of child views created at `IWebView.ShowCreatedWebView` (result of JavaScript 'window.open') be aborted, breaking opener<->child relationship.
 * Fixed an "out of sync" exception that could occur at `WebCore` shutdown (during `DestroyUnwrappedViews`).
 * Fixed a concurrency issue that could throw an `ArgumentException` (Source array was not long enough) while adding messages in the `WebCore`'s internal asynchronous queue.
-* (JavaScript) Fixed "awejif is not defined" that occured in several occassions.
+* (JavaScript) Fixed "awejif is not defined" that occurred in several occasions.
 
 ##### WPF
 
