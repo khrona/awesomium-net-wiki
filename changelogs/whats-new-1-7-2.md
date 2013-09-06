@@ -99,7 +99,7 @@ Our new **Unity plugin** is ready and available with this release. The plugin in
 * Fixed memory leak when disposing of a Windows Forms `WebControl`.
 * Fixed an issue that caused page content be selected based on mouse movement, when a `WebControlContextMenu` or `WebPopupMenu` is open.
 
-Please [read here](http://www.awesomium.com/ChangeLog.txt), the list of bugs fixed in native Awesomium. Some of them affected Awesomium.NET.
+Please [read here](http://wiki.awesomium.com/changelogs/whats-new-1-7-2.html), the list of bugs fixed in native Awesomium. Some of them affected Awesomium.NET.
 
 
 ### Changes in Samples
