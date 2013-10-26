@@ -29,6 +29,7 @@ We are very proud to announce the release of **Awesomium.NET 1.7.3**. This is a 
 
 ### API Changes
 
+
 #### New API:
 
 ##### *Awesomium.Core*
@@ -44,7 +45,8 @@ We are very proud to announce the release of **Awesomium.NET 1.7.3**. This is a 
 ##### *Awesomium.Windows.Controls* (WPF)
 
 * [`WebControlCommands.CopyImageURL`](http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebControlCommands_CopyImageURL)
-                    
+
+
 #### Modified API
 
 ##### *Awesomium.Unity*
@@ -83,6 +85,7 @@ We are very proud to announce the release of **Awesomium.NET 1.7.3**. This is a 
 ### Known Issues
 
 * On **Windows 8**, **WebGL** is currently not supported.
+
 
 #### Under production:
 
