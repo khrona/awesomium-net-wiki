@@ -79,6 +79,15 @@ We are very proud to announce the release of **Awesomium.NET 1.7.3**. This is a 
 * (WPF) Fixed issue in the *TabbedWPFSample* that would cause links in child windows (`PopupWindow`) not work appropriately.
 
 
+### Known Issues
+
+* On **Windows 8**, **WebGL** is currently not supported.
+
+#### Under production:
+
+* When you are using the OSX `OSMWebView`, drop-down (popup) menus (e.g., HTML: `<select>`), are not displayed automatically. Predefined drop-down (popup) menus have been added to the WPF `WebControl` and the Windows Forms `WebControl` but not to the MonoMac `OSMWebView` yet. However, the new powerful API allows you to design and display these yourself, by handling the [`ShowPopupMenu`](http://docs.awesomium.net/?tc=E_Awesomium_Core_IWebView_ShowPopupMenu) event.
+
+
 ### Older Changelogs
 
 You can find this and previous Changelogs, under the [Changelogs](http://wiki.awesomium.net/changelogs/) category.
