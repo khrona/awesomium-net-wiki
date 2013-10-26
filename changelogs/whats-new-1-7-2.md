@@ -1,7 +1,7 @@
 ---
 layout: page
 title : What's New in 1.7.2
-group: Changelog
+group: Changelogs
 weight: 2
 
 ---
@@ -52,32 +52,32 @@ Our new **Unity plugin** is ready and available with this release. The plugin in
 
 ##### *Awesomium.Core*
 
-* [`WebCore.Log`]()
-* [`LogSeverity`]() enumeration.
-* [`WebConfig.ReduceMemoryUsageOnNavigation`]()
-* [`WebSession.ClearCache`]()
-* [`IWebView.ReduceMemoryUsage`]()
-* [`IWebView.SelectionComplete`]()
-* [`Utilities.MinifyJavascript`]()
-* [`Uri.IsBlank`]() (`Uri` extension)
-* [`WebMenuItem.Empty`]()
-* [`WebMenuItem.IsEmpty`]()
-* [`WebPopupMenuInfo.IsValid`]()
+* [`WebCore.Log`](http://docs.awesomium.net/?tc=Overload_Awesomium_Core_WebCore_Log)
+* [`LogSeverity`](http://docs.awesomium.net/?tc=T_Awesomium_Core_LogSeverity) enumeration.
+* [`WebConfig.ReduceMemoryUsageOnNavigation`](http://docs.awesomium.net/?tc=P_Awesomium_Core_WebConfig_ReduceMemoryUsageOnNavigation)
+* [`WebSession.ClearCache`](http://docs.awesomium.net/?tc=M_Awesomium_Core_WebSession_ClearCache)
+* [`IWebView.ReduceMemoryUsage`](http://docs.awesomium.net/?tc=M_Awesomium_Core_IWebView_ReduceMemoryUsage)
+* [`IWebView.SelectionComplete`](http://docs.awesomium.net/?tc=E_Awesomium_Core_IWebView_SelectionComplete)
+* [`Utilities.MinifyJavascript`](http://docs.awesomium.net/?tc=M_Awesomium_Core_Utilities_MinifyJavascript)
+* [`Uri.IsBlank`](http://docs.awesomium.net/?tc=M_Awesomium_Core_Utilities_IsBlank) (`Uri` extension)
+* [`WebMenuItem.Empty`](http://docs.awesomium.net/?tc=F_Awesomium_Core_WebMenuItem_Empty)
+* [`WebMenuItem.IsEmpty`](http://docs.awesomium.net/?tc=P_Awesomium_Core_WebMenuItem_IsEmpty)
+* [`WebPopupMenuInfo.IsValid`](http://docs.awesomium.net/?tc=P_Awesomium_Core_WebPopupMenuInfo_IsValid)
 
 ##### *Awesomium.Windows.Controls* (WPF)
 
-* [`UrlConverter`]() (`IValueConverter`)
+* [`UrlConverter`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_UrlConverter) (`IValueConverter`)
 
 ##### *Awesomium.Windows.Forms*
 
-* [`WebControl.ProcessInput`]()
-* [`WebPopupMenu`]()
+* [`WebControl.ProcessInput`](http://docs.awesomium.net/?tc=P_Awesomium_Windows_Forms_WebControl_ProcessInput)
+* [`WebPopupMenu`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_WebPopupMenu)
 
 #### Modified API
 
 ##### *Awesomium.Windows.Controls* (WPF)
 
-* [`WebViewPresenter.DeviceTransform`]()
+* [`WebViewPresenter.DeviceTransform`](http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebViewPresenter_DeviceTransform)
 
 ### Bug Fixes
 
@@ -98,7 +98,7 @@ Our new **Unity plugin** is ready and available with this release. The plugin in
 * Fixed memory leak when disposing of a Windows Forms `WebControl`.
 * Fixed an issue that caused page content be selected based on mouse movement, when a `WebControlContextMenu` or `WebPopupMenu` is open.
 
-Please [read here](http://wiki.awesomium.com/changelogs/whats-new-1-7-2.html), the list of bugs fixed in native Awesomium. Some of them affected Awesomium.NET.
+Please [read here](http://www.awesomium.com/ChangeLog.txt), the list of bugs fixed in native Awesomium. Some of them affected Awesomium.NET.
 
 
 ### Changes in Samples
