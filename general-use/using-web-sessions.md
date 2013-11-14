@@ -72,7 +72,7 @@ WebView view = WebCore.CreateWebView( 1280, 960, session );
 There are two ways to assign a `WebSession` to WPF `WebControl`: either programmatically or in the designer (XAML).
 The *Awesomium.Windows.Controls* assembly provides a [`WebSessionProvider`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebSessionProvider) class that can be used to assign a `WebSession` to a WPF `WebControl`, through XAML. Here is how:
 
-{% highlight xml %}
+```xml{10-14,23,28}
 <Window 
     x:Class="WebControlSample.MainWindow" 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
@@ -104,7 +104,7 @@ The *Awesomium.Windows.Controls* assembly provides a [`WebSessionProvider`](http
             Source="http://www.google.com"/>
     </Grid>
 </Window>
-{% endhighlight %}
+```
 
 #### Assigning to a Windows Forms WebControl
 
