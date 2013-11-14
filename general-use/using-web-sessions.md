@@ -72,7 +72,7 @@ WebView view = WebCore.CreateWebView( 1280, 960, session );
 There are two ways to assign a `WebSession` to WPF `WebControl`: either programmatically or in the designer (XAML).
 The *Awesomium.Windows.Controls* assembly provides a [`WebSessionProvider`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebSessionProvider) class that can be used to assign a `WebSession` to a WPF `WebControl`, through XAML. Here is how:
 
-```xml{10-15,23,28}
+{% highlight xml %}
 <Window 
     x:Class="WebControlSample.MainWindow" 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
@@ -104,41 +104,7 @@ The *Awesomium.Windows.Controls* assembly provides a [`WebSessionProvider`](http
             Source="http://www.google.com"/>
     </Grid>
 </Window>
-```
-
-```xml
-<Window 
-    x:Class="WebControlSample.MainWindow" 
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:core="clr-namespace:Awesomium.Core;assembly=Awesomium.Core"
-    xmlns:awe="http://schemas.awesomium.com/winfx"
-    Height="350" 
-    Width="525">
-    <Window.Resources>
-        <awe:WebSessionProvider x:Key="mySession">
-            <core:WebPreferences 
-                SmoothScrolling="True"
-                LoadImagesAutomatically="False"/>
-        </awe:WebSessionProvider>
-    </Window.Resources>
-    <Grid SnapsToDevicePixels="True">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <awe:WebControl 
-            Name="webControl" 
-            WebSession="{Binding Source={StaticResource mySession}}" 
-            Source="http://www.awesomium.com/"/>
-        <awe:WebControl 
-            Name="webControl1" 
-            Grid.Column="1" 
-            WebSession="{Binding Source={StaticResource mySession}}" 
-            Source="http://www.google.com"/>
-    </Grid>
-</Window>
-```
+{% endhighlight %}
 
 #### Assigning to a Windows Forms WebControl
 
