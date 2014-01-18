@@ -15,8 +15,8 @@ title : Awesomium.NET Wiki
 tagline: Wiki for Awesomium.NET, a Web UI Bridge for Native Apps
 author :
   name : Awesomium Team
-  email : contact@khrona.com
-  github : khrona
+  email : contact@awesomium.com
+  github : awesomium
   twitter : awesomium
 
 groups:
@@ -24,6 +24,10 @@ groups:
     path: /getting-started
   - name: General Use
     path: /general-use
+  - name: WPF
+    path: /wpf
+  - name: Windows Forms
+    path: /winforms
   - name: MonoMac
     path: /monomac
   - name: Unity

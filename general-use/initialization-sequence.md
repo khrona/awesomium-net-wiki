@@ -22,7 +22,7 @@ It is important to understand the sequence of events that occur when a native we
 The following presents the detailed initialization sequence for all managed web-view components on MS Windows and helps you decide the moment certain operations can be performed on the component:
 
 <dl>
-<dt><h4><code>WebView</code> Component</h4></dt>
+<dt><h4 id="webview"><code>WebView</code> Component</h4></dt>
 
 <dd>
 <ol>
@@ -45,7 +45,7 @@ All steps are performed simultaneously during construction. For <b>offscreen vie
 </dd>
 
 <hr/>
-<dt><h4>WPF <code>WebControl</code> Component</h4></dt>
+<dt><h4 id="wpf-webcontrol">WPF <code>WebControl</code> Component</h4></dt>
 
 <dd>
 <ol>
@@ -109,7 +109,7 @@ The control is loaded for presentation for the first time (see <a href="http://m
 </dd>
 
 <hr/>
-<dt><h4>WinForms <code>WebControl</code> Component</h4></dt>
+<dt><h4 id="forms-webcontrol">WinForms <code>WebControl</code> Component</h4></dt>
 
 <dd>
 <ol>
@@ -171,5 +171,5 @@ The component is initialized (<code>InitalizeComponent</code> of self and then o
 
 * [Introduction to Web-Views](introduction-to-web-views.html)
 * [Using the WebView](using-the-webview.html)
-* [Using the WPF WebControl](wpf-webcontrol.html)
-* [Using the Windows Forms WebControl](winforms-webcontrol.html)
+* [Using the WPF WebControl](../wpf/webcontrol.html)
+* [Using the Windows Forms WebControl](../winforms/webcontrol.html)

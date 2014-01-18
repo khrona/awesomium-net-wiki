@@ -195,7 +195,7 @@ For a WPF application:
     * [`WebPageInfoControl`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebPageInfoControl)
 5. Drag & drop the [`WebControl`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebControl) to your `Window` or `Control`. This will also add the necessary references to your project and activate design-time features.
 
-**For more details, read the [Using the WPF WebControl](http://wiki.awesomium.net/general-use/wpf-webcontrol.html) article.**
+**For more details, read the [Using the WPF WebControl](../wpf/webcontrol.html) article.**
 
 #### Windows Forms Applications
 
@@ -211,7 +211,7 @@ For a Windows Forms application:
     * [`WebControlContextMenu`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_WebControlContextMenu) (Only used when you want to extend the default context menu)
 5. Drag & drop the [`WebControl`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Forms_WebControl) to your form. This will also add the necessary references to your project and activate design-time features.
 
-**For more details, read the [Using the Windows Forms WebControl](http://wiki.awesomium.net/general-use/winforms-webcontrol.html) article.**
+**For more details, read the [Using the Windows Forms WebControl](../winforms/webcontrol.html) article.**
 
 #### Awesomium.NET Namespaces
 

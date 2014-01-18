@@ -35,7 +35,7 @@ For details, read the following articles:
 
 Our new **Unity plugin** is ready and available with this release. The plugin includes a new, completely revamped component, [`WebUIComponent`](), design-time support and many new features.
 
-**For details, read the [Using the Unity WebUIComponent](http://wiki.awesomium.net/unity/using-the-webuicomponent.html) article.**
+**For details, read the [Using the Unity WebUIComponent](http://wiki.awesomium.net/unity/webuicomponent.html) article.**
 
 ### New Features
 

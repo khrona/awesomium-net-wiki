@@ -319,10 +319,10 @@ protected override void OnClosed( EventArgs e )
 
 ### Read some more articles
 
-* [Basic Concepts](http://wiki.awesomium.net/getting-started/basic-concepts.html)
+* [Basic Concepts](../getting-started/basic-concepts.html)
 * [Using the WebView](using-the-webview.html)
-* [Using the WPF WebControl](wpf-webcontrol.html)
-* [Using the Windows Forms WebControl](winforms-webcontrol.html)
-* [Using the Unity WebUIComponent](http://wiki.awesomium.net/unity/using-the-webuicomponent.html)
-* [Using the MonoMac OSMWebView](http://wiki.awesomium.net/monomac/using-the-osmwebview.html)
+* [Using the WPF WebControl](../wpf/webcontrol.html)
+* [Using the Windows Forms WebControl](../winforms/webcontrol.html)
+* [Using the Unity WebUIComponent](../unity/using-the-webuicomponent.html)
+* [Using the MonoMac OSMWebView](../monomac/using-the-osmwebview.html)
 * [Web-View Initialization Sequence](initialization-sequence.html)

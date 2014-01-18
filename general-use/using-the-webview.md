@@ -8,9 +8,9 @@ weight: 2
 
 ### Introduction
 
-The [`WebView`](http://docs.awesomium.net/?tc=T_Awesomium_Core_WebView) is the primary managed wrapper of an Awesomium Web-View. It is provided through the *Awesomium.Core* assembly and can be used in any technology.
+The [`WebView`](http://docs.awesomium.net/?tc=T_Awesomium_Core_WebView) is the primary managed wrapper of an Awesomium Web-View. It is provided through the *Awesomium.Core* assembly on MS Windows and also through *Awesomium.Mono* (platform independent) and *Awesomium.Unity.Core* (Unity game engine). It can be used in any technology.
 
-It is mainly used as a *windowless* web-view component in applications without GUI (Console applications, services etc.), MVVM applications or managed technologies where Awesomium.NET does not already provide a web-view component.
+The `WebView` is mainly used as a *windowless* web-view component in applications without GUI (Console applications, services etc.), MVVM applications or managed technologies where **Awesomium.NET** does not already provide a web-view component.
 
 A `WebView` can be of any type, *offscreen* or *windowed*. For more details read [Introduction to Web-Views](introduction-to-web-views.html).
 
@@ -88,9 +88,9 @@ Note however that this may fail if the specified string is not a well formatted 
 
 How a `WebView` component is displayed, depends on its [type]().
 
-Offscreen `WebView` components can be displayed to Windows Forms and WPF using any of the predefined [`ISurface`](http://docs.awesomium.net/?tc=T_Awesomium_Core_ISurface) classes available with Awesomium.NET. For more advanced scenarios or for displaying a `WebView` in technologies where Awesomium.NET does not already provide a web-view component, you can create a custom `ISurface` implementation.
+*Offscreen* `WebView` components can be displayed to Windows Forms and WPF using any of the predefined [`ISurface`](http://docs.awesomium.net/?tc=T_Awesomium_Core_ISurface) classes available with Awesomium.NET. For more advanced scenarios or for displaying a `WebView` in technologies where Awesomium.NET does not already provide a web-view component, you can create a custom `ISurface` implementation.
 
-Windowed `WebView` components, render directly to a platform window (`HWND`, `NSView`, etc.) and capture all input themselves. In certain technologies, resizing is also handled automatically.
+*Windowed* `WebView` components, render directly to a platform window (`HWND`, `NSView`, etc.) and capture all input themselves. In certain technologies, resizing is also handled automatically.
 
 For more details, read:
 

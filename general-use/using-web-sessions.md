@@ -6,19 +6,21 @@ weight: 6
 
 ---
 
-### What is a [WebSession](http://docs.awesomium.net/?tc=T_Awesomium_Core_WebSession)?
+### What is a WebSession?
 
-A `WebSession` is responsible for storing all user-generated data (cookies, cache, authentication, etc.). It can either be purely in-memory or saved to disk (you will need to provide a writeable path to store the data at runtime).
+A **[`WebSession`](http://docs.awesomium.net/?tc=T_Awesomium_Core_WebSession)** is responsible for storing all user-generated data (cookies, cache, authentication, etc.). It can either be purely in-memory or saved to disk (you will need to provide a writeable path to store the data at runtime).
 
 Each `IWebView` instance must have a `WebSession` to store its data into. You can associate multiple `IWebView` instances with each `WebSession`.
+
 
 ### The Default WebSession
 
 The `WebCore` creates a default, in-memory `WebSession` upon initialization. This session is used for all `IWebView` instances unless otherwise specified. You can access the `WebSession` assigned to a `IWebView` instance, through the [`IWebVew.WebSession`](http://docs.awesomium.net/?tc=P_Awesomium_Core_IWebView_WebSession) property.
 
+
 ### Creating a WebSession
 
-You can create a WebSession like so:
+You can create a `WebSession` like so:
 
 {% highlight csharp %}
 WebSession session = WebCore.CreateWebSession( 
@@ -36,6 +38,7 @@ WebSession session = WebCore.CreateWebSession( WebPreferences.Default );
 {% endhighlight %}
 
 #### Specifying Custom Preferences
+
 You can supply custom preferences for each `WebSession` via the *`prefs`* parameter. Here's an example:
 
 {% highlight csharp %}
@@ -48,7 +51,9 @@ WebSession session = WebCore.CreateWebSession( new WebPreferences()
 } );
 {% endhighlight %}
 
+
 ### Assigning the WebSession to one or more IWebView instances
+
 You can assign your `WebSession` instace to one more `IWebView` instances. The procedure differs depending on the component you use.
 
 #### Assigning to a WebView
@@ -149,13 +154,16 @@ public MainWindow()
 
 
 ### Accessing WebSessions
+
 The `WebCore` maintains all the `WebSession` instances that have been created, including the default one. You can access them, through the [`WebCore.Sessions`](http://docs.awesomium.net/?tc=P_Awesomium_Core_WebCore_Sessions) property.
 
 Each `WebSession` instance, also provides a [`Views`](http://docs.awesomium.net/?tc=P_Awesomium_Core_WebSession_Views) property. This can be used to access the `IWebView` instances that this `WebSession` is currently assigned to.
 
 You can access a `WebSession` assigned to an `IWebView` instance at runtime, to add a custom [`DataSource`](http://docs.awesomium.net/?tc=T_Awesomium_Core_Data_DataSource) (for more details, see: [Using Data-Sources](using-data-sources.html)) or set cookies. Note however that you cannot change the `WebPreferences` defined for a session, after the session's creation.
 
+
 ### Destroying the WebSession
+
 `WebSession` is a disposable object. You can dispose `WebSession` instances that are no longer associated with a view. If you forget to do this, all `WebSession` instances maintained by the `WebCore`, are disposed at `WebCore.Shutdown`. This ensures that the `WebSession` will be saved to disk upon application exit.
 
 Note however that a session **cannot not be destroyed until all `IWebView` instances associated with it have been destroyed.** Attempting to dispose a `WebSession` instance that is still associated with views, will throw an exception in Awesomium.NET.
