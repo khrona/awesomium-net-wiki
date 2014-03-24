@@ -92,9 +92,11 @@ namespace WpfApplication1
                     e.InputSource, 
                     e.Timestamp, 
                     Key.Space );
-                // The GetKeyboardEvent extensions provided by Awesomium.Windows.Controls.Utilities,
-                // can translate this to a WebKeyboardEvent needed by Awesomium.
-                WebKeyboardEvent webEvent = ev.GetKeyboardEvent( WebKeyboardEventType.KeyDown );
+                // The GetKeyboardEvent extensions provided by
+                // Awesomium.Windows.Controls.Utilities, can translate this 
+                // to a WebKeyboardEvent needed by Awesomium.
+                WebKeyboardEvent webEvent = ev.GetKeyboardEvent( 
+                    WebKeyboardEventType.KeyDown );
                 // Inject the event, simulating a Space hit.
                 webView.InjectKeyboardEvent( webEvent );
 
@@ -131,7 +133,8 @@ namespace WpfApplication1
             }
         }
 
-        private void WebControl_PreviewTextInput( object sender, TextCompositionEventArgs e )
+        private void WebControl_PreviewTextInput( object sender, 
+                                                  TextCompositionEventArgs e )
         {
             // Should never be fired since we handle Space
             // in KeyDown, but just in case.
