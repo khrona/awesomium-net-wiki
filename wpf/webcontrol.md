@@ -417,7 +417,104 @@ Requires a <code>CommandParameter</code> which is a boolean value specifying if 
 
 #### Predefined Controls
 
-The **_Awesomium.Windows.Controls_** assembly, includes several predefined WPF controls
+The **_Awesomium.Windows.Controls_** assembly, includes several out-of-the-box WPF controls that are used to present additional UI one would expect to find in a browser window. Many of these controls, are also highly customizable. These are:
+
+<table style="width: 100%">
+<tr>
+<th>
+Control
+</th>
+<th>
+Usage
+</th>
+<th>
+Customizable
+</th>
+</tr>
+<tr>
+<td>
+<a href="http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebControlContextMenu"><code>WebControlContextMenu</code></a>
+</td>
+<td>
+Context menu shown when you right-click in a `WebControl`. The menu items shown depend on the element you right-clicked.
+</td>
+<td>
+Yes (Allows full or partial customizsation)
+</td>
+</tr>
+<tr>
+<td>
+<a href="http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebPopupMenu"><code>WebPopupMenu</code></a>
+</td>
+<td>
+Drop-down (popup) menu presented for HTML <code>select</code> elements.
+</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td>
+<a href="http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebPageInfoControl"><code>WebPageInfoControl</code></a>
+</td>
+<td>
+Presents security and certificate information for the loaded page.
+</td>
+<td>
+Yes
+</td>
+</tr>
+<tr>
+<td>
+<a href="http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebPageInfoPopup"><code>WebPageInfoPopup</code></a>
+</td>
+<td>
+Popup menu attached to control (usually a <code>Button</code>) and presents security and certificate information for the loaded page (includes a <a href="http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebPageInfoControl"><code>WebPageInfoControl</code></a>).
+</td>
+<td>
+No
+</td>
+</tr>
+<tr>
+<td>
+<code>WebControlLoginLayer</code>
+</td>
+<td>
+Presents a login dialog whenever requested.
+</td>
+<td>
+No (It can be completely substituted by your own dialog by handling the <a href="http://docs.awesomium.net/?tc=E_Awesomium_Windows_Controls_WebControl_LoginRequest"><code>LoginRequest</code></a> event. See <a href="#customizing-dialogs">Customizing Dialogs</a> below.)
+</td>
+</tr>
+<tr>
+<td>
+<code>WebControlJSDialogLayer</code>
+</td>
+<td>
+Presents JavaScript dialogs (<code>alert</code>, <code>confirm</code> and <code>prompt</code>).
+</td>
+<td>
+No (They can be completely substituted by your own dialogs by handling the <a href="http://docs.awesomium.net/?tc=E_Awesomium_Windows_Controls_WebControl_ShowJavascriptDialog"><code>ShowJavascriptDialog</code></a> event. See <a href="#customizing-dialogs">Customizing Dialogs</a> below.)
+</td>
+</tr>
+<tr>
+<td>
+<a href="http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebDialogsLayer"><code>WebDialogsLayer</code></a>
+</td>
+<td>
+A container control that unifies the presentation of JavaScript dialogs. For details, read: <a href="webdialogslayer.html">Using the WebDialogsLayer</a>.
+</td>
+<td>
+No (You can choose the style of the presented dialogs. A new Metro style has been added.
+</td>
+</tr>
+</table>
+
+Some of the controls allow full or even simple partial customization, but **all controls can be substituted by your own**. For details, read the [Customizations](#customizations) section below.
+
+> Awesomium is primarily a Web UI renderer; **it is not a browser**. The ideal scenario would expect HTML pages presented in Awesomium, to design and present their secondary UI (menus, popups etc.), using web technologies (HTML, JavaScript) and let only the rendering part to Awesomium and Awesomium.NET.
+
+The Awesomium API provides all the API and information necessary to build and present your own assisting, additional UI. Predefined controls available by Awesomium.NET for every technology, are only there to provide an *out-of-the-box* experience for those who do not want to go through designing this UI themselves. They are not premium controls supported by Awesomium and you can at any time use the available Awesomium API to substitute them with your own.
 
 #### Utilities
 
