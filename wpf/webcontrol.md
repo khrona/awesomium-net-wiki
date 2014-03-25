@@ -109,13 +109,13 @@ To summarize, the following list provides some guidance of how to manually creat
 
 1. If you need to programmatically create a `WebControl`, do so right after the `IntializeComponent` method call, inside your container's constructor.
 2. To initialize your `WebControl`, do so in any of the following places:
-  * In the designer, by setting properties in XAML or by selecting the control and using the Properties window. `WebControl` properties in the Properties window, are properly categorized.
-  * In code, right after its creation (if the control was created programmatically. - See above).
-  * In code, right after the `InitializeComponent` method call inside your container's constructor. This also applies for controls created in the designer or XAML. Settings applied at this point, will of course override the settings of properties set in the designer (which are applied during `InitializeComponent`).
-  * Inside a [`WebControl.InitializeView`](http://docs.awesomium.net/?tc=E_Awesomium_Windows_Controls_WebControl_InitializeView) event handler. This is the last event fired before the native web-view is created and initialization settings are applied to it. You can set a handler for `InitializeView` in either the designer/XAML, or right after the `InitializeComponent` method call inside your container's constructor.
+    * In the designer, by setting properties in XAML or by selecting the control and using the Properties window. `WebControl` properties in the Properties window, are properly categorized.
+    * In code, right after its creation (if the control was created programmatically. - See above).
+    * In code, right after the `InitializeComponent` method call inside your container's constructor. This also applies for controls created in the designer or XAML. Settings applied at this point, will of course override the settings of properties set in the designer (which are applied during `InitializeComponent`).
+    * Inside a [`WebControl.InitializeView`](http://docs.awesomium.net/?tc=E_Awesomium_Windows_Controls_WebControl_InitializeView) event handler. This is the last event fired before the native web-view is created and initialization settings are applied to it. You can set a handler for `InitializeView` in either the designer/XAML, or right after the `InitializeComponent` method call inside your container's constructor.
 3. To access members of the native [`IWebView`](http://docs.awesomium.net/?tc=T_Awesomium_Core_IWebView) instance, do so in any of the following moments:
-  * After the [`WebControl.NativeViewInitialized`](http://docs.awesomium.net/?tc=E_Awesomium_Windows_Controls_WebControl_NativeViewInitialized) event is fired.
-  * After [`IsLive`](http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebControl_IsLive) is `true`. `IsLive` is a `DependencyProperty` and you can easily check its status in both code and XAML (with `Triggers`).
+    * After the [`WebControl.NativeViewInitialized`](http://docs.awesomium.net/?tc=E_Awesomium_Windows_Controls_WebControl_NativeViewInitialized) event is fired.
+    * After [`IsLive`](http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebControl_IsLive) is `true`. `IsLive` is a `DependencyProperty` and you can easily check its status in both code and XAML (with `Triggers`).
 4. To execute JavaScript on a loaded page, do so right after the [`WebControl.DocumentReady`](http://docs.awesomium.net/?tc=E_Awesomium_Windows_Controls_WebControl_DocumentReady) event is fired. This is the case for all subsequent navigations after the initial one, if any.
 
 > To easily access your `WebControl` programmatically, make sure you set a **`Name`** for it in the designer/XAML.
