@@ -11,36 +11,36 @@ weight: 1
 ### Index
 
 * [Introduction](#introduction)
-* [Creating a WebControl](#creating-a-webcontrol)
-  * [Create in XAML](#create-in-xaml)
-  * [Create at Runtime](#create-at-runtime)
+* [Creating a WebControl](#creating_a_webcontrol)
+  * [Create in XAML](#create_in_xaml)
+  * [Create at Runtime](#create_at_runtime)
 * [Initialization](#initialization)
   * [Summary](#summary)
-  * [WebCore Initialization](#webcore-initialization)
+  * [WebCore Initialization](#webcore_initialization)
   * [Example](#example)
-* [Loading Content](#loading-content)
-  * [Loading Content at Runtime](#loading-content-at-runtime)
-  * [Loading Resources](#loading-resources)
+* [Loading Content](#loading_content)
+  * [Loading Content at Runtime](#loading_content_at_runtime)
+  * [Loading Resources](#loading_resources)
 * [Rendering](#rendering)
   * [Presenters](#presenters)
   * [WebViewPresenter](#webviewpresenter)
-      * [Pixel Buffer](#pixel-buffer-1)
-      * [User Input](#user-input-1)
+      * [Pixel Buffer](#pixel_buffer_1)
+      * [User Input](#user_input_1)
   * [WebViewHost](#webviewhost)
-      * [Pixel Buffer](#pixel-buffer-2)
-      * [User Input](#user-input-2)
-  * [Hardware Acceleration](#hardware-acceleration)
-  * [Using WPF Presenters with a WebView](#using-wpf-presenters-with-a-webview)
-* [Offscreen vs Windowed in WPF](#offscreen-vs-windowed-in-wpf)
-* [UI Integration](#ui-integration)
-  * [Routed Commands](#routed-commands)
-  * [Predefined Controls](#predefined-controls)
+      * [Pixel Buffer](#pixel_buffer_2)
+      * [User Input](#user_input_2)
+  * [Hardware Acceleration](#hardware_acceleration)
+  * [Using WPF Presenters with a WebView](#using_wpf_presenters_with_a_webview)
+* [Offscreen vs Windowed in WPF](#offscreen_vs_windowed_in_wpf)
+* [UI Integration](#ui_integration)
+  * [Routed Commands](#routed_commands)
+  * [Predefined Controls](#predefined_controls)
   * [Utilities](#utilities)
 * [Customizations](#customizations)
-  * [Customizing the Context Menu](#customizing-the-context-menu)
-  * [Customizing Popup Menus](#customizing-popup-menus)
-  * [Customizing Dialogs](#customizing-dialogs)
-* [Additional Resources](#additional-resources)
+  * [Customizing the Context Menu](#customizing_the_context_menu)
+  * [Customizing Popup Menus](#customizing_popup_menus)
+  * [Customizing Dialogs](#customizing_dialogs)
+* [Additional Resources](#additional_resources)
 
 
 ### Introduction
@@ -222,13 +222,13 @@ When the custom control is added to the visual tree and loaded for presentation,
 <li>Presentation of menus</li>
 </ul>
 
-<h5 id="pixel-buffer-1">Pixel Buffer</h5>
+<h5 id="pixel_buffer_1">Pixel Buffer</h5>
 
 <p>The <code>WebViewPresenter</code> exposes an <a href="http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebViewPresenter_Image"><code>Image</code></a> property which represents the WPF <code>ImageSource</code> wrapping the pixel buffer currently rendered by the surface. Users can use this image to either save a snapshot on disk, or create mirror presentations of the view.</p>
 
 <p><strong>For an example, see: <a href="../snapshot.html">Getting a snapshot using the WPF WebControl</a>.</strong></p>
 
-<h5 id="user-input-1">User Input</h5>
+<h5 id="user_input_1">User Input</h5>
 
 <p>It is important to note that <strong>in WPF, it is the <code>WebViewPresenter</code> and not the <code>WebControl</code> itself that handles user input</strong>. This means that handling user input related events on the <code>WebControl</code>, will not prevent the <code>WebViewPresenter</code> from handling these events and passing them to the native view.</p>
 
@@ -258,7 +258,7 @@ When the custom control is added to the visual tree and loaded for presentation,
 
 <p><strong>For details, read <a href="http://msdn.microsoft.com/en-us/library/ms742522.aspx#sectionToggle5">Hwnds inside WPF</a></strong> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVklEQVR4Xn3PgQkAMQhDUXfqTu7kTtkpd5RA8AInfArtQ2iRXFWT2QedAfttj2FsPIOE1eCOlEuoWWjgzYaB/IkeGOrxXhqB+uA9Bfcm0lAZuh+YIeAD+cAqSz4kCMUAAAAASUVORK5CYII=" />.</p>
 
-<h5 id="pixel-buffer-2">Pixel Buffer</h5>
+<h5 id="pixel_buffer_2">Pixel Buffer</h5>
 
 <p>On MS Windows, <em>windowed</em> native web-views render directly to a native Win32 window (that the <code>WebViewHost</code> hosts) and no <code>Surface</code> is used (for details, read <a href="../general-use/introduction-to-web-views.html">Introduction to Web-Views</a>). When <a href="http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebControl_ViewType"><code>WebControl.ViewType</code></a> is set to <a href="http://docs.awesomium.net/?tc=T_Awesomium_Core_WebViewType"><code>Window</code></a>, <a href="http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebControl_Surface"><code>WebControl.Surface</code></a> returns a null reference.</p>
 
@@ -266,7 +266,7 @@ When the custom control is added to the visual tree and loaded for presentation,
 
 <p><strong>For an example, see: <a href="../snapshot.html">Getting a snapshot using the WPF WebControl</a>.</strong></p>
 
-<h5 id="user-input-2">User Input</h5>
+<h5 id="user_input_2">User Input</h5>
 
 <p>Native <em>windowed</em> views handle user input themselves and there's no straightforward way to handle or simulate user input on the managed side. If you need to handle or simulate user input, make sure that <a href="http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebControl_ViewType"><code>WebControl.ViewType</code></a> is set to <a href="http://docs.awesomium.net/?tc=T_Awesomium_Core_WebViewType"><code>Offscreen</code></a> (default).</p>
 
@@ -300,7 +300,7 @@ The [`WebControlCommands`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Con
 
 In addition to the `WebControl`-specific routed UI commands defined in `WebControlCommands`, the `WebControl` reuses many of the [`ApplicationCommands`](http://msdn2.microsoft.com/en-us/library/ms616816) ![][external] and [`NavigationCommands`](http://msdn2.microsoft.com/en-us/library/ms611442) ![][external] available with the .NET Framework. In particular, these are:
 
-<table style="width: 100%">
+<table style="width: 100%; font-size: 14px">
 <tr>
 <th>
 Command
@@ -317,49 +317,48 @@ Notes
 <code>ApplicationCommands.Copy</code>
 </td>
 <td>
-<a href="http://docs.awesomium.net/?tc=M_Awesomium_Windows_Controls_WebControl_Copy"><code>WebControl.Copy</code></a>
+<a href="http://docs.awesomium.net/?tc=M_Awesomium_Windows_Controls_WebControl_Copy"><code>Copy</code></a>
 </td>
+<td></td>
 </tr>
 <tr>
 <td>
 <code>ApplicationCommands.Cut</code>
 </td>
 <td>
-<a href="http://docs.awesomium.net/?tc=M_Awesomium_Windows_Controls_WebControl_Cut"><code>WebControl.Cut</code></a>
+<a href="http://docs.awesomium.net/?tc=M_Awesomium_Windows_Controls_WebControl_Cut"><code>Cut</code></a>
 </td>
+<td></td>
 </tr>
 <tr>
 <td>
 <code>ApplicationCommands.Paste</code>
 </td>
 <td>
-<a href="http://docs.awesomium.net/?tc=M_Awesomium_Windows_Controls_WebControl_Paste"><code>WebControl.Paste</code></a>
+<a href="http://docs.awesomium.net/?tc=M_Awesomium_Windows_Controls_WebControl_Paste"><code>Paste</code></a>
 </td>
+<td></td>
 </tr>
 <tr>
 <td>
 <code>ApplicationCommands.SelectAll</code>
 </td>
 <td>
-<a href="http://docs.awesomium.net/?tc=M_Awesomium_Windows_Controls_WebControl_SelectAll"><code>WebControl.SelectAll</code></a>
+<a href="http://docs.awesomium.net/?tc=M_Awesomium_Windows_Controls_WebControl_SelectAll"><code>SelectAll</code></a>
 </td>
+<td></td>
 </tr>
 <tr>
 <td>
 <code>ApplicationCommands.Print</code>
 </td>
 <td>
-<a href="http://docs.awesomium.net/?tc=M_Awesomium_Windows_Controls_WebControl_PrintToFile"><code>WebControl.PrintToFile</code></a>
+<a href="http://docs.awesomium.net/?tc=M_Awesomium_Windows_Controls_WebControl_PrintToFile"><code>PrintToFile</code></a>
 </td>
 <td>
-<ul>
-<li>
 Shows up a dialog to choose where to save the PDF file.
-</li>
-<li>
+<br />
 Uses default configuration (see <a href="http://docs.awesomium.net/?tc=T_Awesomium_Core_PrintConfig"><code>PrintConfig</code></a>).
-</li>
-</ul>
 </td>
 </tr>
 <tr>
@@ -367,46 +366,46 @@ Uses default configuration (see <a href="http://docs.awesomium.net/?tc=T_Awesomi
 <code>NavigationCommands.BrowseHome</code>
 </td>
 <td>
-<a href="http://docs.awesomium.net/?tc=M_Awesomium_Windows_Controls_WebControl_GoToHome"><code>WebControl.GoToHome</code></a>
+<a href="http://docs.awesomium.net/?tc=M_Awesomium_Windows_Controls_WebControl_GoToHome"><code>GoToHome</code></a>
 </td>
+<td></td>
 </tr>
 <tr>
 <td>
 <code>NavigationCommands.BrowseBack</code>
 </td>
 <td>
-<a href="http://docs.awesomium.net/?tc=M_Awesomium_Windows_Controls_WebControl_GoBack"><code>WebControl.GoBack</code></a>
+<a href="http://docs.awesomium.net/?tc=M_Awesomium_Windows_Controls_WebControl_GoBack"><code>GoBack</code></a>
 </td>
+<td></td>
 </tr>
 <tr>
 <td>
 <code>NavigationCommands.BrowseForward</code>
 </td>
 <td>
-<a href="http://docs.awesomium.net/?tc=M_Awesomium_Windows_Controls_WebControl_GoForward"><code>WebControl.GoForward</code></a>
+<a href="http://docs.awesomium.net/?tc=M_Awesomium_Windows_Controls_WebControl_GoForward"><code>GoForward</code></a>
 </td>
+<td></td>
 </tr>
 <tr>
 <td>
 <code>NavigationCommands.BrowseStop</code>
 </td>
 <td>
-<a href="http://docs.awesomium.net/?tc=M_Awesomium_Windows_Controls_WebControl_Stop"><code>WebControl.Stop</code></a>
+<a href="http://docs.awesomium.net/?tc=M_Awesomium_Windows_Controls_WebControl_Stop"><code>Stop</code></a>
 </td>
+<td></td>
 </tr>
 <tr>
 <td>
 <code>NavigationCommands.Refresh</code>
 </td>
 <td>
-<a href="http://docs.awesomium.net/?tc=M_Awesomium_Windows_Controls_WebControl_Reload"><code>WebControl.Reload</code></a>
+<a href="http://docs.awesomium.net/?tc=M_Awesomium_Windows_Controls_WebControl_Reload"><code>Reload</code></a>
 </td>
 <td>
-<ul>
-<li>
 Requires a <code>CommandParameter</code> which is a boolean value specifying if cache should be ignored when reloading the page.
-</li>
-</ul>
 </td>
 </tr>
 </table>
@@ -419,7 +418,7 @@ Requires a <code>CommandParameter</code> which is a boolean value specifying if 
 
 The **_Awesomium.Windows.Controls_** assembly, includes several out-of-the-box WPF controls that are used to present additional UI one would expect to find in a browser window. Many of these controls, are also highly customizable. These are:
 
-<table style="width: 100%">
+<table style="width: 100%; font-size: 14px">
 <tr>
 <th>
 Control
