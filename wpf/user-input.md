@@ -84,39 +84,39 @@ namespace WpfApplication1
             if ( e.Key != Key.Right )
                 return;
 
-			// Get the IWebView interface the control implements.
-			IWebView webView = (IWebView)webControl;
+            // Get the IWebView interface the control implements.
+            IWebView webView = (IWebView)webControl;
 
-			// Create a WPF KeyDown event for Space.
-			KeyEventArgs ev = new KeyEventArgs( 
-				(KeyboardDevice)e.Device, 
-				e.InputSource, 
-				e.Timestamp, 
-				Key.Space );
-			// The GetKeyboardEvent extensions provided by
-			// Awesomium.Windows.Controls.Utilities, can translate this 
-			// to a WebKeyboardEvent needed by Awesomium.
-			WebKeyboardEvent webEvent = ev.GetKeyboardEvent( 
-				WebKeyboardEventType.KeyDown );
-			// Inject the event, simulating a Space hit.
-			webView.InjectKeyboardEvent( webEvent );
+            // Create a WPF KeyDown event for Space.
+            KeyEventArgs ev = new KeyEventArgs( 
+                (KeyboardDevice)e.Device, 
+                e.InputSource, 
+                e.Timestamp, 
+                Key.Space );
+            // The GetKeyboardEvent extensions provided by
+            // Awesomium.Windows.Controls.Utilities, can translate this 
+            // to a WebKeyboardEvent needed by Awesomium.
+            WebKeyboardEvent webEvent = ev.GetKeyboardEvent( 
+                WebKeyboardEventType.KeyDown );
+            // Inject the event, simulating a Space hit.
+            webView.InjectKeyboardEvent( webEvent );
 
-			// A normal Space hit, would be followed by a 
-			// PreviewTextInput event. We need to simulate this too.
-			TextCompositionEventArgs txtEv = new TextCompositionEventArgs( 
-				e.Device, 
-				new TextComposition( InputManager.Current, webControl, " " ) );
+            // A normal Space hit, would be followed by a 
+            // PreviewTextInput event. We need to simulate this too.
+            TextCompositionEventArgs txtEv = new TextCompositionEventArgs( 
+                e.Device, 
+                new TextComposition( InputManager.Current, webControl, " " ) );
 
-			if ( txtEv.GetKeyboardEvent() != null )
-			{
-				// Get the equivalent WebKeyboardEvent.
-				webEvent = (WebKeyboardEvent)txtEv.GetKeyboardEvent();
-				// Inject it to the view.
-				webView.InjectKeyboardEvent( webEvent );
-			}
+            if ( txtEv.GetKeyboardEvent() != null )
+            {
+                // Get the equivalent WebKeyboardEvent.
+                webEvent = (WebKeyboardEvent)txtEv.GetKeyboardEvent();
+                // Inject it to the view.
+                webView.InjectKeyboardEvent( webEvent );
+            }
 
-			// Consume the right-arrow hit. We translated it to a Space.
-			e.Handled = true;
+            // Consume the right-arrow hit. We translated it to a Space.
+            e.Handled = true;
         }
 
         private void WebControl_PreviewKeyUp( object sender, KeyEventArgs e )
