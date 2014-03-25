@@ -134,7 +134,7 @@ Irrespective of the place you choose, make sure that you use the [`WebCore.Initi
 
 **For details, read the [WebCore Initialization](../general-use/webcore-initialization.html) article**.
 
-> If you choose to initialize the `WebCore` before the `InitializeComponent` method call inside your main window's constructor, **make sure that your code checks for [`WebCore.IsRunning`](http://docs.awesomium.net/?tc=P_Awesomium_Core_WebCore_IsRunning) before attempting to call [`WebCore.Initialize`](http://docs.awesomium.net/?tc=M_Awesomium_Core_WebCore_Initialize)**. Your application may create more than one instances of your main window but **the Awesomium `WebCore` can only be initialized once**. Attempting to call [`WebCore.Initialize`](http://docs.awesomium.net/?tc=M_Awesomium_Core_WebCore_Initialize) when the `WebCore` is already initialized and running, will throw an exception.
+> If you choose to initialize the `WebCore` before the `InitializeComponent` method call inside your main window's constructor, **make sure that your code checks for [`WebCore.IsInitialized`](http://docs.awesomium.net/?tc=P_Awesomium_Core_WebCore_IsInitialized) before attempting to call [`WebCore.Initialize`](http://docs.awesomium.net/?tc=M_Awesomium_Core_WebCore_Initialize)**. Your application may create more than one instances of your main window but **the Awesomium `WebCore` can only be initialized once**. Attempting to call [`WebCore.Initialize`](http://docs.awesomium.net/?tc=M_Awesomium_Core_WebCore_Initialize) when the `WebCore` is already initialized and running, will throw an exception.
 
 **For a complete example, see the [Example](#example) section below**.
 
@@ -280,8 +280,8 @@ Hardware acceleration is only supported by *windowed* native web-views. When `Vi
 
 1. Assign a [`WebSession`](http://docs.awesomium.net/?tc=T_Awesomium_Core_WebSession) to the `WebControl`. You can use a [`WebSessionProvider`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebSessionProvider) in XAML for the purpose. **For details, read [Using Web-Sessions](../general-use/using-web-sessions.html)**.
 2. Assign [`WebPreferences`](http://docs.awesomium.net/?tc=T_Awesomium_Core_WebPreferences) to [`WebSession.Preferences`](http://docs.awesomium.net/?tc=P_Awesomium_Core_WebSession_Preferences) (or [`WebSessionProvider.Preferences`](http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebSessionProvider_Preferences) in XAML) and set the following properties to `true`:
-  * [`EnableGPUAcceleration`](http://docs.awesomium.net/?tc=P_Awesomium_Core_WebPreferences_EnableGPUAcceleration)
-  * [`WebGL`](http://docs.awesomium.net/?tc=P_Awesomium_Core_WebPreferences_WebGL)
+    * [`EnableGPUAcceleration`](http://docs.awesomium.net/?tc=P_Awesomium_Core_WebPreferences_EnableGPUAcceleration)
+    * [`WebGL`](http://docs.awesomium.net/?tc=P_Awesomium_Core_WebPreferences_WebGL)
 3. Make sure you set [`WebControl.ViewType`](http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebControl_ViewType) to [`Window`](http://docs.awesomium.net/?tc=T_Awesomium_Core_WebViewType) to create and wrap a *windowed* native web-view.
 
 #### Using WPF Presenters with a WebView
@@ -504,7 +504,7 @@ No (They can be completely substituted by your own dialogs by handling the <a hr
 A container control that unifies the presentation of JavaScript dialogs. For details, read: <a href="webdialogslayer.html">Using the WebDialogsLayer</a>.
 </td>
 <td>
-No (You can choose the style of the presented dialogs. A new Metro style has been added.
+No (You can choose the style of the presented dialogs. A new Metro style has been added.)
 </td>
 </tr>
 </table>
