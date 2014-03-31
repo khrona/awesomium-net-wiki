@@ -1,8 +1,9 @@
 ---
 layout: page
 title : What's New in 1.7.4
-group: Changelogs
+group: none
 weight: 1
+published: false
 
 ---
 
