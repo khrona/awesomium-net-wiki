@@ -13,6 +13,8 @@ We are very proud to announce the release of **Awesomium.NET 1.7.4**. This is a 
 * [Setting up on Windows](http://wiki.awesomium.net/getting-started/setting-up-on-windows.html)
 * [Setting up on Mac OS X](http://wiki.awesomium.net/getting-started/setting-up-on-mac-osx.html)
 
+> This changelog also includes the fixes and new features introduced with **v1.7.4.2**. For a presentation, see: **[Critical Patch: 1.7.4.2](http://www.awesomium.com/blog/critical-patch-1-7-4-2/)**.
+
 
 ### Major New Features
 
@@ -94,6 +96,11 @@ With the **Awesomium SDK for Mac OSX**, we now provide the **Awesomium.Xamarin.M
 * Added default "awe" and "data" XAML namespace prefixes.
 * Made it so users can customize the "crashed" layer (*Sad Tab*) and all relevant predefined UI.
 
+**[1.7.4.2]:**
+
+* Improved WPF `WebControl` rendering quality in non-standard DPI settings.
+* Added the ability to choose if you want the WPF `WebControl` to automatically adjust to higher DPI settings.
+
 ##### Unity
 
 * Updated Unity sample scripts.
@@ -132,6 +139,11 @@ With the **Awesomium SDK for Mac OSX**, we now provide the **Awesomium.Xamarin.M
 * [`DownloadItem.OriginViewId`](http://docs.awesomium.net/?tc=P_Awesomium_Core_DownloadItem_OriginViewId)
 * [`ThreadAffinityEnsuredAttribute`](http://docs.awesomium.net/?tc=T_Awesomium_Core_ThreadAffinityEnsuredAttribute)
 
+**[1.7.4.2]:**
+
+* [`JSWindowOpenSpecs.Status`](http://docs.awesomium.net/?tc=P_Awesomium_Core_JSWindowOpenSpecs_Status)
+* [`ShowCreatedWebViewEventArgs.HasUserSpecs`](http://docs.awesomium.net/?tc=P_Awesomium_Core_ShowCreatedWebViewEventArgs_HasUserSpecs)
+
 ##### Awesomium.Windows.Controls (WPF)
 
 * [`WebDialogsLayer`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebDialogsLayer)
@@ -139,6 +151,10 @@ With the **Awesomium SDK for Mac OSX**, we now provide the **Awesomium.Xamarin.M
 * [`SourceBinding.Converter`](http://docs.awesomium.net/?tc=P_Awesomium_Windows_Data_SourceBinding_Converter)
 * [`SourceBinding.ConverterParameter`](http://docs.awesomium.net/?tc=P_Awesomium_Windows_Data_SourceBinding_ConverterParameter)
 * [`WebControlCommands.SaveImageAs`](http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebControlCommands_SaveImageAs)
+
+**[1.7.4.2]:**
+
+* [`WebControl.AdjustToDpi`](http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebControl_AdjustToDpi)
 
 #### Modified API:
 
@@ -168,6 +184,11 @@ With the **Awesomium SDK for Mac OSX**, we now provide the **Awesomium.Xamarin.M
 * Fixed crash issue with *`requestQuota`*.
 * Fixed crash when users hit `CTRL+LEFT` at beginning of line.
 
+**[1.7.4.2]:**
+
+* Fixed crash when `WebPreferences.WebGL` is enabled.
+* Fixed crash when `WebPreferences.EnableGPUAcceleration` is enabled.
+
 ##### Awesomium.Core
 
 * Fixed occasional `NullReferenceException` in `WebCore`'s static constructor which causes a `TypeInitializationException` and crash. ([#33](https://github.com/awesomium/awesomium-pub/issues/33))
@@ -182,6 +203,14 @@ With the **Awesomium SDK for Mac OSX**, we now provide the **Awesomium.Xamarin.M
 * Made it so full-screen Flash windows, do not appear to the background of the application when using `Offscreen` views. ([#37](https://github.com/awesomium/awesomium-pub/issues/37))
 * Fixed issue with `Zoom` not being applied to newly created views navigating to a zoomed host.
 
+**[1.7.4.2]:**
+
+* Fixed occassional `ArgumentNullException` when trying to p/invoke on native Awesomium.
+* Fixed issue that would cause an exceptional WebCore shutdown, when there were duplicate values in the specs of a JavaScript `window.open` call. ([#46](https://github.com/awesomium/awesomium-pub/issues/46))
+* Fixed `OperationCanceledException` on `WebCore.Run`. ([#45](https://github.com/awesomium/awesomium-pub/issues/45))
+* Fixed `ArgumentNullException` on internal `WebCore.Log` calls. ([#44](https://github.com/awesomium/awesomium-pub/issues/44))
+* Fixed issue that would cause a crash when the specified child process was not found.
+
 ##### Awesomium.Windows.Controls (WPF)
 
 * Fixed incorrect rendering when scrolling iFrames with managed `Offscreen` views. ([#22](https://github.com/awesomium/awesomium-pub/issues/22))
@@ -192,6 +221,11 @@ With the **Awesomium SDK for Mac OSX**, we now provide the **Awesomium.Xamarin.M
 * Made it so that text in WPF `WebControl` tool-tips, is properly wrapped. ([#20](https://github.com/awesomium/awesomium-pub/issues/20))
 * Few fixes and improvements that prevent memory leaks on WPF.
 * Made it so that buttons in WPF dialogs properly handle mouse clicks.
+
+**[1.7.4.2]:**
+
+* Fixed issue that would cause significant memory growth while scrolling up and down a WPF `WebControl`. ([#43](https://github.com/awesomium/awesomium-pub/issues/43))
+* Fixed rare issue with WPF `WebControl` displaying blank content until resized.
 
 ##### Awesomium.Windows.Forms (Windows Forms)
 
