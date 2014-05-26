@@ -197,7 +197,7 @@ The WPF `WebControl` supports both *offscreen* and *windowed* rendering (for det
 
 The rendering mode is defined by setting the [`WebControl.ViewType`](http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebControl_ViewType) property. **By default, the WPF `WebControl` wraps an *offscreen* native web-view, which means that `ViewType` is set to [`Offscreen`](http://docs.awesomium.net/?tc=T_Awesomium_Core_WebViewType).**
 
-> Hardware acceleration is only supported by *windowed* native web-views. For details about using hardware aceleration, read **[Hardware Acceleration](#hardware-acceleration)** in the **`WebViewHost`** section below.
+> Hardware acceleration is only supported by *windowed* native web-views. For details about using hardware aceleration, read **[Hardware Acceleration](#hardware_acceleration)** in the **`WebViewHost`** section below.
 
 #### Presenters
 
@@ -226,7 +226,7 @@ When the custom control is added to the visual tree and loaded for presentation,
 
 <p>The <code>WebViewPresenter</code> exposes an <a href="http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebViewPresenter_Image"><code>Image</code></a> property which represents the WPF <code>ImageSource</code> wrapping the pixel buffer currently rendered by the surface. Users can use this image to either save a snapshot on disk, or create mirror presentations of the view.</p>
 
-<p><strong>For an example, see: <a href="../snapshot.html">Getting a snapshot using the WPF WebControl</a>.</strong></p>
+<p><strong>For an example, see: <a href="snapshot.html">Getting a snapshot using the WPF WebControl</a>.</strong></p>
 
 <h5 id="user_input_1">User Input</h5>
 
@@ -238,7 +238,7 @@ When the custom control is added to the visual tree and loaded for presentation,
   <p>Native <em>windowed</em> views handle user input themselves and there's no way to handle or simulate user input on the managed side. If you need to handle or simulate user input, make sure that <a href="http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebControl_ViewType"><code>WebControl.ViewType</code></a> is set to <a href="http://docs.awesomium.net/?tc=T_Awesomium_Core_WebViewType"><code>Offscreen</code></a> (default).</p>
 </blockquote>
 
-<p><strong>For an example, see: <a href="../user-input.html">Handling or Simulating User Input with the WPF WebControl</a>.</strong></p>
+<p><strong>For an example, see: <a href="user-input.html">Handling or Simulating User Input with the WPF WebControl</a>.</strong></p>
 </dd>
 </dl>
 
@@ -256,7 +256,7 @@ When the custom control is added to the visual tree and loaded for presentation,
 
 <p>Unlike <em>offscreen</em> views, rendering in <em>windowed</em> views is not handled on the managed side. This provides several benefits such as better performance and hardware acceleration, but also poses many presentation limitations in WPF.</p>
 
-<p><strong>For details, read <a href="http://msdn.microsoft.com/en-us/library/ms742522.aspx#sectionToggle5">Hwnds inside WPF</a></strong> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVklEQVR4Xn3PgQkAMQhDUXfqTu7kTtkpd5RA8AInfArtQ2iRXFWT2QedAfttj2FsPIOE1eCOlEuoWWjgzYaB/IkeGOrxXhqB+uA9Bfcm0lAZuh+YIeAD+cAqSz4kCMUAAAAASUVORK5CYII=" />.</p>
+<p><strong>For details, read <a href="http://msdn.microsoft.com/en-us/library/ms742522.aspx#sectionToggle5" target="_blank">Hwnds inside WPF</a></strong> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVklEQVR4Xn3PgQkAMQhDUXfqTu7kTtkpd5RA8AInfArtQ2iRXFWT2QedAfttj2FsPIOE1eCOlEuoWWjgzYaB/IkeGOrxXhqB+uA9Bfcm0lAZuh+YIeAD+cAqSz4kCMUAAAAASUVORK5CYII=" />.</p>
 
 <h5 id="pixel_buffer_2">Pixel Buffer</h5>
 
@@ -270,7 +270,7 @@ When the custom control is added to the visual tree and loaded for presentation,
 
 <p>Native <em>windowed</em> views handle user input themselves and there's no straightforward way to handle or simulate user input on the managed side. If you need to handle or simulate user input, make sure that <a href="http://docs.awesomium.net/?tc=P_Awesomium_Windows_Controls_WebControl_ViewType"><code>WebControl.ViewType</code></a> is set to <a href="http://docs.awesomium.net/?tc=T_Awesomium_Core_WebViewType"><code>Offscreen</code></a> (default).</p>
 
-<p><strong>For details, read <a href="http://msdn.microsoft.com/en-us/library/ms742522.aspx#sectionToggle5">Hwnds inside WPF - Notable Differences in Input Behavior</a></strong> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVklEQVR4Xn3PgQkAMQhDUXfqTu7kTtkpd5RA8AInfArtQ2iRXFWT2QedAfttj2FsPIOE1eCOlEuoWWjgzYaB/IkeGOrxXhqB+uA9Bfcm0lAZuh+YIeAD+cAqSz4kCMUAAAAASUVORK5CYII=" />.</p>
+<p><strong>For details, read <a href="http://msdn.microsoft.com/en-us/library/ms742522.aspx#sectionToggle5" target="_blank">Hwnds inside WPF - Notable Differences in Input Behavior</a></strong> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVklEQVR4Xn3PgQkAMQhDUXfqTu7kTtkpd5RA8AInfArtQ2iRXFWT2QedAfttj2FsPIOE1eCOlEuoWWjgzYaB/IkeGOrxXhqB+uA9Bfcm0lAZuh+YIeAD+cAqSz4kCMUAAAAASUVORK5CYII=" />.</p>
 </dd>
 </dl>
 

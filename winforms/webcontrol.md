@@ -1,7 +1,7 @@
 ---
 layout: page
 title : Using the Windows Forms WebControl
-group: General Use
-weight: 4
+group: Windows Forms
+weight: 1
 
 ---

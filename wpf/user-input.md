@@ -1,6 +1,6 @@
 ---
 layout: page
-title : Handling or Simulating User Input with the WPF WebControl
+title : How to: Handle or Simulate User Input with the WPF WebControl
 group: WPF
 weight: 2
 
@@ -147,4 +147,4 @@ namespace WpfApplication1
 
 ### Additional Resources
 
-* [Using the WPF WebControl](../wpf/webcontrol.html)
+* [Using the WPF WebControl](webcontrol.html)

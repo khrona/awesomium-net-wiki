@@ -66,7 +66,7 @@ Windowed
 <h5>Compatible With</h5>
 WPF Only
 <h5>Description</h5>
-Provided by the <i>Awesomium.Windows.Controls</i> assembly. It can be used in WPF applications. <b>For more details, read <a href="wpf-webcontrol.html">Using the WPF WebControl</a>.</b>
+Provided by the <i>Awesomium.Windows.Controls</i> assembly. It can be used in WPF applications. <b>For more details, read <a href="../wpf/webcontrol.html">Using the WPF WebControl</a>.</b>
 <h5>View Types</h5>
 <ul>
 <li>
@@ -87,7 +87,7 @@ Windowed (Renders a windowed web-view using a <code>HwndHost</code>. Misses many
 <h5>Compatible With</h5>
 WinForms Only
 <h5>Description</h5>
-Provided by the <i>Awesomium.Windows.Forms</i> assembly. It can be used in Windows Forms applications. <b>For more details, read <a href="winforms-webcontrol.html">Using the Windows Forms WebControl</a>.</b>
+Provided by the <i>Awesomium.Windows.Forms</i> assembly. It can be used in Windows Forms applications. <b>For more details, read <a href="../winforms/webcontrol.html">Using the Windows Forms WebControl</a>.</b>
 <h5>View Types</h5>
 <ul>
 <li>
@@ -108,7 +108,7 @@ Offscreen
 <h5>Compatible With</h5>
 MonoMac (OSX) Only
 <h5>Description</h5>
-Provided by the <i>Awesomium.Mono.Mac</i> assembly on Mac OSX. It can be used in Cocoa applications on OSX using Mono. <b>For more details, read <a href="http://wiki.awesomium.net/monomac/using-the-osmwebview.html">Using the MonoMac OSMWebView</a>.</b>
+Provided by the <i>Awesomium.Mono.Mac</i> assembly on Mac OSX. It can be used in Cocoa applications on OSX using Mono. <b>For more details, read <a href="../monomac/osmwebview.html">Using the MonoMac OSMWebView</a>.</b>
 <h5>View Types</h5>
 <ul>
 <li>
@@ -125,7 +125,7 @@ Windowed (<code>NSView</code>)
 <h5>Compatible With</h5>
 Unity Game Engine Only
 <h5>Description</h5>
-Provided by the <i>Awesomium.Unity</i> assembly. It can be used in Unity games on Windows and Mac OSX. <b>For more details, read <a href="http://wiki.awesomium.net/unity/using-the-webuicomponent.html">Using the Unity WebUIComponent</a>.</b>
+Provided by the <i>Awesomium.Unity</i> assembly. It can be used in Unity games on Windows and Mac OSX. <b>For more details, read <a href="../unity/webuicomponent.html">Using the Unity WebUIComponent</a>.</b>
 <h5>View Types</h5>
 <ul>
 <li>
