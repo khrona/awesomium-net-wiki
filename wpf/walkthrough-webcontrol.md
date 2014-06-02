@@ -1,6 +1,6 @@
 ---
 layout: page
-title : Walkthrough: Creating an Awesomium WPF Application
+title : Walkthrough&#58; Creating an Awesomium WPF Application
 group: WPF
 weight: 3
 
