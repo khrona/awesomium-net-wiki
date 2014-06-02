@@ -37,7 +37,8 @@ You need the following components to complete this walkthrough:
     * *`Awesomium.Core`*
     * *`Awesomium.Windows.Controls`*
 
-  In the **Reference Manager** dialog, you should be able to find the assemblies under Assemblies -> Extensions.
+    In the **Reference Manager** dialog, you should be able to find the assemblies under Assemblies -> Extensions.
+
 5. In **Solution Explorer**, change the name of the application's main window to **MainWindow.xaml**.
 
 ### Initialize the Awesomium WebCore
@@ -59,13 +60,13 @@ Generally, you should initialize the `WebCore` providing your custom configurati
 1. Open the *`App.xaml.cs`* or *`Application.xaml.vb`* file.
 2. Add the following namespaces to the top of the file. Replace the existing ones if there are any.
 
-  {% highlight csharp %}
-  using System;
-  using System.Linq;
-  using Awesomium.Core;
-  using System.Windows;
-  using System.Collections.Generic;
-  {% endhighlight %}
+    {% highlight csharp %}
+    using System;
+    using System.Linq;
+    using Awesomium.Core;
+    using System.Windows;
+    using System.Collections.Generic;
+    {% endhighlight %}
 
 3. Override the `OnStartup` method. This is where you explicitly initialize the `WebCore`.
 
