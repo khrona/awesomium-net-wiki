@@ -60,49 +60,55 @@ Generally, you should initialize the `WebCore` providing your custom configurati
 1. Open the *`App.xaml.cs`* or *`Application.xaml.vb`* file.
 2. Add the following namespaces to the top of the file. Replace the existing ones if there are any.
 
-    {% highlight csharp %}
-    using System;
-    using System.Linq;
-    using Awesomium.Core;
-    using System.Windows;
-    using System.Collections.Generic;
-    {% endhighlight %}
+{% highlight csharp %}
+using System;
+using System.Linq;
+using Awesomium.Core;
+using System.Windows;
+using System.Collections.Generic;
+{% endhighlight %}
 
-3. Override the `OnStartup` method. This is where you explicitly initialize the `WebCore`.
+<ol start="3">
+<li>Override the <code>OnStartup</code> method. This is where you explicitly initialize the <code>WebCore</code>.</li>
+</ol>
 
-  {% highlight csharp %}
-  protected override void OnStartup( StartupEventArgs e )
-  {
-      // Initialization must be performed here,
-      // before creating a WebControl.
-      if ( !WebCore.IsInitialized )
-        {
-          WebCore.Initialize( new WebConfig()
-          {
-              HomeURL = "https://www.awesomium.com".ToUri(),
-              LogPath = @".\starter.log",
-              LogLevel = LogLevel.Verbose
-          } );
-      }
+{% highlight csharp %}
+protected override void OnStartup( StartupEventArgs e )
+{
+    // Initialization must be performed here,
+    // before creating a WebControl.
+    if ( !WebCore.IsInitialized )
+    {
+      WebCore.Initialize( new WebConfig()
+      {
+          HomeURL = "https://www.awesomium.com".ToUri(),
+          LogPath = @".\starter.log",
+          LogLevel = LogLevel.Verbose
+      } );
+    }
 
-      base.OnStartup( e );
-  }
-  {% endhighlight %}
+    base.OnStartup( e );
+}
+{% endhighlight %}
 
-4. Override the `OnExit` method. This is where you shutdown the `WebCore`.
+<ol start="4">
+<li>Override the <code>OnExit</code> method. This is where you shutdown the <code>WebCore</code>.</li>
+</ol>
 
-  {% highlight csharp %}
-  protected override void OnExit( ExitEventArgs e )
-  {
-      // Make sure we shutdown the core last.
-      if ( WebCore.IsInitialized )
-          WebCore.Shutdown();
+{% highlight csharp %}
+protected override void OnExit( ExitEventArgs e )
+{
+    // Make sure we shutdown the core last.
+    if ( WebCore.IsInitialized )
+        WebCore.Shutdown();
 
-      base.OnExit( e );
-  }
-  {% endhighlight %}
+    base.OnExit( e );
+}
+{% endhighlight %}
 
-5. Save changes and close the file.
+<ol start="5">
+<li>Save changes and close the file.</li>
+</ol>
 
 ### Create a Window to host WPF WebControl.
 
@@ -112,7 +118,8 @@ In this procedure you edit the application's main `Window` to create a window th
 
 1. Open the *`MainWindow.xaml.cs`* or *`MainWindow.xaml.vb`* code file.
 
-  The file opens in the Code Editor.
+   The file opens in the Code Editor.
+
 2. Add the following namespaces to the top of the file. Replace the existing ones if there are any.
 
   {% highlight csharp %}
@@ -577,12 +584,13 @@ In this procedure, you assign handlers to some important `WebControl` events. Fo
   Dialogs are presented by the [`WebDialogsLayer`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebDialogsLayer) container.
 5. Using the address-box again, navigate to the following address:
 
-  [http://awesomium.net/samples/select_test.html](http://awesomium.net/samples/select_test.html)
+   [http://awesomium.net/samples/select_test.html](http://awesomium.net/samples/select_test.html)
 
-  Test the HTML `select` box that shows a list of countries, devided in groups. The drop-down (popup) list is shown using the predefined [`WebPopupMenu`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebPopupMenu).
+   Test the HTML `select` box that shows a list of countries, devided in groups. The drop-down (popup) list is shown using the predefined [`WebPopupMenu`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebPopupMenu).
+
 6. Use the slider in the **status-box** to zoom in and out the currently loaded page.
 
-  Zoom setting is applied to the current domain and is persisted for the current session.
+   Zoom setting is applied to the current domain and is persisted for the current session.
 7. Close all open window to exit the application.
 
 ### See Also
