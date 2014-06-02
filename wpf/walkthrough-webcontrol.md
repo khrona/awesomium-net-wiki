@@ -317,9 +317,9 @@ This window will be used as the application's main window, as well as a child (p
                                 <ContextMenu 
                                  DataContext="{Binding PlacementTarget.DataContext, 
                                  RelativeSource={RelativeSource Self}}">
-                                    <MenuItem 
-                                     Command="{x:Static awe:WebControlCommands.ResetZoom}" 
-                                     CommandTarget="{Binding}" />
+                                 <MenuItem 
+                                  Command="{x:Static awe:WebControlCommands.ResetZoom}" 
+                                  CommandTarget="{Binding}" />
                                 </ContextMenu>
                             </Slider.ContextMenu>
                         </Slider>
@@ -358,7 +358,7 @@ For details, also read the **Remarks** section of: [`ShowCreatedWebView`](http:/
 
 1. Open the *`MainWindow.xaml.cs`* or *`MainWindow.xaml.vb`* code file.
 
-  The file opens in the Code Editor.
+   The file opens in the Code Editor.
 2. In the Code Editor, locate the default constructor for the `MainWindow` class. It should look like the following:
 
 {% highlight csharp %}
@@ -591,26 +591,25 @@ private void webControl_WindowClose( object sender, WindowCloseEventArgs e )
 2. Right-click the in the page, on links and finally on Awesomium's logo, to see the predefined [`WebControlContextMenu`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebControlContextMenu).
 
    The items of the menu change depending on the context. When you right-click the logo, you are also given an option to download and **save the image**.
-2. Click in the **address-box**.
+3. Click in the **address-box**.
 
    The current contents of the address-box will be automatically selected. This is a feature of the [`SourceBinding`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Data_SourceBinding) markup extension used to bind the address-box with the WebControl's `Source`.
-3. Type the following address and hit **Enter** to navigate to it:
+4. Type the following address and hit **Enter** to navigate to it:
 
    [http://jsfiddle.net/awesomium/SZmMj/](http://jsfiddle.net/awesomium/SZmMj/)
 
-4. Follow the instructions in the **Result** frame to test child windows and JavaScript dialog boxes.
+5. Follow the instructions in the **Result** frame to test child windows and JavaScript dialog boxes.
 
    Dialogs are presented by the [`WebDialogsLayer`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebDialogsLayer) container.
-5. Using the address-box again, navigate to the following address:
+6. Using the address-box again, navigate to the following address:
 
    [http://awesomium.net/samples/select_test.html](http://awesomium.net/samples/select_test.html)
 
    Test the HTML `select` box that shows a list of countries, devided in groups. The drop-down (popup) list is shown using the predefined [`WebPopupMenu`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebPopupMenu).
-
-6. Use the slider in the **status-box** to zoom in and out the currently loaded page.
+7. Use the slider in the **status-box** to zoom in and out the currently loaded page.
 
    Zoom setting is applied to the current domain and is persisted for the current session.
-7. Close all open window to exit the application.
+8. Close all open window to exit the application.
 
 ### See Also
 
