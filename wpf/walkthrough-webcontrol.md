@@ -43,7 +43,7 @@ You need the following components to complete this walkthrough:
 
 ### Initialize the Awesomium WebCore
 
-In this procedure you explicitly initialize the Awesomium [`WebCore`](http://docs.awesomium.net/?tc=T_Awesomium_Core_WebCore). The WebCore manages the creation and lifetime of all IWebView and WebSession instances and maintains useful services like:
+In this procedure you explicitly initialize the Awesomium [`WebCore`](http://docs.awesomium.net/?tc=T_Awesomium_Core_WebCore). The `WebCore` manages the creation and lifetime of all [`IWebView`](../general-use/introduction-to-web-views.html) and [`WebSession`](../general-use/using-web-sessions.html) instances and maintains useful services like:
 
  * Auto-Update
  * Network stack
@@ -112,7 +112,7 @@ protected override void OnExit( ExitEventArgs e )
 
 ### Create a Window to host WPF WebControl.
 
-In this procedure you edit the application's main `Window` to create a window that will host the WPF `WebControl` and supporting UI. This window will be used as the application's main window, as well as a child (popup) window for displaying external links and JavaScript *`window.open`* calls.
+In this procedure you edit the application's main `Window` to create a window that will host the WPF `WebControl` and supporting UI. This window will be used as the application's main window as well as a child (popup) window for displaying external links and JavaScript *`window.open`* calls.
 
 **To create the window**
 
@@ -197,7 +197,7 @@ public static readonly DependencyProperty IsRegularWindowProperty =
 
 In this procedure you create the user interface of the application's main `Window`. The interface includes the WPF `WebControl` and supporting elements that bind to actions of the `WebControl`, as well as a [`WebSessionProvider`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebSessionProvider) that allows you to assign a `WebSession` with certain preferences to the `WebControl`.
 
-This window will be used as the application's main window, as well as a child (popup) window for displaying external links and JavaScript *`window.open`* calls.
+This window will be used as the application's main window as well as a child (popup) window for displaying external links and JavaScript *`window.open`* calls.
 
 **To create the UI**
 
@@ -315,10 +315,10 @@ This window will be used as the application's main window, as well as a child (p
                             ToolTip="{Binding Zoom}">
                             <Slider.ContextMenu>
                                 <ContextMenu 
-                                 DataContext="{Binding PlacementTarget.DataContext, 
+                                 DataContext="{Binding PlacementTarget.DataContext,
                                  RelativeSource={RelativeSource Self}}">
                                  <MenuItem 
-                                  Command="{x:Static awe:WebControlCommands.ResetZoom}" 
+                                  Command="{x:Static awe:WebControlCommands.ResetZoom}"
                                   CommandTarget="{Binding}" />
                                 </ContextMenu>
                             </Slider.ContextMenu>
@@ -350,7 +350,7 @@ In this procedure, you assign handlers to some important `WebControl` events. Fo
 * [Introduction to Web-Views - Handling Events](../general-use/introduction-to-web-views.html)
 * [Web-View Initialization Sequence](../general-use/initialization-sequence.html)
 
-> You can also assign event handlers in XAML as demonstrates in most samples. In this example, we assign them programmatically.
+> You can also assign event handlers in XAML as demonstrated in most samples. In this example, we assign them programmatically.
 
 For details, also read the **Remarks** section of: [`ShowCreatedWebView`](http://docs.awesomium.net/?tc=E_Awesomium_Core_IWebView_ShowCreatedWebView).
 
@@ -587,8 +587,8 @@ private void webControl_WindowClose( object sender, WindowCloseEventArgs e )
 
 **To test Awesomium features**
 
-1. Hover over links in the opened page and see the target URL in the **status-box**.
-2. Right-click the in the page, on links and finally on Awesomium's logo, to see the predefined [`WebControlContextMenu`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebControlContextMenu).
+1. Hover over links in the opened page and see the target URL in the **status-bar**.
+2. Right-click in the page, on links and finally on Awesomium's logo, to see the predefined [`WebControlContextMenu`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebControlContextMenu).
 
    The items of the menu change depending on the context. When you right-click the logo, you are also given an option to download and **save the image**.
 3. Click in the **address-box**.
@@ -606,10 +606,10 @@ private void webControl_WindowClose( object sender, WindowCloseEventArgs e )
    [http://awesomium.net/samples/select_test.html](http://awesomium.net/samples/select_test.html)
 
    Test the HTML `select` box that shows a list of countries, devided in groups. The drop-down (popup) list is shown using the predefined [`WebPopupMenu`](http://docs.awesomium.net/?tc=T_Awesomium_Windows_Controls_WebPopupMenu).
-7. Use the slider in the **status-box** to zoom in and out the currently loaded page.
+7. Use the slider in the **status-bar** to zoom in and out the currently loaded page.
 
    Zoom setting is applied to the current domain and is persisted for the current session.
-8. Close all open window to exit the application.
+8. Close all open windows to exit the application.
 
 ### See Also
 
