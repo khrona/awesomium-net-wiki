@@ -124,6 +124,16 @@ protected override void OnExit( ExitEventArgs e )
     base.OnExit( e );
 }
 {% endhighlight %}
+{% highlight vbnet %}
+Protected Overrides Sub OnExit(e As ExitEventArgs)
+    ' Make sure we shutdown the core last.
+    If WebCore.IsInitialized Then
+        WebCore.Shutdown()
+    End If
+
+    MyBase.OnExit(e)
+End Sub
+{% endhighlight %}
 
 <ol start="5">
 <li>Save changes and close the file.</li>
@@ -148,6 +158,10 @@ using System.Windows;
 using Awesomium.Core;
 using Awesomium.Windows.Controls;
 using System.Collections.Generic;
+{% endhighlight %}
+{% highlight vbnet %}
+Imports Awesomium.Core
+Imports Awesomium.Windows.Controls
 {% endhighlight %}
 
 <ol start="3">
@@ -206,6 +220,67 @@ private static readonly DependencyPropertyKey IsRegularWindowPropertyKey =
 // Identifies the <see cref="IsRegularWindow"/> dependency property.
 public static readonly DependencyProperty IsRegularWindowProperty =
     IsRegularWindowPropertyKey.DependencyProperty;
+{% endhighlight %}
+{% highlight vbnet %}
+' This will be set to the target URL, when this window does not
+' host a created child view. The WebControl, is bound to this property.
+Public Property Source As Uri
+    Get
+        Return GetValue(SourceProperty)
+    End Get
+
+    Set(ByVal value As Uri)
+        SetValue(SourceProperty, value)
+    End Set
+End Property
+
+Public Shared ReadOnly SourceProperty As DependencyProperty = _
+                       DependencyProperty.Register("Source", _
+                       GetType(Uri), GetType(MainWindow), _
+                       New FrameworkPropertyMetadata(Nothing))
+
+
+' This will be set to the created child view that the WebControl will wrap,
+' when ShowCreatedWebView is the result of 'window.open'. The WebControl, 
+' is bound to this property.
+Public Property NativeView As IntPtr
+    Get
+        Return GetValue(MainWindow.NativeViewProperty)
+    End Get
+    Private Set(value As IntPtr)
+        Me.SetValue(MainWindow.NativeViewPropertyKey, value)
+    End Set
+End Property
+
+Private Shared ReadOnly NativeViewPropertyKey As DependencyPropertyKey = _
+                        DependencyProperty.RegisterReadOnly("NativeView", _
+                        GetType(IntPtr), GetType(MainWindow), _
+                        New FrameworkPropertyMetadata(IntPtr.Zero))
+
+Public Shared ReadOnly NativeViewProperty As DependencyProperty = _
+                       NativeViewPropertyKey.DependencyProperty
+
+
+' The visibility of the address bar and status bar, depends
+' on the value of this property. We set this to false when
+' the window wraps a WebControl that is the result of JavaScript
+' 'window.open'.
+Public Property IsRegularWindow As Boolean
+    Get
+        Return GetValue(MainWindow.IsRegularWindowProperty)
+    End Get
+    Private Set(value As Boolean)
+        Me.SetValue(MainWindow.IsRegularWindowPropertyKey, value)
+    End Set
+End Property
+
+Private Shared ReadOnly IsRegularWindowPropertyKey As DependencyPropertyKey = _
+                        DependencyProperty.RegisterReadOnly("IsRegularWindow", _
+                        GetType(Boolean), GetType(MainWindow), _
+                        New FrameworkPropertyMetadata(True))
+
+Public Shared ReadOnly IsRegularWindowProperty As DependencyProperty = _
+                       IsRegularWindowPropertyKey.DependencyProperty
 {% endhighlight %}
 
 <ol start="4">
@@ -389,6 +464,15 @@ public MainWindow()
     InitializeComponent();
 }
 {% endhighlight %}
+{% highlight vbnet %}
+Public Sub New()
+
+    ' This call is required by the designer.
+    InitializeComponent()
+
+    ' Add any initialization after the InitializeComponent() call.
+End Sub
+{% endhighlight %}
 
 <ol start="3">
 <li>Edit the default constructor, adding the following code:</li>
@@ -407,6 +491,18 @@ public MainWindow()
     // Start with the specified Home URL.
     this.Source = WebCore.Configuration.HomeURL;
 }
+{% endhighlight %}
+{% highlight vbnet %}
+Public Sub New()
+
+    ' This call is required by the designer.
+    InitializeComponent()
+
+    ' Add any initialization after the InitializeComponent() call.
+    AddHandler webControl.ShowCreatedWebView, AddressOf webControl_ShowCreatedWebView
+    ' Start with the specified Home URL.
+    Me.Source = WebCore.Configuration.HomeURL
+End Sub
 {% endhighlight %}
 
 <ol start="4">
@@ -432,6 +528,26 @@ public MainWindow( IntPtr nativeView )
     this.IsRegularWindow = false;
 }
 {% endhighlight %}
+{% highlight vbnet %}
+Public Sub New(nativeView As IntPtr)
+
+    ' This call is required by the designer.
+    InitializeComponent()
+
+    ' Always handle ShowCreatedWebView. This is fired for
+    ' links and forms with |target="_blank"| or for JavaScript
+    ' 'window.open' calls.
+    AddHandler webControl.ShowCreatedWebView, AddressOf webControl_ShowCreatedWebView
+    ' For popups, you usually want to handle WindowClose,
+    ' fired when the page calls 'window.close'.
+    AddHandler webControl.WindowClose, AddressOf webControl_WindowClose
+    ' Tell the WebControl that is should wrap a created child view.
+    Me.NativeView = nativeView
+    ' This window will host a WebControl that is the result of 
+    ' JavaScript 'window.open'. Hide the address and status bar.
+    Me.IsRegularWindow = False
+End Sub
+{% endhighlight %}
 
 <ol start="5">
 <li>Create another constructor accepting a <code>Uri</code> parameter. This constructor will be used for showing child views that are the result of links with <code>target="_blank"</code>.</li>
@@ -453,13 +569,31 @@ public MainWindow( Uri url )
     this.Source = url;
 }
 {% endhighlight %}
+{% highlight vbnet %}
+Public Sub New(url As Uri)
+
+    ' This call is required by the designer.
+    InitializeComponent()
+
+    ' Always handle ShowCreatedWebView. This is fired for
+    ' links and forms with |target="_blank"| or for JavaScript
+    ' 'window.open' calls.
+    AddHandler webControl.ShowCreatedWebView, AddressOf webControl_ShowCreatedWebView
+    ' For popups, you usually want to handle WindowClose,
+    ' fired when the page calls 'window.close'.
+    AddHandler webControl.WindowClose, AddressOf webControl_WindowClose
+    ' Tell the WebControl to load a specified target URL.
+    Me.Source = url
+End Sub
+{% endhighlight %}
 
 <ol start="6">
 <li>At the bottom of the file, add the definition of the event handlers.</li>
 </ol>
 
 {% highlight csharp %}
-private void webControl_ShowCreatedWebView( object sender, ShowCreatedWebViewEventArgs e )
+private void webControl_ShowCreatedWebView( object sender, 
+    ShowCreatedWebViewEventArgs e )
 {
     if ( webControl == null )
         return;
@@ -480,7 +614,7 @@ private void webControl_ShowCreatedWebView( object sender, ShowCreatedWebViewEve
     // non-standard specs. Therefore child views opened 
     // with non-standard specs, will not be presented as 
     // popups but as regular new windows (still wrapping 
-    // the child view however -- se below).
+    // the child view however -- see below).
     if ( e.IsPopup && !e.IsUserSpecsOnly )
     {
         // JSWindowOpenSpecs.InitialPosition indicates screen coordinates.
@@ -591,6 +725,132 @@ private void webControl_WindowClose( object sender, WindowCloseEventArgs e )
         this.Close();
 }
 {% endhighlight %}
+{% highlight vbnet %}
+' This static handler, will handle the ShowCreatedWebView event for both the 
+' WebControl of our main application window, as well as for any other windows
+' hosting WebControls.
+Friend Sub webControl_ShowCreatedWebView(sender As Object, 
+                                         e As ShowCreatedWebViewEventArgs)
+    If Not webControl.IsLive Then Return
+
+    ' An instance of our application's web window, 
+    ' that will host the new view instance, either 
+    ' we wrap the created child view, or we let the 
+    ' WebControl create a new underlying web-view.
+    Dim newWindow As MainWindow
+
+    ' Treat popups differently. If IsPopup is true, 
+    ' the event is always the result of 'window.open' 
+    ' (IsWindowOpen is also true, so no need to check it).
+    ' Our application does not recognize user defined, 
+    ' non-standard specs. Therefore child views opened 
+    ' with non-standard specs, will not be presented as 
+    ' popups but as regular new windows (still wrapping 
+    ' the child view however -- see below).
+    If e.IsPopup AndAlso (Not e.IsUserSpecsOnly) Then
+        ' JSWindowOpenSpecs.InitialPosition indicates screen coordinates.
+        Dim screenRect As Int32Rect = e.Specs.InitialPosition.GetInt32Rect()
+
+        ' Set the created native view as the underlying view of the
+        ' WebControl. This will maintain the relationship between
+        ' the parent view and the child, usually required when the 
+        ' new view is the result of 'window.open' (JS can access 
+        ' the parent window through 'window.opener'; the parent window 
+        ' can manipulate the child through the 'window' object returned 
+        ' from the 'window.open' call).
+        newWindow = New MainWindow(e.NewViewInstance)
+        ' Do not show in the taskbar.
+        newWindow.ShowInTaskbar = False
+        ' Set a border-style to indicate a popup.
+        newWindow.WindowStyle = System.Windows.WindowStyle.ToolWindow
+        ' Set resizing mode depending on the indicated specs.
+        newWindow.ResizeMode = If(e.Specs.Resizable, _
+                                  ResizeMode.CanResizeWithGrip, _
+                                  ResizeMode.NoResize)
+
+        ' If the caller has not indicated a valid size for the 
+        ' new popup window, let it be opened with the default 
+        ' size specified at design time.
+        If (screenRect.Width > 0) AndAlso (screenRect.Height > 0) Then
+            ' The indicated size, is client size.
+            Dim horizontalBorderHeight As Double = _
+                SystemParameters.ResizeFrameHorizontalBorderHeight
+            Dim verticalBorderWidth As Double = _
+                SystemParameters.ResizeFrameVerticalBorderWidth
+            Dim captionHeight As Double = _
+                SystemParameters.CaptionHeight
+
+            ' Assign the indicated size.
+            newWindow.Width = screenRect.Width + _
+                (verticalBorderWidth * 2)
+            newWindow.Height = screenRect.Height + _
+                captionHeight + _
+                (horizontalBorderHeight * 2)
+        End If
+
+        ' Show the window.
+        newWindow.Show()
+
+        ' If the caller has not indicated a valid position for 
+        ' the new popup window, let it be opened in the default 
+        ' position specified at design time.
+        If (screenRect.Y > 0) AndAlso (screenRect.X > 0) Then
+            ' Move it to the indicated coordinates.
+            newWindow.Top = screenRect.Y
+            newWindow.Left = screenRect.X
+        End If
+    ElseIf (e.IsWindowOpen OrElse e.IsPost) Then
+        ' No specs or only non-standard specs were specified, 
+        ' but the event is still the result of 'window.open' 
+        ' or of an HTML form with tagret="_blank" and method="post".
+        ' We will open a normal window but we will still wrap 
+        ' the new native child view, maintaining its relationship 
+        ' with the parent window.
+        newWindow = New MainWindow(e.NewViewInstance)
+        ' Show the window.
+        newWindow.Show()
+    Else
+        ' The event is not the result of 'window.open' or of an 
+        ' HTML form with tagret="_blank" and method="post"., 
+        ' therefore it's most probably the result of a link with 
+        ' target='_blank'. We will not be wrapping the created view; 
+        ' we let the WebControl hosted in MainWindow create its own 
+        ' underlying view. Setting Cancel to true tells the core 
+        ' to destroy the created child view.
+        '
+        ' Why don't we always wrap the native view passed to 
+        ' ShowCreatedWebView?
+        '
+        ' - In order to maintain the relationship with their parent 
+        ' view, child views execute and render under the same process 
+        ' (awesomium_process) as their parent view. If for any reason 
+        ' this child process crashes, all views related to it will be 
+        ' affected. When maintaining a parent-child relationship is not 
+        ' important, we prefer taking advantage of the isolated process 
+        ' architecture of Awesomium and let each view be rendered in 
+        ' a separate process.
+        e.Cancel = True
+        ' Note that we only explicitly navigate to the target URL, 
+        ' when a new view is about to be created, not when we wrap the 
+        ' created child view. This is because navigation to the target 
+        ' URL (if any), is already queued on created child views. 
+        ' We must not interrupt this navigation as we would still be 
+        ' breaking the parent-child relationship.
+        newWindow = New MainWindow(e.TargetURL)
+        ' Show the window.
+        newWindow.Show()
+    End If
+End Sub
+
+Private Sub webControl_WindowClose(sender As Object, 
+                                   e As WindowCloseEventArgs)
+    ' The page called 'window.close'. If the call
+    ' comes from a frame, ignore it.
+    If Not e.IsCalledFromFrame Then
+        Me.Close()
+    End If
+End Sub
+{% endhighlight %}
 
 <ol start="7">
 <li>Save the file.</li>
@@ -608,6 +868,16 @@ protected override void OnClosed( EventArgs e )
     // Destroy the WebControl and its underlying view.
     webControl.Dispose();
 }
+{% endhighlight %}
+{% highlight vbnet %}
+Protected Overrides Sub OnClosed(e As EventArgs)
+    MyBase.OnClosed(e)
+
+    ' Dispose the WebControl.
+    webControl.Dispose()
+
+    ' We shutdown the core in Application.OnExit.
+End Sub
 {% endhighlight %}
 
 <ol start="2">
