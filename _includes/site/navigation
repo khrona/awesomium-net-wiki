@@ -38,9 +38,9 @@
 						}
 					}, false);
 				});
-				
+				toggleDotNetLanguage(switchControl.lastElementChild);				
 				if (($( ".csharp" ).length === 0) || ($( ".vbnet" ).length === 0)) {
-					$(".langswitch").hide();
+					$(".langswitch-container").hide();
 				} else {
 					$$(".langswitch").forEach(function(switchControl) {
 						switchControl.addEventListener("click", function() {
@@ -48,23 +48,23 @@
 								switchControl.className = 'langswitch off';
 							} else {
 								switchControl.className = ("langswitch on");
-							}
-							toggleDotNetLanguage(switchControl);
+							}							
+							checkbox = switchControl.lastElementChild;
+							checkbox.checked = !checkbox.checked;
+							toggleDotNetLanguage(checkbox);
 						}, false);
 					});
 				}
 			}, false);
 		})();
 		
-		function toggleDotNetLanguage(switchControl) {
-			checkbox = switchControl.lastElementChild;
-			checkbox.checked = !checkbox.checked;
+		function toggleDotNetLanguage(checkbox) {			
 			if (checkbox.checked === true) {
-				$( ".vbnet" ).parent().closest("div").hide();
-				$( ".csharp" ).parent().closest("div").show();
-			} else {
 				$( ".csharp" ).parent().closest("div").hide();
 				$( ".vbnet" ).parent().closest("div").show();
+			} else {
+				$( ".vbnet" ).parent().closest("div").hide();
+				$( ".csharp" ).parent().closest("div").show();
 			}
 		}
 	    </script>
