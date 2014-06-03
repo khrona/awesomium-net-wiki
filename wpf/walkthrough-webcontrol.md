@@ -67,6 +67,9 @@ using Awesomium.Core;
 using System.Windows;
 using System.Collections.Generic;
 {% endhighlight %}
+{% highlight vbnet %}
+Imports Awesomium.Core
+{% endhighlight %}
 
 <ol start="3">
 <li>Override the <code>OnStartup</code> method. This is where you explicitly initialize the <code>WebCore</code>.</li>
@@ -89,6 +92,22 @@ protected override void OnStartup( StartupEventArgs e )
 
     base.OnStartup( e );
 }
+{% endhighlight %}
+{% highlight vbnet %}
+Protected Overrides Sub OnStartup(e As StartupEventArgs)
+    ' Initialization must be performed here,
+    ' before creating a WebControl.
+    If Not WebCore.IsInitialized Then
+        WebCore.Initialize(New WebConfig() With
+        {
+            .HomeURL = "http://www.awesomium.com".ToUri(),
+            .LogPath = ".\starter.log",
+            .LogLevel = LogLevel.Verbose
+        })
+    End If
+
+    MyBase.OnStartup(e)
+End Sub
 {% endhighlight %}
 
 <ol start="4">

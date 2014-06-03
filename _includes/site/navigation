@@ -23,7 +23,7 @@
 					if (switchControl.className === ("switch off")) {
 						switchControl.lastElementChild.checked = false;
 					}
-					switchControl.addEventListener("click", function toggleSwitch() {
+					switchControl.addEventListener("click", function() {
 						if (switchControl.className === "switch on") {
 							switchControl.className = 'switch off';
 						} else {
@@ -38,8 +38,35 @@
 						}
 					}, false);
 				});
+				
+				if (($( ".csharp" ).length === 0) || ($( ".vbnet" ).length === 0)) {
+					$(".langswitch").hide();
+				} else {
+					$$(".langswitch").forEach(function(switchControl) {
+						switchControl.addEventListener("click", function() {
+							if (switchControl.className === "langswitch on") {
+								switchControl.className = 'langswitch off';
+							} else {
+								switchControl.className = ("langswitch on");
+							}
+							toggleDotNetLanguage(switchControl);
+						}, false);
+					});
+				}
 			}, false);
-		})()
+		})();
+		
+		function toggleDotNetLanguage(switchControl) {
+			checkbox = switchControl.lastElementChild;
+			checkbox.checked = !checkbox.checked;
+			if (checkbox.checked === true) {
+				$( ".vbnet" ).parent().closest("div").hide();
+				$( ".csharp" ).parent().closest("div").show();
+			} else {
+				$( ".csharp" ).parent().closest("div").hide();
+				$( ".vbnet" ).parent().closest("div").show();
+			}
+		}
 	    </script>
         
         <h3 class="header">Categories</h3>
