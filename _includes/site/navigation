@@ -38,7 +38,7 @@
 						}
 					}, false);
 				});
-				toggleDotNetLanguage(switchControl.lastElementChild);				
+				toggleDotNetLanguage(false);
 				if (($( ".csharp" ).length === 0) || ($( ".vbnet" ).length === 0)) {
 					$(".langswitch-container").hide();
 				} else {
@@ -51,15 +51,15 @@
 							}							
 							checkbox = switchControl.lastElementChild;
 							checkbox.checked = !checkbox.checked;
-							toggleDotNetLanguage(checkbox);
+							toggleDotNetLanguage(checkbox.checked);
 						}, false);
 					});
 				}
 			}, false);
 		})();
 		
-		function toggleDotNetLanguage(checkbox) {			
-			if (checkbox.checked === true) {
+		function toggleDotNetLanguage(checkboxChecked) {			
+			if (checkboxChecked === true) {
 				$( ".csharp" ).parent().closest("div").hide();
 				$( ".vbnet" ).parent().closest("div").show();
 			} else {
