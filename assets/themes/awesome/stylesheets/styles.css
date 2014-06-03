@@ -910,7 +910,7 @@ footer:hover {
   background-color: white;
 }
 .langswitch.on::before {
-	width: 77px;
+	width: 65px;
 }
 .langswitch > .thumb {
   display: block;
@@ -938,7 +938,7 @@ footer:hover {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f8f7f9', GradientType=1);
 }
 .langswitch.on > .thumb {
-	-webkit-transform: translate3d(49px,0,0);
+	-webkit-transform: translate3d(37px,0,0);
 	-o-transform: translateX(49px);
 	-moz-transform: translateX(49px);
 }
@@ -952,7 +952,7 @@ footer:hover {
 	border: none;
 	position: absolute;
 	top: 3px;
-	left: -30px;
+	left: -25px;
 }
 .langswitch > .thumb::after {
 	content: "VB";
