@@ -79,12 +79,12 @@ protected override void OnStartup( StartupEventArgs e )
     // before creating a WebControl.
     if ( !WebCore.IsInitialized )
     {
-      WebCore.Initialize( new WebConfig()
-      {
-          HomeURL = "https://www.awesomium.com".ToUri(),
-          LogPath = @".\starter.log",
-          LogLevel = LogLevel.Verbose
-      } );
+        WebCore.Initialize( new WebConfig()
+        {
+            HomeURL = "http://www.awesomium.com".ToUri(),
+            LogPath = @".\starter.log",
+            LogLevel = LogLevel.Verbose
+        } );
     }
 
     base.OnStartup( e );
@@ -110,7 +110,7 @@ protected override void OnExit( ExitEventArgs e )
 <li>Save changes and close the file.</li>
 </ol>
 
-### Create a Window to host WPF WebControl.
+### Create a Window to host a WPF WebControl
 
 In this procedure you edit the application's main `Window` to create a window that will host the WPF `WebControl` and supporting UI. This window will be used as the application's main window as well as a child (popup) window for displaying external links and JavaScript *`window.open`* calls.
 
@@ -201,7 +201,10 @@ This window will be used as the application's main window as well as a child (po
 
 **To create the UI**
 
-1. In XAML view for **_`MainWindow.xaml`_**, replace the existing XAML with the following:
+1. Open the **_`MainWindow.xaml`_** file.
+
+   The file opens in the WPF Designer.
+2. In XAML view for *`MainWindow.xaml`*, replace the existing XAML with the following:
 
 {% highlight xml %}
 <Window 
@@ -331,7 +334,7 @@ This window will be used as the application's main window as well as a child (po
 </Window>
 {% endhighlight %}
 
-<ol start="2">
+<ol start="3">
 <li>Save and close the file.</li>
 </ol>
 
@@ -345,7 +348,7 @@ For details about designing the contents of the window, please read the followin
 
 ### Handle important WebControl events
 
-In this procedure, you assign handlers to some important `WebControl` events. For more information, also see:
+In this procedure, you assign handlers to some important `WebControl` events and you handle the disposal of the `WebControl` when the window closes. For more information, also see:
 
 * [Introduction to Web-Views - Handling Events](../general-use/introduction-to-web-views.html)
 * [Web-View Initialization Sequence](../general-use/initialization-sequence.html)
@@ -571,6 +574,24 @@ private void webControl_WindowClose( object sender, WindowCloseEventArgs e )
 {% endhighlight %}
 
 <ol start="7">
+<li>Save the file.</li>
+</ol>
+
+**To dispose the WebControl**
+
+1. In the Code Editor of `MainWindow`, override the `OnClosed` method.
+
+{% highlight csharp %}
+protected override void OnClosed( EventArgs e )
+{
+    base.OnClosed( e );
+
+    // Destroy the WebControl and its underlying view.
+    webControl.Dispose();
+}
+{% endhighlight %}
+
+<ol start="2">
 <li>Save the file and close the Code Editor of <code>MainWindow</code>.</li>
 </ol>
 

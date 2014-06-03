@@ -1,12 +1,12 @@
 ---
 layout: page
-title : WebCore Initialization
+title : Introduction to JavaScript Integration
 group: General Use
-weight: 4
+weight: 8
 
 ---
 
-
+<p class="intro">It's easy to communicate with web-pages using JavaScript; here's a quick overview of the methods you can use.</p>
 
 
 ### Read some more articles

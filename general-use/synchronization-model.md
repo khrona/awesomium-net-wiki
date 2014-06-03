@@ -2,7 +2,7 @@
 layout: page
 title : Synchronization Model
 group: General Use
-weight: 8
+weight: 7
 
 ---
 
